@@ -1,0 +1,10 @@
+.colVerRest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tablaRestaurantes{
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid black;
+}
