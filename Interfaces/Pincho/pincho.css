@@ -2,12 +2,20 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+input, textarea{
+    border-radius: 15px 0px 15px 0px;
 }
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
 }
 .nombrePrecioPincho{
     display: flex;
@@ -25,6 +33,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #0d6efd;
 }
 .slider{
     border: 1px solid black;
@@ -36,6 +45,7 @@ body{
     overflow: auto;
     width: 40%;
     height: 100%;
+    background: #e7ebec;
 }
 .descripcion{
     width: 100%;
@@ -47,6 +57,7 @@ body{
 #inputDescripcion{
     min-height: 200px;
 }
+
 .botonesGuardarDescartar{
     width: 100%;
     display: flex;
@@ -61,4 +72,26 @@ body{
 #btnDescartar{
     width: 49%;
     margin-top: 10px;
+}
+.reseñas{
+    padding: 10px;
+}
+.reseña{
+    padding:10px;
+    margin-bottom: 10px;
+}
+.cabeceraReseña{
+    display: flex;
+    justify-content: space-between;
+}
+.usuarioReseña{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.btnEliminarComentario{
+    width: 100%;
+}
+.piePagina{
+    width: 100%;
 }
