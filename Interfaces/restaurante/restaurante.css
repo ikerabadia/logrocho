@@ -1,12 +1,79 @@
+/*GENERICOS BAR*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+input, textarea{
+    border-radius: 15px 0px 15px 0px;
+    color: #0d6efd;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
+}
+/*CABECERA*/
+.cabeceraBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/*IMAGENES*/
+.sliderImagenesBar{
+    width: 100%;
+    height: 500px;
+    border: 1px solid black;
+    background: #0d6efd;
+}
+
+/*DATOS BAR*/
+.datosBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+.descripcion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
+}
+#inputDescripcion{
+    min-height: 200px;
+}
+
+/*TABLA*/
 .colVerRest{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+#tituloTablaPinchos{
+    margin-bottom: 30px;
+}
 .tablaPinchos{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     margin-top: 20px;
     border: 1px solid black;
     text-align: center;
+}
+
+/*PIE*/
+.piePagina{
+    width: 100%;
 }
