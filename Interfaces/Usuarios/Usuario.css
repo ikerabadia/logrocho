@@ -1,0 +1,80 @@
+/*GENERAL*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/*PERFIL*/
+.perfil{
+    background: #0d6efd;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.datos{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.imgPerfil{
+    width: 80%;
+    height: 500px;
+    background: #e7ebec;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.nombreApellidos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*DATOS PERSONALES*/
+.datosPersonales{
+    width: 50%;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/*TABLA RESEÑAS*/
+.colVerRest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tituloTablaReseñas{
+    margin-bottom: 30px;
+}
+.tablaReseñas{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+.columnaReseña{
+    width: 50%;
+}
