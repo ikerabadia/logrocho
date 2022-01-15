@@ -59,6 +59,13 @@ body{
     justify-content: center;
 }
 
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 /*TABLA RESEÑAS*/
 .colVerRest{
     display: flex;
@@ -77,4 +84,7 @@ body{
 }
 .columnaReseña{
     width: 50%;
+}
+.listadoReseñas{
+    margin-top: 20px;
 }

@@ -12,7 +12,7 @@
 <body>
     <div class="content">
         <div class="cabeceraBar">
-            <h1>Nombre Restaurante: <input id="inputNombreRestaurante" type="text" value="nombreRestaurante"></h1>
+            <h1>Nombre Restaurante: <input id="inputNombreRestaurante" type="text" value="nombreRestaurante" class="editable"></h1>
             <h2>Nota media: 81/100</h2>
         </div>
         <div class="sliderImagenesBar">
@@ -20,15 +20,30 @@
         </div>
         <div class="datosBar">
             <h3>ID: 3</h1>
-            <h3>Direccion: <input id="inputDireccionRestaurante" type="text" value="C/Laurel Nº13"></h2>
+            <h3>Direccion: <input id="inputDireccionRestaurante" type="text" value="C/Laurel Nº13" class="editable"></h2>
         </div>
         <div class="descripcion">
             <h2>Descripcion del pincho: </h2>
-            <textarea name="inputDescripcion" id="inputDescripcion" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis lacus, sollicitudin id tincidunt vitae, luctus nec lorem. Nunc et pellentesque felis, venenatis consectetur quam. Praesent in condimentum ante. Duis nec malesuada nisl, at euismod dui. Phasellus blandit ipsum libero, eget tempus arcu commodo vitae. In a diam ante. Integer iaculis nisi sit amet finibus luctus. Aliquam felis ligula, euismod non fermentum nec, bibendum in lacus. Cras mollis ante enim, at condimentum orci condimentum vel. Donec lectus arcu, posuere in pretium sed, dignissim a ipsum. Aliquam erat volutpat.</textarea>
+            <textarea name="inputDescripcion" id="inputDescripcion" class="editable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis lacus, sollicitudin id tincidunt vitae, luctus nec lorem. Nunc et pellentesque felis, venenatis consectetur quam. Praesent in condimentum ante. Duis nec malesuada nisl, at euismod dui. Phasellus blandit ipsum libero, eget tempus arcu commodo vitae. In a diam ante. Integer iaculis nisi sit amet finibus luctus. Aliquam felis ligula, euismod non fermentum nec, bibendum in lacus. Cras mollis ante enim, at condimentum orci condimentum vel. Donec lectus arcu, posuere in pretium sed, dignissim a ipsum. Aliquam erat volutpat.</textarea>
         </div>
         
         <div class="tablaPinchos card">
             <h2 id="tituloTablaPinchos">TABLA DE PINCHOS</h2>
+            <div class="filtrosBusqueda">
+                <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar 🔎">
+                <div>
+                    <label for="minNota">Nota media minima</label>
+                    <input type="number" id="minNota" name="minNota" value="0" min="0" max="100"> 
+                </div>
+                <div>
+                    <label for="maxNota">Nota media maxima</label>
+                    <input type="number" id="maxNota" name="maxNota" value="100" min="0" max="100">
+                </div>    
+                <div>
+                    <label for="maxPrecio">Precio maximo</label>
+                    <input type="number" id="maxPrecio" name="maxPrecio" step="any">
+                </div>   
+            </div>
             <table class="table table-striped table-hover ">
                 <tr><th>ID</th><th>Nombre Pincho</th><th>Precio</th><th>Bar</th><th>Nota media</th><th>Cantidad de Reseñas</th><th></th></tr>
                 <tr><td>0</td><td>Pincho 1</td><td>5.00€</td><td>Bar 1</td><td>100</td><td>10</td><td class="colVerPinchos"><a class="btn btn-primary" href="restaurante.html">Ver Pincho</a></td></tr>

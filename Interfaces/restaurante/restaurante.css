@@ -6,7 +6,7 @@ body{
     padding-top: 20px;
     background: #f1efe6;
 }
-input, textarea{
+.editable{
     border-radius: 15px 0px 15px 0px;
     color: #0d6efd;
 }
@@ -71,6 +71,15 @@ input, textarea{
     margin-top: 20px;
     border: 1px solid black;
     text-align: center;
+}
+
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 /*PIE*/

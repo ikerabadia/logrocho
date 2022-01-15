@@ -11,6 +11,18 @@
 </head>
 <body>
     <div class="tablaRestaurantes card">
+        <h1 id="tituloTablaUsuarios">LISTADO DE RESTAURANTES</h2>
+        <div class="filtrosBusqueda">
+            <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar 🔎">
+            <div>
+                <label for="minNota">Nota media minima</label>
+                <input type="number" id="minNota" name="minNota" value="0" min="0" max="100"> 
+            </div>
+            <div>
+                <label for="maxNota">Nota media maxima</label>
+                <input type="number" id="maxNota" name="maxNota" value="100" min="0" max="100">
+            </div>      
+        </div>
         <table class="table table-striped table-hover ">
             <tr><th>ID</th><th>Nombre</th><th>Localización</th><th>Nota</th><th></th></tr>
             <tr><td>0</td><td>Bar 1</td><td>localizacion 1</td><td>100</td><td class="colVerRest"><a class="btn btn-primary" href="restaurante.html">Ver bar</a></td></tr>

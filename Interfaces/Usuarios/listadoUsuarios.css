@@ -16,6 +16,14 @@ body{
     padding: 10px;
 }
 
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
 /*TABLA USUARIOS*/
 .colVerRest{
     display: flex;
