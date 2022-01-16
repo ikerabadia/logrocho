@@ -1,0 +1,137 @@
+/*GENERICOS BAR*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/*SLIDER*/
+.slider{
+    width: 80%;
+    height: 600px;
+    background: #0d6efd;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.zonaCentral{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.imagenes{      
+    height: 80%;
+    overflow: hidden;
+    position: relative;
+    background: black;
+}
+.imagen1{
+    background-image: url("imgPinchosFav/pincho01.jpg");  
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+.imagen2{
+    background-image: url("imgPinchosFav/pincho02.jpg");  
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 100%;
+}
+.izq{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 0px 0px 10px;
+    cursor: pointer;
+}
+.der{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px 10px 10px 0px;    
+}
+.der:hover{
+    cursor: pointer;
+}
+/*pinchos mejor valorados*/
+.imagenes2{
+    display: none;
+    background: black;
+    height: 80%;
+}
+.imagen2_1{
+    background-image: url("imgPinchosMejorVal/pincho01.jpg");  
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+
+/*Parte de arriba*/
+.botonesArriba{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.btnPreferidos{
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px 0px 0px 0px;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+.btnMejorValorados{
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    width: 50%;
+    text-align: center;
+    border-radius: 0px 10px 0px 0px;
+    cursor: pointer;
+    background: transparent;
+}
+.botonPausa{
+    border-radius: 0px 0px 10px 10px;
+}
