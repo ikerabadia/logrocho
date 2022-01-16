@@ -1,0 +1,27 @@
+body{
+    background: url("img/LogrochoOcreNoTexto.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    width: 25%;
+    padding: 20px;
+}
+.contenedorLogin{
+    display: flex;
+}
+.btnPaginaPrincipal{
+    width: 25%;
+    margin-bottom: 10px;
+}
+.loginIncorrecto{
+    color: red;
+}
