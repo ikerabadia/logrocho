@@ -76,6 +76,44 @@ class Conexion
         }
     }
 
+    static function getBares(){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM restaurantes";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function newBar($nombre, $descripcion, $localizacion){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "INSERT INTO `restaurantes`(`nombre`, `descripcion`, `localizacion`) VALUES ('$nombre', '$descripcion', '$localizacion')";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $db->lastInsertId();
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     static function getCategorias(){
         try {
             $db = Conexion::getConection();

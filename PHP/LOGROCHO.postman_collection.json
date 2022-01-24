@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "18d44af0-121b-4dc6-9704-49f93292f519",
+		"name": "LOGROCHO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bares",
+			"item": [
+				{
+					"name": "getBares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getBar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "newBar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Restaurante3",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Descripcion restaurante 3",
+									"type": "text"
+								},
+								{
+									"key": "localizacion",
+									"value": "Localizacion restaurante 3",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/nuevoRestaurante?nombre=Restaurante3&descripcion=Descripcion restaurante 3&localizacion=Localizacion restaurante 3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"nuevoRestaurante"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Restaurante3"
+								},
+								{
+									"key": "descripcion",
+									"value": "Descripcion restaurante 3"
+								},
+								{
+									"key": "localizacion",
+									"value": "Localizacion restaurante 3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deleteRestaurante/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deleteRestaurante",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Restaurante3",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Descripcion restaurante 3",
+									"type": "text"
+								},
+								{
+									"key": "localizacion",
+									"value": "Localizacion restaurante 3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/updateRestaurante/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"updateRestaurante",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reseñas",
+			"item": [
+				{
+					"name": "getReseñas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/resenas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"resenas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getReseña",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/resena/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"resena",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newReseña",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fkUsuario",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "fkPincho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nota",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "textoResena",
+									"value": "keweno la berdas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/nuevaResena",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"nuevaResena"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteReseña",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deleteResena/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deleteResena",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateReseña",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fkUsuario",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "fkPincho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nota",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "textoResena",
+									"value": "kemalo puag",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/updateResena/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"updateResena",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
