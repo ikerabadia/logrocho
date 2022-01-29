@@ -11,9 +11,35 @@
 				{
 					"name": "getBares",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pagina",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cantidadRegistros",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/restaurantes",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"restaurantes"
+							]
+						}
 					},
 					"response": []
 				},
@@ -22,7 +48,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/restaurante/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"restaurante",
+								"2"
+							]
+						}
 					},
 					"response": []
 				},
@@ -57,7 +95,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/nuevoRestaurante?nombre=Restaurante3&descripcion=Descripcion restaurante 3&localizacion=Localizacion restaurante 3",
+							"raw": "localhost/logrocho/index.php/api/nuevoRestaurante",
 							"host": [
 								"localhost"
 							],
@@ -66,20 +104,6 @@
 								"index.php",
 								"api",
 								"nuevoRestaurante"
-							],
-							"query": [
-								{
-									"key": "nombre",
-									"value": "Restaurante3"
-								},
-								{
-									"key": "descripcion",
-									"value": "Descripcion restaurante 3"
-								},
-								{
-									"key": "localizacion",
-									"value": "Localizacion restaurante 3"
-								}
 							]
 						}
 					},
@@ -91,7 +115,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/deleteRestaurante/2",
+							"raw": "localhost/logrocho/index.php/api/deleteRestaurante/6",
 							"host": [
 								"localhost"
 							],
@@ -100,7 +124,7 @@
 								"index.php",
 								"api",
 								"deleteRestaurante",
-								"2"
+								"6"
 							]
 						}
 					},
@@ -155,8 +179,23 @@
 				{
 					"name": "getReseñas",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pagina",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cantidadRegistros",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
 							"raw": "localhost/logrocho/index.php/api/resenas",
 							"host": [
@@ -299,6 +338,382 @@
 								"index.php",
 								"api",
 								"updateResena",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pinchos",
+			"item": [
+				{
+					"name": "GetPinchos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pagina",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cantidadRegistros",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/pinchos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"pinchos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPincho",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/pincho/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"pincho",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newPincho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "pincho3",
+									"type": "text"
+								},
+								{
+									"key": "precio",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "fkBar",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "camalares",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/nuevoPincho",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"nuevoPincho"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePincho",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deletePincho/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deletePincho",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePincho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "croquetas",
+									"type": "text"
+								},
+								{
+									"key": "precio",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "fkBar",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "croquetas rikas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/updatePincho/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"updatePincho",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "GetUsuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pagina",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "cantidadRegistros",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/usuarios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/usuario/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "usuario2",
+									"type": "text"
+								},
+								{
+									"key": "apellido1",
+									"value": "apellido2",
+									"type": "text"
+								},
+								{
+									"key": "apellido2",
+									"value": "apellido2_1",
+									"type": "text"
+								},
+								{
+									"key": "correoElectronico",
+									"value": "usuario2@usuario2.com",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "usuario2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "usuario2",
+									"type": "text"
+								},
+								{
+									"key": "admin",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/nuevoUsuario",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"nuevoUsuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deleteUsuario/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deleteUsuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "usuario11",
+									"type": "text"
+								},
+								{
+									"key": "apellido1",
+									"value": "apellido1",
+									"type": "text"
+								},
+								{
+									"key": "apellido2",
+									"value": "apellido1_1",
+									"type": "text"
+								},
+								{
+									"key": "correoElectronico",
+									"value": "usuario1@usuario1.com",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "usuario11",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "usuario11",
+									"type": "text"
+								},
+								{
+									"key": "admin",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/updateUsuario/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"updateUsuario",
 								"2"
 							]
 						}
