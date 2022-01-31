@@ -1,0 +1,191 @@
+/*GENERAL*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+/*MENU*/
+.menu{
+    width: 100%;
+}
+.itemsMenu{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.itemMenu{
+    margin-right: 15px;
+}
+.btnLogout{
+    margin-right: 20px;
+}
+
+/*PERFIL*/
+.perfil{
+    background: #0d6efd;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.datos{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.imgPerfil{
+    width: 80%;
+    height: 500px;
+    background: #e7ebec;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.nombreApellidos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*DATOS PERSONALES*/
+.datosPersonales{
+    width: 50%;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/*TABLA RESEÑAS*/
+.colVerRest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tituloTablaReseñas{
+    margin-bottom: 30px;
+}
+.tablaReseñas{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+.columnaReseña{
+    width: 50%;
+}
+.listadoReseñas{
+    margin-top: 20px;
+}
+/*FOOTER*/
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+     display: fkex
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+ .itemFooter{
+     cursor: pointer;
+ }
+ .itemFooter:hover{
+    color: white;
+}
+.footer{
+    margin-top: 25px;
+    width: 100%;
+}
