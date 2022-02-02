@@ -29,6 +29,10 @@
         $userController->usuarios();
     }else if (isset($array_ruta[0]) && preg_match('/usuario/', $array_ruta[0])) {
         $userController->usuario();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "error404") {//PAGINAS ERROR
+        $userController->error404();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "error500") {
+        $userController->error500();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API
         $apiController->getBares($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurante") {

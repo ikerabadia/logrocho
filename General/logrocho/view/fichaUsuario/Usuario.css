@@ -33,6 +33,16 @@ body{
 .btnLogout{
     margin-right: 20px;
 }
+.contenidoMenu{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+#logoLogrocho{
+    transition: 0.3s;
+    cursor: pointer;
+}
 
 /*PERFIL*/
 .perfil{
@@ -105,6 +115,7 @@ body{
 }
 .listadoReseñas{
     margin-top: 20px;
+    overflow: auto;
 }
 /*FOOTER*/
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
@@ -188,4 +199,10 @@ body{
 .footer{
     margin-top: 25px;
     width: 100%;
+}
+#footerArriba{
+    margin-right: 0px;
+}
+#footerAbajo{
+    margin-right: 0px;
 }
