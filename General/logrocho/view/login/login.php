@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -13,36 +13,43 @@
 
 <body>
     <div class="content">
-        <a class="btn btn-secondary btnPaginaPrincipal" href="">🢀 Volver a la página principal</a>
-        <div class="login card">
-            <form action=<?php echo UserController::getRuta("loginRespuesta","login") ?> method="POST">
-                <h1 class="h3 mb-3 fw-normal">Acceso a la zona de administración</h1>
-
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="username" name="user">
-                    <label for="floatingInput">Username</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <small class="loginIncorrecto"> <?php 
-                    if (isset($_SESSION["login"])) {
-                        $mensaje = $_SESSION["login"];
-                        echo "$mensaje<br>";
-                    }
-                ?></small>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                <a href="">He olvidado la contraseña</a>
-                <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
-            </form>
+        <div class="container tituloAdministracion">
+            <h2 class="text-white">
+                PAGINA DE <br>ADMINISTRACION<br> DE LOGROCHO
+            </h2>
         </div>
+        <div class="contenedorLogin">
+            <a class="btn btn-secondary btnPaginaPrincipal" href="">🢀 Volver a la página principal</a>
+            <div class="login card">
+                <form action=<?php echo UserController::getRuta("loginRespuesta","login") ?> method="POST">
+                    <h1 class="h3 mb-3 fw-normal">Acceso a la zona de administración</h1>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="username" name="user">
+                        <label for="floatingInput">Usuario</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                        <label for="floatingPassword">Contraseña</label>
+                    </div>
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Recuerdame
+                        </label>
+                    </div>
+                    <small class="loginIncorrecto"> <?php 
+                        if (isset($_SESSION["login"])) {
+                            $mensaje = $_SESSION["login"];
+                            echo "$mensaje<br>";
+                        }
+                    ?></small>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Acceder</button>
+                    <a href="">He olvidado la contraseña</a>
+                    <p class="mt-5 mb-3 text-muted">© 2022</p>
+                </form>
+            </div>
+        </div>        
     </div>
 </body>
 

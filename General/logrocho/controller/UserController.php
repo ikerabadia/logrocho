@@ -18,9 +18,8 @@ class UserController
 
         if ($login->rowCount() == 1) {
             $_SESSION["usuarioActual"] = $usuario;
-            $_SESSION["login"] = "Login correcto";
+            $_SESSION["login"] = "";
 
-            /* $rutaDestino = UserController::getRuta("categorias", "loginRespuesta"); */
             $rutaDestino = UserController::getRuta("restaurantes", "loginRespuesta");
             header('location: ' . $rutaDestino);
         } else {
@@ -61,6 +60,16 @@ class UserController
     }
     public function usuario(){
         require("view/fichaUsuario/usuario.html");
+    }
+
+    //PAGINAS ERROR
+    public function error404()
+    {
+        require("view/paginasError/error404/404.html");
+    }
+    public function error500()
+    {
+        require("view/paginasError/error500/500.html");
     }
 
 
