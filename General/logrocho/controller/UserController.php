@@ -17,13 +17,17 @@ class UserController
         $login = Conexion::getLogin($usuario, $contraseña);
 
         if ($login->rowCount() == 1) {
-            $_SESSION["usuarioActual"] = $usuario;
+            $_SESSION["usuarioActual"] = $login->fetch();
             $_SESSION["login"] = "";
+
+            //var_dump($_SESSION["usuarioActual"]["admin"]);
 
             $rutaDestino = UserController::getRuta("restaurantes", "loginRespuesta");
             header('location: ' . $rutaDestino);
         } else {
             $_SESSION["login"] = "Login incorrecto";
+
+            //var_dump($login->rowCount());
 
             $rutaDestino = UserController::getRuta("login", "loginRespuesta");
             header('location: ' . $rutaDestino);

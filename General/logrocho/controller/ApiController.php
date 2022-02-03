@@ -269,12 +269,20 @@ class ApiController
 
     public function deleteUsuario($idUsuario)
     {
-        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
-        $array = array();
-        $array["usuario"] = array();
-        $reseñasbd = Conexion::deleteUsuario($idUsuario);
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            $array = array();
+            $array["usuario"] = array();
+            $reseñasbd = Conexion::deleteUsuario($idUsuario);
+                
+            echo json_encode($reseñasbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+            
+        }
         
-        echo json_encode($reseñasbd);
+        
     }
 
     public function updateUsuario($idUsuario, $nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin)
