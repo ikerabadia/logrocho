@@ -29,37 +29,21 @@ function mostrarDatos(){
       });
 }
 
-function descartarCambios() {
-    document.getElementById("inputNombreRestaurante").value = datosOriginales["bar"][0]["nombre"];
-    document.getElementById("muestraId").innerHTML = "ID: "+ datosOriginales["bar"][0]["idRestaurante"];
-    document.getElementById("inputDescripcion").value = datosOriginales["bar"][0]["descripcion"];
-    document.getElementById("inputDireccionRestaurante").value = datosOriginales["bar"][0]["localizacion"];
-}
 
-function guardarCambios() {
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    var idRestaurante = urlParams.get('id');
 
-    var nombre = document.getElementById("inputNombreRestaurante").value;
-    var descripcion = document.getElementById("inputDescripcion").value;
-    var localizacion = document.getElementById("inputDireccionRestaurante").value;
+function eliminarUsuario() {
+    var idUsuario = datosOriginales["usuarios"][0]["idUsuario"];
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/updateRestaurante/"+idRestaurante,
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        "data": {
-          "nombre": ""+nombre+"",
-          "descripcion": ""+descripcion+"",
-          "localizacion": ""+localizacion+""
-        }
-      };
-      
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-      });
+      "url": "http://localhost/logrocho/index.php/api/deleteUsuario/"+idUsuario,
+      "method": "DELETE",
+      "timeout": 0,
+      "headers": {
+      },
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  
 }

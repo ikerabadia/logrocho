@@ -19,10 +19,18 @@
                 <a class="btn btn-outline-primary itemMenu" href="pinchos">Pinchos</a>
                 <a class="btn btn-outline-primary itemMenu" href="resenas">Reseñas</a>
             </div>    
-            <a class="btn btn-outline-danger btnLogout" href="#">Cerrar sesion</a> 
+            <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
         </div>          
     </nav>
     <div class="content">
+        <div class="cabeceraEdicion">
+            <h1>PAGINA DE EDICIÓN DE USUARIO</h1>
+            <div class="btnsEliminarLimpiar">
+                <a class="btn btn-danger" onclick="eliminarUsuario()">Eliminar Usuario</a>
+                <a class="btn btn-secondary">Limpiar Usuario</a>
+            </div>            
+        </div>
+        
         <div class="datos">
             <div class="perfil">
                 <div class="imgPerfil">
@@ -31,7 +39,7 @@
                 <div class="nombreApellidos">
                     <h2 id="idUsuario">ID: 1</h2>
                     <h2 id="nombreCompleto">Iker Abadia Conejos</h2>
-                    <a class="btn btn-danger">Eliminar Usuario</a>
+                    <a class="btn btn-danger">Eliminar Imagen</a>
                 </div>
             </div>
             <div class="datosPersonales">
@@ -48,17 +56,6 @@
         </div>
         <div class="tablaReseñas card">
             <h2 id="tituloTablaUsuarios">LISTADO DE RESEÑAS</h2>
-            <div class="filtrosBusqueda">
-                <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar 🔎">
-                <div>
-                    <label for="minNota">Nota minima</label>
-                    <input type="number" id="minNota" name="minNota" value="0" min="0" max="100"> 
-                </div>
-                <div>
-                    <label for="maxNota">Nota maxima</label>
-                    <input type="number" id="maxNota" name="maxNota" value="100" min="0" max="100">
-                </div>                
-            </div>
             <table class="table table-striped table-hover listadoReseñas">
                 <tr><th>ID</th><th>Nombre Usuario</th><th>Nota</th><th>Pincho</th><th>Reseña</th></tr>
                 <tr><td>0</td><td>Usuario 1</td><td>7</td><td>Pinchote</td><td class="columnaReseña">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum scelerisque lacinia tortor eu accumsan. Aenean sodales velit ante, aliquam malesuada nibh ullamcorper a. In id ex vel arcu accumsan ultrices. Ut sagittis tempor ex eget auctor. Phasellus euismod fringilla fermentum. Praesent lacinia diam non massa fermentum laoreet et et augue. Pellentesque eget ante quis nulla tincidunt aliquam. Donec eget neque nec lorem dapibus pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod ante eu metus aliquet vestibulum. In vehicula euismod felis id viverra.</td></tr>

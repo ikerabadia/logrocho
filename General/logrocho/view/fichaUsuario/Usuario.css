@@ -14,12 +14,15 @@ body{
     background: #e8e5dd;
     border-radius: 15px;
     padding: 10px;
-    margin-top: 25px;
+    margin-top: 80px;
 }
 
 /*MENU*/
 .menu{
     width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
 }
 .itemsMenu{
     width: 50%;
@@ -42,6 +45,13 @@ body{
 #logoLogrocho{
     transition: 0.3s;
     cursor: pointer;
+}
+/*CABECERA EDICION*/
+.cabeceraEdicion{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 
 /*PERFIL*/
