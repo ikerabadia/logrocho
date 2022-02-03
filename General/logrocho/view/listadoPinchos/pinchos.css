@@ -6,10 +6,10 @@
 .tablaRestaurantes{
     width: 60%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 80px;
     border: 1px solid black;
     text-align: center;
-    height: 800px;
+    min-height: 800px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,6 +36,9 @@ th:hover{
 /*MENU*/
 .menu{
     width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
 }
 .itemsMenu{
     width: 50%;
@@ -64,7 +67,9 @@ th:hover{
 .menuPaginacionTabla{
     margin-bottom: 15px;
 }
-
+.itemsMostrados{
+    margin-top: 15px;
+}
 
 /*FOOTER*/
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');

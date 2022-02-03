@@ -19,19 +19,59 @@
                 <a class="btn btn-outline-primary itemMenu" href="pinchos">Pinchos</a>
                 <a class="btn btn-outline-primary itemMenu" href="resenas">Reseñas</a>
             </div>    
-            <a class="btn btn-outline-danger btnLogout" href="#">Cerrar sesion</a> 
+            <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
         </div>          
     </nav>
     <div class="content">
+        <div class="cabeceraEdicionBar">
+            <div class="tituloEdicionRestaurante">
+                <h1>PAGINA DE EDICIÓN DE RESTAURANTE</h1>
+                <small class="smallInfo">Notese que los campos que puedes modificar son aquellos cuyo texto es azul</small>
+            </div>
+            <div class="btnsEliminarLimpiar">
+                <a class="btn btn-danger">Eliminar Restaurante</a>
+                <a class="btn btn-secondary">Limpiar Restaurante</a>
+            </div> 
+        </div>
+        
+        
         <div class="cabeceraBar">
-            <h1>Nombre Restaurante: <input id="inputNombreRestaurante" type="text" value="nombreRestaurante" class="editable"></h1>
+            <h2>Nombre Restaurante: <input id="inputNombreRestaurante" type="text" value="nombreRestaurante" class="editable"></h2>
             <h2>Nota media: 81/100</h2>
         </div>
         <div class="sliderImagenesBar">
-
+            <div class="imagenMostrada">
+                Este restaurante no tiene imagenes asociadas
+            </div>
+            <div class="miniaturasTresImagenes">
+                <div class="contenedorImg">
+                    <div id="miniatura1" class="miniatura">
+                        No hay imagen
+                    </div>
+                    <div id="btnEliminarImagen1" class="btnEliminarImagen btn btn-danger">
+                        🗑
+                    </div>
+                </div>
+                <div class="contenedorImg">
+                    <div id="miniatura2" class="miniatura">
+                        No hay imagen
+                    </div>
+                    <div id="btnEliminarImagen2" class="btnEliminarImagen btn btn-danger">
+                        🗑
+                    </div>
+                </div>
+                <div class="contenedorImg">
+                    <div id="miniatura3" class="miniatura">
+                        No hay imagen
+                    </div>
+                    <div id="btnEliminarImagen3" class="btnEliminarImagen btn btn-danger">
+                        🗑
+                    </div>  
+                </div>
+            </div>
         </div>
         <div class="datosBar">
-            <h3 id="muestraId">ID: 3</h1>
+            <h3 id="muestraId">ID: 3</h3>
             <h3>Direccion: <input id="inputDireccionRestaurante" type="text" value="C/Laurel Nº13" class="editable"></h2>
         </div>
         <div class="descripcion">
@@ -39,23 +79,14 @@
             <textarea name="inputDescripcion" id="inputDescripcion" class="editable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis lacus, sollicitudin id tincidunt vitae, luctus nec lorem. Nunc et pellentesque felis, venenatis consectetur quam. Praesent in condimentum ante. Duis nec malesuada nisl, at euismod dui. Phasellus blandit ipsum libero, eget tempus arcu commodo vitae. In a diam ante. Integer iaculis nisi sit amet finibus luctus. Aliquam felis ligula, euismod non fermentum nec, bibendum in lacus. Cras mollis ante enim, at condimentum orci condimentum vel. Donec lectus arcu, posuere in pretium sed, dignissim a ipsum. Aliquam erat volutpat.</textarea>
         </div>
         
+        <div class="botonesGuardarDescartar">
+            <a class="btn btn-outline-success" id="btnGuardar" onclick="guardarCambios()"> Guardar cambios 🖫</a>
+            <a class="btn btn-outline-danger" id="btnDescartar" onclick="descartarCambios()"> Descartar cambios ✖</a>
+        </div>
+
         <div class="tablaPinchos card">
             <h2 id="tituloTablaPinchos">TABLA DE PINCHOS</h2>
-            <div class="filtrosBusqueda">
-                <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar 🔎">
-                <div>
-                    <label for="minNota">Nota media minima</label>
-                    <input type="number" id="minNota" name="minNota" value="0" min="0" max="100"> 
-                </div>
-                <div>
-                    <label for="maxNota">Nota media maxima</label>
-                    <input type="number" id="maxNota" name="maxNota" value="100" min="0" max="100">
-                </div>    
-                <div>
-                    <label for="maxPrecio">Precio maximo</label>
-                    <input type="number" id="maxPrecio" name="maxPrecio" step="any">
-                </div>   
-            </div>
+            
             <table class="table table-striped table-hover ">
                 <tr><th>ID</th><th>Nombre Pincho</th><th>Precio</th><th>Bar</th><th>Nota media</th><th>Cantidad de Reseñas</th><th></th></tr>
                 <tr><td>0</td><td>Pincho 1</td><td>5.00€</td><td>Bar 1</td><td>100</td><td>10</td><td class="colVerPinchos"><a class="btn btn-primary" href="restaurante.html">Ver Pincho</a></td></tr>
@@ -70,10 +101,7 @@
             
         </div> 
 
-        <div class="botonesGuardarDescartar">
-            <a class="btn btn-outline-success" id="btnGuardar" onclick="guardarCambios()"> Guardar cambios 🖫</a>
-            <a class="btn btn-outline-danger" id="btnDescartar" onclick="descartarCambios()"> Descartar cambios ✖</a>
-        </div>
+        
     </div>
     <footer class="footer">
         <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3" id="footerArriba">

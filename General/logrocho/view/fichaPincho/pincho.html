@@ -19,11 +19,22 @@
                 <a class="btn btn-outline-primary itemMenu" href="pinchos">Pinchos</a>
                 <a class="btn btn-outline-primary itemMenu" href="resenas">Reseñas</a>
             </div>    
-            <a class="btn btn-outline-danger btnLogout" href="#">Cerrar sesion</a> 
+            <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
         </div>          
     </nav>
     <div class="content">
-
+        <div class="cabeceraEdicionPincho">
+            <div class="tituloEdicionPincho">
+                <h1>PAGINA DE EDICIÓN DE PINCHO</h1>
+                <small class="smallInfo">Notese que los campos que puedes modificar son aquellos cuyo texto es azul</small>
+            </div>
+            <div class="btnsEliminarLimpiar">
+                <a class="btn btn-danger">Eliminar Pincho</a>
+                <a class="btn btn-secondary">Limpiar Pincho</a>
+            </div> 
+        </div>
+        
+        
         <div class="nombrePrecioPincho">
             <h1>Nombre Pincho: <input id="inputNombrePincho" type="text" value="nombrePincho"></h1>
             <h2>Nota media: 78/100</h2>
@@ -32,6 +43,36 @@
         <div class="fotoReseña card">
             <div class="slider">
                 
+                <div class="imagenMostrada">
+                    Este restaurante no tiene imagenes asociadas
+                </div>
+                <div class="miniaturasTresImagenes">
+                    <div class="contenedorImg">
+                        <div id="miniatura1" class="miniatura">
+                            No hay imagen
+                        </div>
+                        <div id="btnEliminarImagen1" class="btnEliminarImagen btn btn-danger">
+                            🗑
+                        </div>
+                    </div>
+                    <div class="contenedorImg">
+                        <div id="miniatura2" class="miniatura">
+                            No hay imagen
+                        </div>
+                        <div id="btnEliminarImagen2" class="btnEliminarImagen btn btn-danger">
+                            🗑
+                        </div>
+                    </div>
+                    <div class="contenedorImg">
+                        <div id="miniatura3" class="miniatura">
+                            No hay imagen
+                        </div>
+                        <div id="btnEliminarImagen3" class="btnEliminarImagen btn btn-danger">
+                            🗑
+                        </div>  
+                    </div>
+                </div>
+
             </div>
             <div class="reseñas card">
                 <div class="reseña card">
@@ -126,8 +167,10 @@
                 </div>
             </div>
         </div>
-        <h2 id="idPincho">ID: 3</h2>
-        <h2>BAR <input id="inputBar" type="number" value="3"></h2>
+        <div class="idsPinchoBar">
+            <h2 id="idPincho">ID: 3</h2>
+            <h2>BAR <input id="inputBar" type="number" value="3"></h2>
+        </div>        
         <div class="descripcion">
             <h2>Descripcion del pincho: </h2>
             <textarea name="inputDescripcion" id="inputDescripcion" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis lacus, sollicitudin id tincidunt vitae, luctus nec lorem. Nunc et pellentesque felis, venenatis consectetur quam. Praesent in condimentum ante. Duis nec malesuada nisl, at euismod dui. Phasellus blandit ipsum libero, eget tempus arcu commodo vitae. In a diam ante. Integer iaculis nisi sit amet finibus luctus. Aliquam felis ligula, euismod non fermentum nec, bibendum in lacus. Cras mollis ante enim, at condimentum orci condimentum vel. Donec lectus arcu, posuere in pretium sed, dignissim a ipsum. Aliquam erat volutpat.</textarea>
