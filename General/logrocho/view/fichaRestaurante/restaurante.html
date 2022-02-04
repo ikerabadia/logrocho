@@ -29,8 +29,7 @@
                 <small class="smallInfo">Notese que los campos que puedes modificar son aquellos cuyo texto es azul</small>
             </div>
             <div class="btnsEliminarLimpiar">
-                <a class="btn btn-danger">Eliminar Restaurante</a>
-                <a class="btn btn-secondary">Limpiar Restaurante</a>
+                <a class="btn btn-danger" onclick="eliminarRestaurante()">Eliminar Restaurante</a>
             </div> 
         </div>
         
@@ -84,10 +83,10 @@
             <a class="btn btn-outline-danger" id="btnDescartar" onclick="descartarCambios()"> Descartar cambios ✖</a>
         </div>
 
-        <div class="tablaPinchos card">
+        <div class="tablaPinchos card" id="contenedorTablaPinchos">
             <h2 id="tituloTablaPinchos">TABLA DE PINCHOS</h2>
             
-            <table class="table table-striped table-hover ">
+            <table class="table table-striped table-hover " id="tablaPinchos">
                 <tr><th>ID</th><th>Nombre Pincho</th><th>Precio</th><th>Bar</th><th>Nota media</th><th>Cantidad de Reseñas</th><th></th></tr>
                 <tr><td>0</td><td>Pincho 1</td><td>5.00€</td><td>Bar 1</td><td>100</td><td>10</td><td class="colVerPinchos"><a class="btn btn-primary" href="restaurante.html">Ver Pincho</a></td></tr>
                 <tr><td>1</td><td>Pincho 1</td><td>5.00€</td><td>Bar 1</td><td>100</td><td>10</td><td class="colVerPinchos"><a class="btn btn-primary" href="restaurante.html">Ver Pincho</a></td></tr>

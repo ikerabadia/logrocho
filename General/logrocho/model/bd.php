@@ -268,6 +268,44 @@ class Conexion
         }
     }
 
+    static function getReseñasByUsuario($idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM reseñas WHERE fkUsuario = $idUsuario";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getReseñasByPincho($idPincho){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM reseñas WHERE fkPincho = $idPincho";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     /*PINCHOS*/
     static function getPinchos($pagina, $cantidadRegistros){
         try {
@@ -349,6 +387,25 @@ class Conexion
             $db = Conexion::getConection();
 
             $sql = "UPDATE `pinchos` SET nombre = '$nombre', precio = '$precio', fkBar = '$bar', descripcion = '$descripcion' WHERE idPincho = $idPincho";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getPinchosByRestaurante($idRestaurante){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM pinchos WHERE fkBar = $idRestaurante";
             $resultado = $db->query($sql);
 
             if ($resultado) {
@@ -445,6 +502,25 @@ class Conexion
             $db = Conexion::getConection();
 
             $sql = "UPDATE `usuarios` SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', correoElectronico = '$correoElectronico', user = '$user', password = '$password', admin = '$admin' WHERE idUsuario = $idUsuario";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function limpiarLikesUsuario($idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "DELETE FROM `likes` WHERE fkUsuario = '$idUsuario'";
             $resultado = $db->query($sql);
 
             if ($resultado) {

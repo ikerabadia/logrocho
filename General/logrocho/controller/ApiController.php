@@ -56,12 +56,17 @@ class ApiController
 
     public function deleteBar($idBar)
     {
-        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
-        $array = array();
-        $array["bar"] = array();
-        $baresbd = Conexion::deleteBar($idBar);
-        
-        echo json_encode($baresbd);
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            $array = array();
+            $array["bar"] = array();
+            $baresbd = Conexion::deleteBar($idBar);
+            
+            echo json_encode($baresbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+        }
     }
 
     public function updateBar($idBar, $nombre, $descripcion, $localizacion)
@@ -125,22 +130,71 @@ class ApiController
 
     public function deleteReseña($idReseña)
     {
-        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
-        $array = array();
-        $array["bar"] = array();
-        $reseñasbd = Conexion::deleteReseña($idReseña);
         
-        echo json_encode($reseñasbd);
+
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            $array = array();
+            $array["bar"] = array();
+            $reseñasbd = Conexion::deleteReseña($idReseña);
+            
+            echo json_encode($reseñasbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+        }
     }
 
     public function updateReseña($idReseña, $usuario, $pincho, $nota, $texto)
     {
+
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            $array = array();
+            $array["reseña"] = array();
+            $reseñasbd = Conexion::updateReseña($idReseña, $usuario, $pincho, $nota, $texto);
+            
+            echo json_encode($reseñasbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+            
+        }
+
+    }
+
+    public function getReseñasByUsuario($idUsuario){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         $array = array();
-        $array["reseña"] = array();
-        $reseñasbd = Conexion::updateReseña($idReseña, $usuario, $pincho, $nota, $texto);
-        
-        echo json_encode($reseñasbd);
+        $array["reseñas"] = array();
+        $reseñasbd = Conexion::getReseñasByUsuario($idUsuario);
+        foreach ($reseñasbd as $reseña) {
+            $aux = array();
+            $aux["idReseña"] = $reseña["idReseña"];
+            $aux["fkUsuario"] = $reseña["fkUsuario"];
+            $aux["fkPincho"] = $reseña["fkPincho"];
+            $aux["nota"] = $reseña["nota"];
+            $aux["textoReseña"] = $reseña["textoReseña"];
+            array_push($array["reseñas"], $aux);
+        }
+        echo json_encode($array);
+    }
+
+    public function getReseñasByPincho($idPincho){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["reseñas"] = array();
+        $reseñasbd = Conexion::getReseñasByPincho($idPincho);
+        foreach ($reseñasbd as $reseña) {
+            $aux = array();
+            $aux["idReseña"] = $reseña["idReseña"];
+            $aux["fkUsuario"] = $reseña["fkUsuario"];
+            $aux["fkPincho"] = $reseña["fkPincho"];
+            $aux["nota"] = $reseña["nota"];
+            $aux["textoReseña"] = $reseña["textoReseña"];
+            array_push($array["reseñas"], $aux);
+        }
+        echo json_encode($array);
     }
 
     //----------------------------------------
@@ -194,12 +248,19 @@ class ApiController
 
     public function deletePincho($idPincho)
     {
-        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
-        $array = array();
-        $array["pincho"] = array();
-        $reseñasbd = Conexion::deletePincho($idPincho);
-        
-        echo json_encode($reseñasbd);
+
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            $array = array();
+            $array["pincho"] = array();
+            $reseñasbd = Conexion::deletePincho($idPincho);
+            
+            echo json_encode($reseñasbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+        }
+
     }
 
     public function updatePincho($idPincho, $usuario, $pincho, $nota, $texto)
@@ -210,6 +271,23 @@ class ApiController
         $pinchosbd = Conexion::updatePincho($idPincho, $usuario, $pincho, $nota, $texto);
         
         echo json_encode($pinchosbd);
+    }
+
+    public function getPinchosByRestaurante($idRestaurante){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchosByRestaurante($idRestaurante);
+        foreach ($pinchosbd as $pincho) {
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            array_push($array["pinchos"], $aux);
+        }
+        echo json_encode($array);
     }
 
     //----------------------------------------
@@ -293,6 +371,21 @@ class ApiController
         $usuariosbd = Conexion::updateUsuario($idUsuario, $nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin);
         
         echo json_encode($usuariosbd);
+    }
+
+    public function limpiarLikesUsuario($idUsuario){
+        if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
+            header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+            //$array = array();
+            //$array["usuario"] = array();
+            $reseñasbd = Conexion::limpiarLikesUsuario($idUsuario);
+                
+            echo json_encode($reseñasbd);
+        }else{
+            $error = "operacion reservada exclusivamente a administradores";
+            echo json_encode($error);
+            
+        }
     }
 
 

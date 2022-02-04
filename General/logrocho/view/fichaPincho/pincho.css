@@ -162,6 +162,10 @@ input, textarea{
     justify-content: space-around;
     margin-top: 15px;
 }
+.textoReseña{
+    width: 100%;
+    min-height: 200px;
+}
 
 /*MENU*/
 .menu{
@@ -193,7 +197,7 @@ input, textarea{
     cursor: pointer;
 }
 .smallInfo{
-    color: #0d6efd;
+    color: #dc3545;
     margin-bottom: 30px;
 }
 

@@ -41,7 +41,7 @@ function mostrarDatos() {
             var tabla = document.getElementById("tablaReseñas");
             var filas = "<tr><th id=\"thId\" onclick=\"orderByIdReseña()\">ID</th><th id=\"thUsuario\" onclick=\"orderByUsuario()\">Usuario</th><th id=\"thPincho\" onclick=\"orderByPincho()\">Pincho</th><th id=\"thNota\" onclick=\"orderByNota()\">Nota</th><th id=\"thTexto\" >Texto reseña</th><th></th></tr>";
             for (let i = 0; i < resultados["reseñas"].length; i++) {
-                filas+= "<tr><td>"+datos["reseñas"][i]["idReseña"]+"</td><td>"+datos["reseñas"][i]["fkUsuario"]+"</td><td>"+datos["reseñas"][i]["fkPincho"]+"</td><td>"+datos["reseñas"][i]["nota"]+"</td><td>"+datos["reseñas"][i]["textoReseña"]+"</td><td class=\"colVerPinchos\"><a class=\"btn btn-danger\">Eliminar reseña</a></td></tr>  ";
+                filas+= "<tr><td>"+datos["reseñas"][i]["idReseña"]+"</td><td>"+datos["reseñas"][i]["fkUsuario"]+"</td><td>"+datos["reseñas"][i]["fkPincho"]+"</td><td>"+datos["reseñas"][i]["nota"]+"</td><td>"+datos["reseñas"][i]["textoReseña"]+"</td><td class=\"colVerPinchos\"><a class=\"btn btn-danger\" onclick=\"eliminarReseña("+datos["reseñas"][i]["idReseña"]+")\">Eliminar reseña</a></td></tr>  ";
             }
             tabla.innerHTML = filas;
         }
@@ -68,7 +68,7 @@ function pintar() {
     var tabla = document.getElementById("tablaReseñas");
     var filas = "<tr><th id=\"thId\" onclick=\"orderByIdReseña()\">ID</th><th id=\"thUsuario\" onclick=\"orderByUsuario()\">Usuario</th><th id=\"thPincho\" onclick=\"orderByPincho()\">Pincho</th><th id=\"thNota\" onclick=\"orderByNota()\">Nota</th><th id=\"thTexto\" >Texto reseña</th><th></th></tr>";
     for (let i = 0; i < resultados["reseñas"].length; i++) {
-        filas+= "<tr><td>"+datos["reseñas"][i]["idReseña"]+"</td><td>"+datos["reseñas"][i]["fkUsuario"]+"</td><td>"+datos["reseñas"][i]["fkPincho"]+"</td><td>"+datos["reseñas"][i]["nota"]+"</td><td>"+datos["reseñas"][i]["textoReseña"]+"</td><td class=\"colVerPinchos\"><a class=\"btn btn-danger\">Eliminar reseña</a></td></tr>  ";
+        filas+= "<tr><td>"+datos["reseñas"][i]["idReseña"]+"</td><td>"+datos["reseñas"][i]["fkUsuario"]+"</td><td>"+datos["reseñas"][i]["fkPincho"]+"</td><td>"+datos["reseñas"][i]["nota"]+"</td><td>"+datos["reseñas"][i]["textoReseña"]+"</td><td class=\"colVerPinchos\"><a class=\"btn btn-danger\" onclick=\"eliminarReseña("+datos["reseñas"][i]["idReseña"]+")\">Eliminar reseña</a></td></tr>  ";
     }
     tabla.innerHTML = filas;
 }
@@ -85,6 +85,19 @@ function anterior(){
         mostrarDatos();
     }
     
+}
+
+function eliminarReseña(idReseña) {
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/deleteResena/"+idReseña,
+        "method": "DELETE",
+        "timeout": 0,
+      };
+      
+      $.ajax(settings).done(function (response) {
+        //console.log(response);
+        mostrarDatos();
+      });
 }
 
 /*ORDENACIONES*/
