@@ -24,6 +24,44 @@
     </nav>
     <div class="content">
 
+        <div class="card divInsertarRestaurante">
+            <h2 id="tituloNuevoRestaurante">INSERTAR NUEVO USUARIO</h2>
+            <div class="inputs">
+                <div class="nombreApellido1">
+                    <div class="inputsNombre">
+                        <p class="label">Nombre: </p>
+                        <input type="text" id="inputNombreUsuario" class="input" placeholder="Iker">
+                    </div>
+                    <div class="inputsApellido1">
+                        <p class="label">Apellido 1: </p>
+                        <input type="text" id="inputApellido1" class="input" placeholder="Abadia">
+                    </div>
+                </div>    
+                <div class="inputsApellido2Correo">
+                    <div class="inputsApellido2">
+                        <p class="label">Apellido 2: </p>
+                        <input type="text" id="inputApellido2" class="input" placeholder="Conejos">
+                    </div>
+                    <div class="inputsCorreoElectronico">
+                        <p class="label">Correo Electronico: </p>
+                        <input type="email" id="inputCorreoElectronico" class="input" placeholder="iabadiac01@gmail.com">
+                    </div>
+                </div>
+                <div class="inputsUserPassword">
+                    <div class="inputsUser">
+                        <p class="label">Usuario: </p>
+                        <input type="text" id="inputApellido2" class="input" placeholder="Ikerabadia99">
+                    </div>
+                    <div class="inputsPassword">
+                        <p class="label">Contraseña: </p>
+                        <input type="password" id="inputPassword" class="input">
+                    </div>
+                </div>          
+                                      
+            </div>
+            <a class="btn btn-primary btnInsertarRestaurante" onclick="insertarUsuario()">Guardar</a> 
+        </div>
+
         <div class="tablaRestaurantes card">
             <div class="tablaArriba">
                 <h1 id="tituloTablaUsuarios">LISTADO DE USUARIOS</h2>

@@ -86,6 +86,33 @@ function anterior(){
     
 }
 
+function insertarRestaurante() {
+    var nombre = document.getElementById("inputNombreRestaurante").value;
+    var localizacion = document.getElementById("inputLocalizacion").value;
+    var descripcion = document.getElementById("inputDescripcion").value;
+
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/nuevoRestaurante",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "nombre": ""+nombre,
+          "descripcion": ""+descripcion,
+          "localizacion": ""+localizacion
+        }
+      };
+      
+      $.ajax(settings).done(function (response) {
+        document.getElementById("inputNombreRestaurante").value = "";
+        document.getElementById("inputLocalizacion").value = "";
+        document.getElementById("inputDescripcion").value = "";
+        mostrarDatos();
+      });
+}
+
 /*ORDENACIONES*/
 /*
 IMPORTANTE!!!!!!

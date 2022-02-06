@@ -6,7 +6,7 @@
 .tablaRestaurantes{
     width: 60%;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 40px;
     border: 1px solid black;
     text-align: center;
     min-height: 800px;
@@ -61,6 +61,44 @@ th:hover{
 #logoLogrocho{
     transition: 0.3s;
     cursor: pointer;
+}
+
+/*INSERCION DE NUEVOS RESTAURANTES*/
+.divInsertarRestaurante{
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    height: 76%;
+}
+.inputsDescripcion{
+    width: 90%;
+    margin-left: 40px;
+    height: 100%;
+}
+.inputsLocalizacion{
+    margin-top: 40px;
+}
+#inputDescripcion{
+    height: 250px;
+    width: 100%;
+}
+.input{
+    border-radius: 15px 0px 15px 0px;
+    color: #0d6efd;
+}
+.btnInsertarRestaurante{
+    width: 90%;
 }
 
 /*PAGINACION TABLA*/

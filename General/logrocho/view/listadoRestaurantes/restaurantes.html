@@ -22,9 +22,29 @@
             <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
         </div>          
     </nav>
+    <div class="card divInsertarRestaurante">
+        <h2 id="tituloNuevoRestaurante">INSERTAR NUEVO RESTAURANTE</h2>
+        <div class="inputs">
+            <div class="nombreLocalizacion">
+                <div class="inputsNombre">
+                    <p class="label">Nombre: </p>
+                    <input type="text" id="inputNombreRestaurante" class="input" placeholder="Nombre">
+                </div>
+                <div class="inputsLocalizacion">
+                    <p class="label">Localizacion: </p>
+                    <input type="text" id="inputLocalizacion" class="input" placeholder="Calle Laurel 27">
+                </div>
+            </div>            
+            <div class="inputsDescripcion">
+                <p class="label">Descripcion: </p>
+                <textarea id="inputDescripcion" class="input" placeholder="descripcion"></textarea>                
+            </div>                       
+        </div>
+        <a class="btn btn-primary btnInsertarRestaurante" onclick="insertarRestaurante()">Guardar</a> 
+    </div>
     <div class="tablaRestaurantes card">
         <div class="tablaArriba">
-            <h1 id="tituloTablaUsuarios">LISTADO DE RESTAURANTES</h2>
+            <h2 id="tituloTablaUsuarios">LISTADO DE RESTAURANTES</h2>
                 <div class="filtrosBusqueda">
                     <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar">
                     <div>

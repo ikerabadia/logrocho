@@ -1,6 +1,6 @@
 <?php
 
-const DB_INFO = 'mysql:host=localhost:3306;dbname=logrocho';
+const DB_INFO = 'mysql:host=localhost:3307;dbname=logrocho';
 
 const DB_USER = 'root';
 

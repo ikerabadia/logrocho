@@ -4,6 +4,7 @@ var datosOrdenados;
 
 window.onload = function() {
     mostrarDatos();
+    cargarBares();
 };
 
 function mostrarDatos() {
@@ -85,6 +86,61 @@ function anterior(){
         mostrarDatos();
     }
     
+}
+
+function cargarBares(){
+    $.ajax({
+        url: "http://localhost/logrocho/index.php/api/restaurantes",
+        method: "POST",
+        timeout: 0,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: {
+            "pagina": "1",
+            "cantidadRegistros": "1000"
+        },
+        success: function (response) {
+            var json = response;
+            resultados=eval(json);
+            var bares = "";
+
+            var datalist = document.getElementById("bares");            
+            for (let i = 0; i < resultados["bares"].length; i++) {
+                bares += "<option value=\""+resultados["bares"][i]["idRestaurante"]+"\">"+resultados["bares"][i]["nombre"]+"</option>";
+            }
+            datalist.innerHTML = bares;
+        }
+    }); 
+}
+
+function insertarPincho() {
+    var nombre = document.getElementById("inputNombrePincho").value;
+    var precio = document.getElementById("inputPrecio").value;
+    var bar = document.getElementById("inputBar").value;
+    var descripcion = document.getElementById("inputDescripcion").value;
+
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/nuevoPincho",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "nombre": ""+nombre,
+          "precio": ""+precio,
+          "fkBar": ""+bar,
+          "descripcion": ""+descripcion
+        }
+      };
+      
+      $.ajax(settings).done(function (response) {
+        document.getElementById("inputNombrePincho").value = "";
+        document.getElementById("inputPrecio").value = "";
+        document.getElementById("inputBar").value = "";
+        document.getElementById("inputDescripcion").value = "";
+      });
 }
 
 /*ORDENACIONES*/

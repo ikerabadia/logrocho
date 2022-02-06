@@ -22,6 +22,37 @@
             <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
         </div>          
     </nav>
+    <div class="card divInsertarRestaurante">
+        <h2 id="tituloNuevoRestaurante">INSERTAR NUEVO PINCHO</h2>
+        <div class="inputs">
+            <div class="nombreLocalizacion">
+                <div class="inputsNombre">
+                    <p class="label">Nombre: </p>
+                    <input type="text" id="inputNombrePincho" class="input" placeholder="Nombre">
+                </div>
+                <div class="inputsPrecio">
+                    <p class="label">Precio: </p>
+                    <input type="number" step="any" id="inputPrecio" class="input" placeholder="12.5">
+                </div>
+                <div class="inputsBar">
+                    <label for="inputBar">Bar:</label>
+                    <input list="bares" name="inputBar" id="inputBar">
+                    <datalist id="bares">
+                        <option value="1">Edge</option>
+                        <option value="2">Firefox</option>
+                        <option value="Chrome">
+                        <option value="Opera">
+                        <option value="Safari">
+                    </datalist>
+                </div>
+            </div>            
+            <div class="inputsDescripcion">
+                <p class="label">Descripcion: </p>
+                <textarea id="inputDescripcion" class="input" placeholder="descripcion"></textarea>                
+            </div>                       
+        </div>
+        <a class="btn btn-primary btnInsertarRestaurante" onclick="insertarPincho()">Guardar</a> 
+    </div>
     <div class="tablaRestaurantes card">
         <div class="tablaArriba">
             <h1 id="tituloTablaUsuarios">LISTADO DE PINCHOS</h2>

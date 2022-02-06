@@ -87,6 +87,43 @@ function anterior(){
     
 }
 
+function insertarUsuario() {
+    var nombre = document.getElementById("inputNombreUsuario").value;
+    var apellido1 = document.getElementById("inputApellido1").value;
+    var apellido2 = document.getElementById("inputApellido2").value;
+    var correoElectronico = document.getElementById("inputCorreoElectronico").value;
+    var user = document.getElementById("inputApellido2").value;
+    var password = document.getElementById("inputPassword").value;
+
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/nuevoUsuario",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "data": {
+          "nombre": ""+nombre,
+          "apellido1": ""+apellido1,
+          "apellido2": ""+apellido2,
+          "correoElectronico": ""+correoElectronico,
+          "user": ""+user,
+          "password": ""+password,
+          "admin": "0"
+        }
+      };
+      
+      $.ajax(settings).done(function (response) {
+        document.getElementById("inputNombreUsuario").value = "";
+        document.getElementById("inputApellido1").value = "";
+        document.getElementById("inputApellido2").value = "";
+        document.getElementById("inputCorreoElectronico").value = "";
+        document.getElementById("inputApellido2").value = "";
+        document.getElementById("inputPassword").value = "";
+        mostrarDatos();
+      });
+}
+
 /*ORDENACIONES*/
 
 function ordenarAsc(p_key) {
