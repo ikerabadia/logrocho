@@ -167,7 +167,7 @@ function pintarImagen(){
 
 function eliminarImagen(){
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteImagenUsuario/1",
+    "url": "http://localhost/logrocho/index.php/api/deleteImagenUsuario/"+idUsuario,
     "method": "DELETE",
     "timeout": 0,
     "headers": {
