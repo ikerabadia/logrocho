@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 07-02-2022 a las 18:53:17
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-02-2022 a las 21:35:43
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -42,8 +42,7 @@ CREATE TABLE `imagenes_bares` (
 
 INSERT INTO `imagenes_bares` (`id`, `fk_bar`, `imagen`, `numeroImagen`) VALUES
 (6, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen3/tabernaTioBlas3.jfif', 3),
-(10, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png', 2),
-(11, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen1/tabernaTioBlas1.jfif', 1);
+(10, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png', 2);
 
 -- --------------------------------------------------------
 
@@ -85,7 +84,14 @@ CREATE TABLE `imagenes_usuarios` (
 
 INSERT INTO `imagenes_usuarios` (`id`, `imagen`, `fk_usuario`) VALUES
 (6, 'http://localhost/logrocho/imagenes/usuarios/2/pepe.jfif', 2),
-(15, 'http://localhost/logrocho/imagenes/usuarios/1/Steve_ok.png', 1);
+(18, 'http://localhost/logrocho/imagenes/usuarios/4/Yeti.png', 4),
+(19, 'http://localhost/logrocho/imagenes/usuarios/6/3988591_yeti_copier.jpg', 6),
+(20, 'http://localhost/logrocho/imagenes/usuarios/7/B1p9NtRF8rS._SS500_.jpg', 7),
+(21, 'http://localhost/logrocho/imagenes/usuarios/8/171127170442-02-yeti-or-not-large-169.jpg', 8),
+(22, 'http://localhost/logrocho/imagenes/usuarios/9/Minionmorado.jpg', 9),
+(24, 'http://localhost/logrocho/imagenes/usuarios/1/Captura.PNG', 1),
+(25, 'http://localhost/logrocho/imagenes/usuarios/10/hqdefault.jpg', 10),
+(26, 'http://localhost/logrocho/imagenes/usuarios/11/broob-broseidon.gif', 11);
 
 -- --------------------------------------------------------
 
@@ -312,7 +318,7 @@ ALTER TABLE `imagenes_pincho`
 -- AUTO_INCREMENT de la tabla `imagenes_usuarios`
 --
 ALTER TABLE `imagenes_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `likes`
