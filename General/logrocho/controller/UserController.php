@@ -6,7 +6,12 @@ class UserController
     {
         require("view/login/login.php");
     }
-    //LOGIN RESPUESTA
+    //LOGIN RESPUESTA    
+    /**
+     * loginRespuesta
+     *
+     * @return void
+     */
     public function loginRespuesta()
     {
 
@@ -33,7 +38,10 @@ class UserController
             header('location: ' . $rutaDestino);
         }
     }
+
+    /*----------------------------------------------------------------------------------------------------------*/
     //RESTAURANTES
+    /*----------------------------------------------------------------------------------------------------------*/
     public function restaurantes()
     {
         require("view/listadoRestaurantes/restaurantes.html");
@@ -42,7 +50,10 @@ class UserController
         require("view/fichaRestaurante/restaurante.html");
     }
 
+
+    /*----------------------------------------------------------------------------------------------------------*/
     //PINCHOS
+    /*----------------------------------------------------------------------------------------------------------*/
     public function pinchos()
     {
         require("view/listadoPinchos/pinchos.html");
@@ -51,13 +62,17 @@ class UserController
         require("view/fichaPincho/pincho.html");
     }
 
+    /*----------------------------------------------------------------------------------------------------------*/
     //RESEÑAS
+    /*----------------------------------------------------------------------------------------------------------*/
     public function reseñas()
     {
         require("view/listadoReseñas/reseñas.html");
     }
 
+    /*----------------------------------------------------------------------------------------------------------*/
     //USUARIOS
+    /*----------------------------------------------------------------------------------------------------------*/
     public function usuarios()
     {
         require("view/listadoUsuarios/listadoUsuarios.html");
@@ -66,7 +81,9 @@ class UserController
         require("view/fichaUsuario/usuario.html");
     }
 
+    /*----------------------------------------------------------------------------------------------------------*/
     //PAGINAS ERROR
+    /*----------------------------------------------------------------------------------------------------------*/
     public function error404()
     {
         require("view/paginasError/error404/404.html");
@@ -76,8 +93,16 @@ class UserController
         require("view/paginasError/error500/500.html");
     }
 
-
+    /*----------------------------------------------------------------------------------------------------------*/
     /*GET RUTA*/
+    /*----------------------------------------------------------------------------------------------------------*/    
+    /**
+     * getRuta
+     *
+     * @param  mixed $accionDestino
+     * @param  mixed $accionActual
+     * @return accion
+     */
     static function getRuta($accionDestino, $accionActual)
     {
         $rutaActual = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];

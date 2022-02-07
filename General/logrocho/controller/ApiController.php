@@ -8,7 +8,14 @@ class ApiController
 
     //----------------------------------------
     //BARES
-    //----------------------------------------
+    //----------------------------------------    
+    /**
+     * getBares
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     public function getBares($pagina, $cantidadRegistros)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -25,7 +32,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getBar
+     *
+     * @param  mixed $idBar
+     * @return void
+     */
     public function getBar($idBar)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -42,7 +55,15 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * newBar
+     *
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $localizacion
+     * @return void
+     */
     public function newBar($nombre, $descripcion, $localizacion)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -52,7 +73,13 @@ class ApiController
         
         echo json_encode($baresbd);
     }
-
+    
+    /**
+     * deleteBar
+     *
+     * @param  mixed $idBar
+     * @return void
+     */
     public function deleteBar($idBar)
     {
         if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
@@ -67,7 +94,16 @@ class ApiController
             echo json_encode($error);
         }
     }
-
+    
+    /**
+     * updateBar
+     *
+     * @param  mixed $idBar
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $localizacion
+     * @return void
+     */
     public function updateBar($idBar, $nombre, $descripcion, $localizacion)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -77,7 +113,14 @@ class ApiController
         
         echo json_encode($baresbd);
     }
-
+    
+    /**
+     * getImagenRestaurante
+     *
+     * @param  mixed $idBar
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     public function getImagenRestaurante($idBar, $numeroImagen){
 
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -95,7 +138,15 @@ class ApiController
         echo json_encode($array);
 
     }
-
+    
+    /**
+     * guardarImagenRestaurante
+     *
+     * @param  mixed $fk_bar
+     * @param  mixed $numeroImagen
+     * @param  mixed $imagen
+     * @return void
+     */
     public function guardarImagenRestaurante($fk_bar,$numeroImagen, $imagen)
     {
         $ruta ="http://localhost/logrocho/imagenes/restaurantes/".$fk_bar."/imagen".$numeroImagen."/".$imagen["name"];
@@ -110,7 +161,14 @@ class ApiController
         
         Conexion::guardarImagenRestaurante($fk_bar,$numeroImagen, $ruta);
     }
-
+    
+    /**
+     * deleteImagenRestaurante
+     *
+     * @param  mixed $fk_bar
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     public function deleteImagenRestaurante($fk_bar, $numeroImagen)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -121,7 +179,14 @@ class ApiController
 
     //----------------------------------------
     //RESEÑAS
-    //----------------------------------------
+    //----------------------------------------    
+    /**
+     * getRese
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     public function getReseñas($pagina, $cantidadRegistros)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -139,7 +204,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idRese
+     * @return void
+     */
     public function getReseña($idReseña)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -157,7 +228,16 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * newRese
+     *
+     * @param  mixed $usuario
+     * @param  mixed $pincho
+     * @param  mixed $nota
+     * @param  mixed $texto
+     * @return void
+     */
     public function newReseña($usuario, $pincho, $nota, $texto)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -167,7 +247,13 @@ class ApiController
         
         echo json_encode($baresbd);
     }
-
+    
+    /**
+     * deleteRese
+     *
+     * @param  mixed $idRese
+     * @return void
+     */
     public function deleteReseña($idReseña)
     {
         
@@ -184,7 +270,17 @@ class ApiController
             echo json_encode($error);
         }
     }
-
+    
+    /**
+     * updateRese
+     *
+     * @param  mixed $idRese
+     * @param  mixed $usuario
+     * @param  mixed $pincho
+     * @param  mixed $nota
+     * @param  mixed $texto
+     * @return void
+     */
     public function updateReseña($idReseña, $usuario, $pincho, $nota, $texto)
     {
 
@@ -202,7 +298,13 @@ class ApiController
         }
 
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function getReseñasByUsuario($idUsuario){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         $array = array();
@@ -219,7 +321,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     public function getReseñasByPincho($idPincho){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         $array = array();
@@ -239,7 +347,14 @@ class ApiController
 
     //----------------------------------------
     //PINCHOS
-    //----------------------------------------
+    //----------------------------------------    
+    /**
+     * getPinchos
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     public function getPinchos($pagina, $cantidadRegistros)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -257,7 +372,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getPincho
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     public function getPincho($idPincho)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -275,7 +396,16 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * newPincho
+     *
+     * @param  mixed $nombre
+     * @param  mixed $precio
+     * @param  mixed $bar
+     * @param  mixed $descripcion
+     * @return void
+     */
     public function newPincho($nombre, $precio, $bar, $descripcion)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -285,7 +415,13 @@ class ApiController
         
         echo json_encode($baresbd);
     }
-
+    
+    /**
+     * deletePincho
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     public function deletePincho($idPincho)
     {
 
@@ -302,7 +438,17 @@ class ApiController
         }
 
     }
-
+    
+    /**
+     * updatePincho
+     *
+     * @param  mixed $idPincho
+     * @param  mixed $usuario
+     * @param  mixed $pincho
+     * @param  mixed $nota
+     * @param  mixed $texto
+     * @return void
+     */
     public function updatePincho($idPincho, $usuario, $pincho, $nota, $texto)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -312,7 +458,13 @@ class ApiController
         
         echo json_encode($pinchosbd);
     }
-
+    
+    /**
+     * getPinchosByRestaurante
+     *
+     * @param  mixed $idRestaurante
+     * @return void
+     */
     public function getPinchosByRestaurante($idRestaurante){
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         $array = array();
@@ -329,7 +481,14 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getImagenPincho
+     *
+     * @param  mixed $idPincho
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     public function getImagenPincho($idPincho, $numeroImagen){
 
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -347,7 +506,15 @@ class ApiController
         echo json_encode($array);
 
     }
-
+    
+    /**
+     * guardarImagenPincho
+     *
+     * @param  mixed $fk_pincho
+     * @param  mixed $numeroImagen
+     * @param  mixed $imagen
+     * @return void
+     */
     public function guardarImagenPincho($fk_pincho,$numeroImagen, $imagen)
     {
         $ruta ="http://localhost/logrocho/imagenes/pinchos/".$fk_pincho."/imagen".$numeroImagen."/".$imagen["name"];
@@ -362,7 +529,14 @@ class ApiController
         
         Conexion::guardarImagenPincho($fk_pincho,$numeroImagen, $ruta);
     }
-
+    
+    /**
+     * deleteImagenpincho
+     *
+     * @param  mixed $fk_pincho
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     public function deleteImagenpincho($fk_pincho, $numeroImagen)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -374,7 +548,14 @@ class ApiController
 
     //----------------------------------------
     //USUARIOS
-    //----------------------------------------
+    //----------------------------------------    
+    /**
+     * getUsuarios
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     public function getUsuarios($pagina, $cantidadRegistros)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -395,7 +576,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * getUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function getUsuario($idUsuario)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -416,7 +603,19 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * newUsuario
+     *
+     * @param  mixed $nombre
+     * @param  mixed $apellido1
+     * @param  mixed $apellido2
+     * @param  mixed $correoElectronico
+     * @param  mixed $user
+     * @param  mixed $password
+     * @param  mixed $admin
+     * @return void
+     */
     public function newUsuario($nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -426,7 +625,13 @@ class ApiController
         
         echo json_encode($usuariosbd);
     }
-
+    
+    /**
+     * deleteUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function deleteUsuario($idUsuario)
     {
         if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
@@ -444,7 +649,20 @@ class ApiController
         
         
     }
-
+    
+    /**
+     * updateUsuario
+     *
+     * @param  mixed $idUsuario
+     * @param  mixed $nombre
+     * @param  mixed $apellido1
+     * @param  mixed $apellido2
+     * @param  mixed $correoElectronico
+     * @param  mixed $user
+     * @param  mixed $password
+     * @param  mixed $admin
+     * @return void
+     */
     public function updateUsuario($idUsuario, $nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -454,7 +672,13 @@ class ApiController
         
         echo json_encode($usuariosbd);
     }
-
+    
+    /**
+     * limpiarLikesUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function limpiarLikesUsuario($idUsuario){
         if (isset($_SESSION["usuarioActual"]) and $_SESSION["usuarioActual"]["admin"] == 1) {
             header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -469,7 +693,14 @@ class ApiController
             
         }
     }
-
+    
+    /**
+     * guardarImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @param  mixed $imagen
+     * @return void
+     */
     public function guardarImagenUsuario($idUsuario,$imagen)
     {
         $ruta ="http://localhost/logrocho/imagenes/usuarios/".$idUsuario."/".$imagen["name"];
@@ -484,7 +715,13 @@ class ApiController
         
         Conexion::guardarImagenUsuario($idUsuario, $ruta);
     }
-
+    
+    /**
+     * getImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function getImagenUsuario($idUsuario) //Hay que ponerlo bien
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
@@ -500,7 +737,13 @@ class ApiController
         }
         echo json_encode($array);
     }
-
+    
+    /**
+     * deleteImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     public function deleteImagenUsuario($idUsuario)
     {
         

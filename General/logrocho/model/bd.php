@@ -8,13 +8,25 @@ const DB_PASS = '';
 
 class Conexion
 {
-
+    
+    /**
+     * getConection
+     *
+     * @return conexion
+     */
     static function getConection()
     {
         return new \PDO(DB_INFO, DB_USER, DB_PASS);
     }
 
-
+    
+    /**
+     * getLogin
+     *
+     * @param  mixed $user
+     * @param  mixed $password
+     * @return void
+     */
     static function getLogin($user, $password)
     {
         try {
@@ -34,7 +46,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getUsuario
+     *
+     * @param  mixed $user
+     * @return void
+     */
     static function getUsuario($user)
     {
         try {
@@ -54,7 +72,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getUsuarioId
+     *
+     * @param  mixed $id
+     * @return void
+     */
     static function getUsuarioId($id)
     {
         try {
@@ -76,7 +100,16 @@ class Conexion
         }
     }
 
-    /*BARES*/
+    /*----------------------------------------------------------------------------------------------------------*/
+    /*BARES*/    
+    /*----------------------------------------------------------------------------------------------------------*/
+    /**
+     * getBares
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     static function getBares($pagina, $cantidadRegistros){
         try {
             $db = Conexion::getConection();
@@ -95,7 +128,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getBar
+     *
+     * @param  mixed $idBar
+     * @return void
+     */
     static function getBar($idBar){
         try {
             $db = Conexion::getConection();
@@ -114,7 +153,15 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * newBar
+     *
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $localizacion
+     * @return void
+     */
     static function newBar($nombre, $descripcion, $localizacion){
         try {
             $db = Conexion::getConection();
@@ -133,7 +180,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteBar
+     *
+     * @param  mixed $idBar
+     * @return void
+     */
     static function deleteBar($idBar){
         try {
             $db = Conexion::getConection();
@@ -152,7 +205,16 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * updateBar
+     *
+     * @param  mixed $idBar
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $localizacion
+     * @return void
+     */
     static function updateBar($idBar, $nombre, $descripcion, $localizacion){
         try {
             $db = Conexion::getConection();
@@ -171,7 +233,14 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getImagenRestaurante
+     *
+     * @param  mixed $idBar
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     static function getImagenRestaurante($idBar, $numeroImagen){
         try {
             $db = Conexion::getConection();
@@ -190,7 +259,15 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * guardarImagenRestaurante
+     *
+     * @param  mixed $fk_bar
+     * @param  mixed $numeroImagen
+     * @param  mixed $imagen
+     * @return void
+     */
     static function guardarImagenRestaurante($fk_bar,$numeroImagen, $imagen){
         try {
             $db = Conexion::getConection();
@@ -209,7 +286,14 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteImagenRestaurante
+     *
+     * @param  mixed $fk_bar
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     static function deleteImagenRestaurante($fk_bar, $numeroImagen){
         try {
             $db = Conexion::getConection();
@@ -229,8 +313,16 @@ class Conexion
         }
     }
 
-
+    /*----------------------------------------------------------------------------------------------------------*/
     /*RESEÑAS*/
+    /*----------------------------------------------------------------------------------------------------------*/    
+    /**
+     * getRese
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     static function getReseñas($pagina, $cantidadRegistros){
         try {
             $db = Conexion::getConection();
@@ -249,7 +341,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idRese
+     * @return void
+     */
     static function getReseña($idReseña){
         try {
             $db = Conexion::getConection();
@@ -268,7 +366,16 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * newRese
+     *
+     * @param  mixed $usuario
+     * @param  mixed $pincho
+     * @param  mixed $nota
+     * @param  mixed $texto
+     * @return void
+     */
     static function newReseña($usuario, $pincho, $nota, $texto){
         try {
             $db = Conexion::getConection();
@@ -287,7 +394,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteRese
+     *
+     * @param  mixed $idRese
+     * @return void
+     */
     static function deleteReseña($idReseña){
         try {
             $db = Conexion::getConection();
@@ -306,7 +419,17 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * updateRese
+     *
+     * @param  mixed $idRese
+     * @param  mixed $usuario
+     * @param  mixed $pincho
+     * @param  mixed $nota
+     * @param  mixed $texto
+     * @return void
+     */
     static function updateReseña($idReseña, $usuario, $pincho, $nota, $texto){
         try {
             $db = Conexion::getConection();
@@ -325,7 +448,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function getReseñasByUsuario($idUsuario){
         try {
             $db = Conexion::getConection();
@@ -344,7 +473,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getRese
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     static function getReseñasByPincho($idPincho){
         try {
             $db = Conexion::getConection();
@@ -364,7 +499,17 @@ class Conexion
         }
     }
 
-    /*PINCHOS*/
+    /*----------------------------------------------------------------------------------------------------------*/
+    /*PINCHOS*/    
+    /*----------------------------------------------------------------------------------------------------------*/
+
+    /**
+     * getPinchos
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     static function getPinchos($pagina, $cantidadRegistros){
         try {
             $db = Conexion::getConection();
@@ -383,7 +528,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getPincho
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     static function getPincho($idPincho){
         try {
             $db = Conexion::getConection();
@@ -401,7 +552,16 @@ class Conexion
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
-    }
+    }    
+    /**
+     * newPincho
+     *
+     * @param  mixed $nombre
+     * @param  mixed $precio
+     * @param  mixed $bar
+     * @param  mixed $descripcion
+     * @return void
+     */
     static function newPincho($nombre, $precio, $bar, $descripcion){
         try {
             $db = Conexion::getConection();
@@ -420,7 +580,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deletePincho
+     *
+     * @param  mixed $idPincho
+     * @return void
+     */
     static function deletePincho($idPincho){
         try {
             $db = Conexion::getConection();
@@ -439,7 +605,17 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * updatePincho
+     *
+     * @param  mixed $idPincho
+     * @param  mixed $nombre
+     * @param  mixed $precio
+     * @param  mixed $bar
+     * @param  mixed $descripcion
+     * @return void
+     */
     static function updatePincho($idPincho, $nombre, $precio, $bar, $descripcion){
         try {
             $db = Conexion::getConection();
@@ -458,7 +634,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getPinchosByRestaurante
+     *
+     * @param  mixed $idRestaurante
+     * @return void
+     */
     static function getPinchosByRestaurante($idRestaurante){
         try {
             $db = Conexion::getConection();
@@ -478,7 +660,14 @@ class Conexion
         }
     }
 
-    
+        
+    /**
+     * getImagenPincho
+     *
+     * @param  mixed $idPincho
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     static function getImagenPincho($idPincho, $numeroImagen){
         try {
             $db = Conexion::getConection();
@@ -497,7 +686,15 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * guardarImagenPincho
+     *
+     * @param  mixed $fk_pincho
+     * @param  mixed $numeroImagen
+     * @param  mixed $imagen
+     * @return void
+     */
     static function guardarImagenPincho($fk_pincho,$numeroImagen, $imagen){
         try {
             $db = Conexion::getConection();
@@ -516,7 +713,14 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteImagenPincho
+     *
+     * @param  mixed $fk_pincho
+     * @param  mixed $numeroImagen
+     * @return void
+     */
     static function deleteImagenPincho($fk_pincho, $numeroImagen){
         try {
             $db = Conexion::getConection();
@@ -536,7 +740,18 @@ class Conexion
         }
     }
 
+    /*----------------------------------------------------------------------------------------------------------*/
     /*USUARIOS*/
+    /*----------------------------------------------------------------------------------------------------------*/
+
+        
+    /**
+     * getUsuarios
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
     static function getUsuarios($pagina, $cantidadRegistros){
         try {
             $db = Conexion::getConection();
@@ -555,7 +770,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getUser
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function getUser($idUsuario){
         try {
             $db = Conexion::getConection();
@@ -574,7 +795,19 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * newUsuario
+     *
+     * @param  mixed $nombre
+     * @param  mixed $apellido1
+     * @param  mixed $apellido2
+     * @param  mixed $correoElectronico
+     * @param  mixed $user
+     * @param  mixed $password
+     * @param  mixed $admin
+     * @return void
+     */
     static function newUsuario($nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin){
         try {
             $db = Conexion::getConection();
@@ -593,7 +826,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function deleteUsuario($idUsuario){
         try {
             $db = Conexion::getConection();
@@ -612,7 +851,20 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * updateUsuario
+     *
+     * @param  mixed $idUsuario
+     * @param  mixed $nombre
+     * @param  mixed $apellido1
+     * @param  mixed $apellido2
+     * @param  mixed $correoElectronico
+     * @param  mixed $user
+     * @param  mixed $password
+     * @param  mixed $admin
+     * @return void
+     */
     static function updateUsuario($idUsuario, $nombre, $apellido1, $apellido2, $correoElectronico, $user, $password, $admin){
         try {
             $db = Conexion::getConection();
@@ -631,7 +883,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * limpiarLikesUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function limpiarLikesUsuario($idUsuario){
         try {
             $db = Conexion::getConection();
@@ -650,7 +908,14 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * guardarImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @param  mixed $ruta
+     * @return void
+     */
     static function guardarImagenUsuario($idUsuario, $ruta){
         try {
             $db = Conexion::getConection();
@@ -669,7 +934,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * getImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function getImagenUsuario($idUsuario){
         try {
             $db = Conexion::getConection();
@@ -688,7 +959,13 @@ class Conexion
             echo $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteImagenUsuario
+     *
+     * @param  mixed $idUsuario
+     * @return void
+     */
     static function deleteImagenUsuario($idUsuario){
         try {
             $db = Conexion::getConection();

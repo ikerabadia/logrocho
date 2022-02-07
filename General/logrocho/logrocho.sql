@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2022 a las 12:21:57
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 07-02-2022 a las 18:53:17
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,6 +22,70 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `logrocho` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `logrocho`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes_bares`
+--
+
+CREATE TABLE `imagenes_bares` (
+  `id` int(11) NOT NULL,
+  `fk_bar` int(11) NOT NULL,
+  `imagen` text NOT NULL,
+  `numeroImagen` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes_bares`
+--
+
+INSERT INTO `imagenes_bares` (`id`, `fk_bar`, `imagen`, `numeroImagen`) VALUES
+(6, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen3/tabernaTioBlas3.jfif', 3),
+(10, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png', 2),
+(11, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen1/tabernaTioBlas1.jfif', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes_pincho`
+--
+
+CREATE TABLE `imagenes_pincho` (
+  `id` int(11) NOT NULL,
+  `fk_pincho` int(11) NOT NULL,
+  `imagen` text NOT NULL,
+  `numeroImagen` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes_pincho`
+--
+
+INSERT INTO `imagenes_pincho` (`id`, `fk_pincho`, `imagen`, `numeroImagen`) VALUES
+(1, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen1/imgPincho1.jpg', 1),
+(3, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen2/imgPincho2.jpg', 2),
+(4, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen3/imgPincho3.jpg', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes_usuarios`
+--
+
+CREATE TABLE `imagenes_usuarios` (
+  `id` int(11) NOT NULL,
+  `imagen` text NOT NULL,
+  `fk_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `imagenes_usuarios`
+--
+
+INSERT INTO `imagenes_usuarios` (`id`, `imagen`, `fk_usuario`) VALUES
+(6, 'http://localhost/logrocho/imagenes/usuarios/2/pepe.jfif', 2),
+(15, 'http://localhost/logrocho/imagenes/usuarios/1/Steve_ok.png', 1);
 
 -- --------------------------------------------------------
 
@@ -64,7 +128,8 @@ INSERT INTO `pinchos` (`idPincho`, `nombre`, `precio`, `fkBar`, `descripcion`) V
 (16, 'aceitunas', 1, 10, 'Un platito de aceitunas'),
 (17, 'tigre', 1, 12, 'tigres fritos, especialidad de la casa'),
 (18, 'mejillones', 9, 13, 'Mejillones en salsa'),
-(19, 'Pate con tostadas', 6, 14, 'pate casero con tostadas');
+(19, 'Pate con tostadas', 6, 14, 'pate casero con tostadas'),
+(21, 'Muslo de pollo', 4.25, 20, 'Muslo de pollo de la taberna del tio blas, asado a la leña y con patatas');
 
 -- --------------------------------------------------------
 
@@ -126,7 +191,11 @@ INSERT INTO `restaurantes` (`idRestaurante`, `nombre`, `descripcion`, `localizac
 (13, 'Restaurante9', 'Descripcion restaurante 9', 'Localizacion restaurante 9'),
 (14, 'Restaurante10', 'Descripcion restaurante 10', 'Localizacion restaurante 10'),
 (16, 'Restaurante12', 'Descripcion restaurante 12', 'Localizacion restaurante 12'),
-(17, 'Restaurante 13', 'Descripcion restaurante 13', 'Localizacion restaurante 13');
+(17, 'Restaurante 13', 'Descripcion restaurante 13', 'Localizacion restaurante 13'),
+(19, 'El riko pincho', 'El mejor restaurante de la calle laurel asegurado', 'Calle laurel 32'),
+(20, 'La taberna del tio blas', 'Pinchos muy buenos, cachopos, chuletas, chuletones, y mucho mas', 'Calle laurel 17'),
+(21, 'El bar de los champiñones', 'Los champiñones mas ricos de todo Logroño, solo aqui en la laurel', 'Calle laurel 78'),
+(22, 'Tortillas S.A', 'Tortillas muy buenas solo en nuestro restaurante.\nGanamos un premio el año pasado', 'Calle laurel 12');
 
 -- --------------------------------------------------------
 
@@ -160,11 +229,33 @@ INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo
 (10, 'rafael', 'nadal', 'nadal', 'rafanadal@gmail.com', 'rafanadal', 'rafanadal', 0),
 (11, 'cristiano', 'ronaldo', 'dosantos', 'elbicho@gmail.com', 'serresiete', 'serresiete', 0),
 (12, 'lionel', 'messi', 'pulga', 'lapulga@gmail.com', 'messi', 'messi', 0),
-(13, 'dwaine', 'jonson', 'therock', 'therock@gmail.com', 'therock', 'therock', 0);
+(13, 'dwaine', 'jonson', 'therock', 'therock@gmail.com', 'therock', 'therock', 0),
+(14, 'prueba1', 'prueba1', 'prueba1', 'prueba1@gmail.com', 'prueba1', 'prueba1', 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `imagenes_bares`
+--
+ALTER TABLE `imagenes_bares`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `restaurante` (`fk_bar`);
+
+--
+-- Indices de la tabla `imagenes_pincho`
+--
+ALTER TABLE `imagenes_pincho`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pincho` (`fk_pincho`);
+
+--
+-- Indices de la tabla `imagenes_usuarios`
+--
+ALTER TABLE `imagenes_usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `fk_usuario` (`fk_usuario`);
 
 --
 -- Indices de la tabla `likes`
@@ -206,6 +297,24 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `imagenes_bares`
+--
+ALTER TABLE `imagenes_bares`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes_pincho`
+--
+ALTER TABLE `imagenes_pincho`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes_usuarios`
+--
+ALTER TABLE `imagenes_usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `likes`
 --
 ALTER TABLE `likes`
@@ -215,7 +324,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT de la tabla `pinchos`
 --
 ALTER TABLE `pinchos`
-  MODIFY `idPincho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idPincho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `reseñas`
@@ -227,17 +336,35 @@ ALTER TABLE `reseñas`
 -- AUTO_INCREMENT de la tabla `restaurantes`
 --
 ALTER TABLE `restaurantes`
-  MODIFY `idRestaurante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idRestaurante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `imagenes_bares`
+--
+ALTER TABLE `imagenes_bares`
+  ADD CONSTRAINT `imagenes_bares_ibfk_1` FOREIGN KEY (`fk_bar`) REFERENCES `restaurantes` (`idRestaurante`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `imagenes_pincho`
+--
+ALTER TABLE `imagenes_pincho`
+  ADD CONSTRAINT `imagenes_pincho_ibfk_1` FOREIGN KEY (`fk_pincho`) REFERENCES `imagenes_pincho` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `imagenes_usuarios`
+--
+ALTER TABLE `imagenes_usuarios`
+  ADD CONSTRAINT `imagenes_usuarios_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `likes`
