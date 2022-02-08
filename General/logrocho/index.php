@@ -33,6 +33,10 @@
         $userController->error404();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "error500") {
         $userController->error500();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "home") { //PAGINA PRINCIPAL
+        $userController->home();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "frontLoginRegister") {
+        $userController->frontLoginRegister();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API //Restaurantes
         $apiController->getBares($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurante") {
@@ -111,8 +115,8 @@
         $apiController->getImagenUsuario($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "deleteImagenUsuario") {
         $apiController->deleteImagenUsuario($array_ruta[2]);
-    }else if(count($array_ruta)==0){
-        header("Location: ".$_SERVER["REQUEST_URI"]."login");
+    }else if(count($array_ruta)==0){ //Pagina mostrada por defecto
+        header("Location: ".$_SERVER["REQUEST_URI"]."home");
     }else{
-        header("Location: ".$_SERVER["REQUEST_URI"]."index.php/login");
+        header("Location: ".$_SERVER["REQUEST_URI"]."index.php/home");
     }
