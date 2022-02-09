@@ -27,6 +27,10 @@
  .btnLogin{
     cursor: pointer;
  }
+ #btnLogin{
+     text-decoration: none;
+     color: black;
+ }
 
  /*MENU*/
  .menu{
@@ -64,6 +68,13 @@
 .menu p:hover{
     background: rgb(255, 204, 0);
 }
+.btnMenu{
+    height: 100%;
+    width: 50%;
+    text-decoration: none;
+    background: #ffffff;
+}
+
 
 /*SLIDER*/
 .slider{

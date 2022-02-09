@@ -106,7 +106,12 @@ class UserController
     public function frontLoginRegister(){
         require("viewFrontal/loginRegister/loginRegister.html");
     }
-
+    /*----------------------------------------------------------------------------------------------------------*/
+    //LOGIN REGISTER
+    /*----------------------------------------------------------------------------------------------------------*/
+    public function mapa(){
+        require("viewFrontal/mapa/mapa.html");
+    }
 
     /*----------------------------------------------------------------------------------------------------------*/
     /*GET RUTA*/

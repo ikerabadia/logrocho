@@ -12,9 +12,11 @@
 <body>
     <div class="content">
         <div class="cabecera">
-            <div class="logo"> 
+            <a href="home">
+                <div class="logo"> 
 
-            </div>
+                </div>
+            </a>            
         </div>
 
         <div class="contenedorLoginRegister">
@@ -44,6 +46,35 @@
                 <h2 class="tituloRegister">
                     <span class="spanRegister">Registro</span>
                 </h2>
+                <div class="camposRegister">
+                    <div class="campoLogin">
+                        <div class="campoLoginLabel">
+                            <h3>Email</h3>
+                        </div>
+                        <input type="text" id="campoRegisterInputEmail" class="campoLoginInput">
+                    </div>
+                    <div class="campoLogin">
+                        <div class="campoLoginLabel">
+                            <h3>Usuario</h3>
+                        </div>
+                        <input type="text" id="campoRegisterInputUsuario" class="campoLoginInput">
+                    </div>
+                    <div class="campoLogin">
+                        <div class="campoLoginLabel">
+                            <h3>Contraseña</h3>
+                        </div>
+                        <input type="password" id="campoRegisterInputContraseña" class="campoLoginInput">
+                    </div>     
+                    <div class="campoLogin">
+                        <div class="campoLoginLabel">
+                            <h3>Repetir Contraseña</h3>
+                        </div>
+                        <input type="password" id="campoRegisterInputRepetirContraseña" class="campoLoginInput">
+                    </div>                
+                </div>
+                <div class="btnLoginRegister" id="btnLogin">
+                    <p class="txtBtnLoginRegister">Registrarse</p>
+                </div>
             </div>
         </div>
 

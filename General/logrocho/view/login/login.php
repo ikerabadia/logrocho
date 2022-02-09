@@ -19,7 +19,7 @@
             </h2>
         </div>
         <div class="contenedorLogin">
-            <a class="btn btn-secondary btnPaginaPrincipal" href="">🢀 Volver a la página principal</a>
+            <a class="btn btn-secondary btnPaginaPrincipal" href="">🢀 Ir a la página principal</a>
             <div class="login card">
                 <form action=<?php echo UserController::getRuta("loginRespuesta","login") ?> method="POST">
                     <h1 class="h3 mb-3 fw-normal">Acceso a la zona de administración</h1>

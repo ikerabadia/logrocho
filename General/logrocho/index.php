@@ -37,6 +37,8 @@
         $userController->home();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "frontLoginRegister") {
         $userController->frontLoginRegister();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "mapa") {
+        $userController->mapa();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API //Restaurantes
         $apiController->getBares($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurante") {
