@@ -107,11 +107,23 @@ class UserController
         require("viewFrontal/loginRegister/loginRegister.html");
     }
     /*----------------------------------------------------------------------------------------------------------*/
-    //LOGIN REGISTER
+    //MAPA
     /*----------------------------------------------------------------------------------------------------------*/
     public function mapa(){
         require("viewFrontal/mapa/mapa.html");
     }
+
+    /* ZONA DE USUARIO */
+    public function infoPersonal(){
+        require("viewFrontal/pagUsuario/infoPersonal/infoPersonal.html");
+    }
+    public function reseñasLikeadas(){
+        require("viewFrontal/pagUsuario/reseñasLikeadas/reseñasLikeadas.html");
+    }
+    public function reseñasPublicadas(){
+        require("viewFrontal/pagUsuario/reseñasPublicadas/reseñasPublicadas.html");
+    }
+    
 
     /*----------------------------------------------------------------------------------------------------------*/
     /*GET RUTA*/

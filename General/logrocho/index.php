@@ -39,6 +39,12 @@
         $userController->frontLoginRegister();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "mapa") {
         $userController->mapa();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "infoPersonal") {
+        $userController->infoPersonal();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "resenasLikeadas") {
+        $userController->reseñasLikeadas();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "resenasPublicadas") {
+        $userController->reseñasPublicadas();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API //Restaurantes
         $apiController->getBares($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurante") {
