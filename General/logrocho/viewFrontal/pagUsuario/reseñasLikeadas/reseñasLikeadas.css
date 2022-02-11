@@ -15,6 +15,32 @@
     border-bottom: 2px solid #fc0;
     margin-left: 10%;
 }
+.contenido{
+    width: 100%;
+}
+
+legend{
+    background-color: #f2f2f2;
+    border: medium none;
+    clear: both;
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    width: inherit;
+    border-radius: 30px;
+    float: none;
+}
+
+fieldset{
+    background-color: transparent;
+    border-top: 3px solid #eee;
+    margin-top: 60px;
+    padding: 10px 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
  /*CABECERA*/
  .cabecera{
@@ -129,6 +155,87 @@
     
 }
 
+/*RESEÑAS*/
+.reseñas{
+    width: 80%;
+    margin-left: 10%;
+}
+.reseña{
+    width: 100%;
+    height: 250px;
+    border: 3px solid #f2f2f2;
+    background: white;
+    display: flex;
+    flex-direction: row;
+}
+.zonaPerfil{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.zonaReseña{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.imagenPerfil{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgPerfil{
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: url(https://previews.123rf.com/images/drawkman/drawkman1709/drawkman170900224/85465511-visage-de-yeti-de-bande-dessin%C3%A9e-bonhomme-de-neige-de-bigfoot-de-vecteur-design-pour-impression-de-t.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.nombreUsuario{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.puntuacion{
+    width: 100%;
+    height: 15%;
+}
+.cabeceraReseña{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+}
+.textoReseña{
+    width: 100%;
+    height: 80%;
+}
+.nombrePincho{
+    width: 50%;
+    height: 100%;
+}
+.nombreBar{
+    width: 40%;
+    height: 100%;
+}
+.like{
+    width: 10%;
+    height: 100%;
+}
+.user{
+    font-size: 15px;
+    font-family: Arial narrow;
+    color: grey;
+}
 
 /*FOOTER*/
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
