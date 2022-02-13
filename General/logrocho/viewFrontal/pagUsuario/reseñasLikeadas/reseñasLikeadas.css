@@ -167,19 +167,24 @@ fieldset{
     background: white;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
 }
 .zonaPerfil{
     width: 20%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: 2px solid #fc0;
 }
 .zonaReseña{
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 .imagenPerfil{
     width: 100%;
@@ -208,20 +213,25 @@ fieldset{
 .puntuacion{
     width: 100%;
     height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .cabeceraReseña{
-    width: 100%;
+    width: 90%;
     height: 20%;
     display: flex;
     flex-direction: row;
+    border-bottom: 2px solid #fc0;
 }
 .textoReseña{
-    width: 100%;
+    width: 90%;
     height: 80%;
+    padding-top: 15px;
 }
 .nombrePincho{
     width: 50%;
-    height: 100%;
+    height: 100%;    
 }
 .nombreBar{
     width: 40%;
@@ -230,11 +240,46 @@ fieldset{
 .like{
     width: 10%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .user{
-    font-size: 15px;
+    font-size: 17px;
     font-family: Arial narrow;
     color: grey;
+}
+.puntuacionReseña{
+    font-size: 17px;
+    font-family: Arial narrow;
+    color: grey;
+}
+.cabeceraReseña pp{
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    align-items: flex-end;
+    color: #5e5e5e;
+    font-size: 20px;
+}
+/*LIKE*/
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+    color: red;
+    transition: 0.3s;
+}
+  
+.fa:hover {
+    color: darkred;
+}
+
+.like{
+    font-size: 40px;    
 }
 
 /*FOOTER*/
