@@ -66,6 +66,13 @@
         $fk_bar = $_POST["fk_bar"];
         $numeroImagen = $_POST["numeroImagen"];
         $apiController->deleteImagenRestaurante($fk_bar, $numeroImagen);
+    }else if (isset($array_ruta[0]) && $array_ruta[0]=="api" && $array_ruta[1] == "restaurantesFiltrados") {
+        $fTextoBuscador = $_POST["fTextoBuscador"];
+        $fNotaMinima = $_POST["fNotaMinima"];
+        $fNotaMaxima = $_POST["fNotaMaxima"];
+        $apiController->getBaresFiltrados($fTextoBuscador, $fTextoBuscador, $fNotaMinima, $fNotaMaxima);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantesConPinchos") {
+        $apiController->getBarConPinchos($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenas") { //Reseñas
         $apiController->getReseñas($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resena") {

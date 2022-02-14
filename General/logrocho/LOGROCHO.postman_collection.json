@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9dbda199-2c5e-4ed0-8922-2adb9e04243d",
+		"_postman_id": "18d44af0-121b-4dc6-9704-49f93292f519",
 		"name": "LOGROCHO",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -23,7 +23,7 @@
 								},
 								{
 									"key": "cantidadRegistros",
-									"value": "50",
+									"value": "10",
 									"type": "text"
 								}
 							]
@@ -87,12 +87,7 @@
 									"value": "Localizacion restaurante 3",
 									"type": "text"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "localhost/logrocho/index.php/api/nuevoRestaurante",
@@ -140,23 +135,23 @@
 							"urlencoded": [
 								{
 									"key": "nombre",
-									"value": "Restaurante3",
+									"value": "Restaurante1UWU",
 									"type": "text"
 								},
 								{
 									"key": "descripcion",
-									"value": "Descripcion restaurante 3",
+									"value": "Descripcion restaurante 1UWU",
 									"type": "text"
 								},
 								{
 									"key": "localizacion",
-									"value": "Localizacion restaurante 3",
+									"value": "Localizacion restaurante 1UWU",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/updateRestaurante/2",
+							"raw": "localhost/logrocho/index.php/api/updateRestaurante/1",
 							"host": [
 								"localhost"
 							],
@@ -165,9 +160,128 @@
 								"index.php",
 								"api",
 								"updateRestaurante",
-								"2"
+								"1"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImagenBar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "idBar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "numeroImagen",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/getImagenRestaurante",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"getImagenRestaurante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImagenRestaurante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fk_bar",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "numeroImagen",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deleteImagenRestaurante",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deleteImagenRestaurante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBaresFiltrados",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fTextoBuscador",
+									"value": "loc",
+									"type": "text"
+								},
+								{
+									"key": "fNotaMinima",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "fNotaMaxima",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/restaurantesFiltrados",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"restaurantesFiltrados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRestaurantesConSusImagenesJuntoASusPinchosConSusImagenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}
@@ -283,7 +397,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/deleteResena/16",
+							"raw": "localhost/logrocho/index.php/api/deleteResena/3",
 							"host": [
 								"localhost"
 							],
@@ -292,7 +406,7 @@
 								"index.php",
 								"api",
 								"deleteResena",
-								"16"
+								"3"
 							]
 						}
 					},
@@ -338,48 +452,6 @@
 								"index.php",
 								"api",
 								"updateResena",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getReseñasByUsuario",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost/logrocho/index.php/api/resenasByUsuario/2",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"logrocho",
-								"index.php",
-								"api",
-								"resenasByUsuario",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getReseñasByPincho",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost/logrocho/index.php/api/resenasByPincho/2",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"logrocho",
-								"index.php",
-								"api",
-								"resenasByPincho",
 								"2"
 							]
 						}
@@ -432,7 +504,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/pincho/2",
+							"raw": "localhost/logrocho/index.php/api/pincho/1",
 							"host": [
 								"localhost"
 							],
@@ -441,7 +513,7 @@
 								"index.php",
 								"api",
 								"pincho",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -560,12 +632,27 @@
 					"response": []
 				},
 				{
-					"name": "getPinchosByBar",
+					"name": "deleteImagenPincho",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fk_pincho",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "numeroImagen",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/pinchosByRestaurante/2",
+							"raw": "localhost/logrocho/index.php/api/deleteImagenPincho",
 							"host": [
 								"localhost"
 							],
@@ -573,8 +660,28 @@
 								"logrocho",
 								"index.php",
 								"api",
-								"pinchosByRestaurante",
-								"2"
+								"deleteImagenPincho"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPinchosByBar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/pinchos/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"pinchos",
+								"1"
 							]
 						}
 					},
@@ -707,7 +814,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost/logrocho/index.php/api/deleteUsuario/2",
+							"raw": "localhost/logrocho/index.php/api/deleteUsuario/3",
 							"host": [
 								"localhost"
 							],
@@ -716,7 +823,7 @@
 								"index.php",
 								"api",
 								"deleteUsuario",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -778,6 +885,48 @@
 								"api",
 								"updateUsuario",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getImagen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/getImagenUsuario/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"getImagenUsuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImagenUsuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/logrocho/index.php/api/deleteImagenUsuario/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"logrocho",
+								"index.php",
+								"api",
+								"deleteImagenUsuario",
+								"1"
 							]
 						}
 					},

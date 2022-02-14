@@ -28,6 +28,8 @@ class ApiController
             $aux["nombre"] = $bar["nombre"];
             $aux["descripcion"] = $bar["descripcion"];
             $aux["localizacion"] = $bar["localizacion"];
+            $aux["nota"] = $bar["Puntuacion"];
+
             array_push($array["bares"], $aux);
         }
         echo json_encode($array);
@@ -51,6 +53,7 @@ class ApiController
             $aux["nombre"] = $bar["nombre"];
             $aux["descripcion"] = $bar["descripcion"];
             $aux["localizacion"] = $bar["localizacion"];
+            $aux["notaMedia"] = $this->getNotaMediaRestaurante($bar["idRestaurante"]);
             array_push($array["bar"], $aux);
         }
         echo json_encode($array);
@@ -176,6 +179,56 @@ class ApiController
             
         echo json_encode($imagenbd);
     }
+
+    public function getBaresFiltrados($fNombre, $fLocalizacion, $fNotaMinima, $fNotaMaxima)
+    {
+
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["bares"] = array();
+        $baresbd = Conexion::getBaresFiltrados($fNombre, $fLocalizacion);
+        foreach ($baresbd as $bar) {
+            $aux = array();
+            $aux["idRestaurante"] = $bar["idRestaurante"];
+            $aux["nombre"] = $bar["nombre"];
+            $aux["descripcion"] = $bar["descripcion"];
+            $aux["localizacion"] = $bar["localizacion"];
+            $aux["nota"] = $bar["Puntuacion"];
+
+
+            if (($bar["Puntuacion"] >= $fNotaMinima && $bar["Puntuacion"] <= $fNotaMaxima)|| $bar["Puntuacion"]==null) {
+                array_push($array["bares"], $aux);
+            }
+            
+            
+        }
+        echo json_encode($array);
+    }
+
+    public function getBarConPinchos($idBar){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["bares"] = array();
+        $baresbd = Conexion::getBarConImagenes($idBar);
+        foreach ($baresbd as $bar) {
+            $aux = array();
+            $aux["idRestaurante"] = $bar["idRestaurante"];
+            $aux["nombre"] = $bar["nombre"];
+            $aux["descripcion"] = $bar["descripcion"];
+            $aux["localizacion"] = $bar["localizacion"];
+            $aux["nota"] = $bar["Puntuacion"];
+            $aux["imagen1"] = $bar["imagen1"];
+            $aux["imagen2"] = $bar["imagen2"];
+            $aux["imagen3"] = $bar["imagen3"];
+            $aux["pinchos"] = $this->getPinchosConImagenesByBar($aux["idRestaurante"]);
+            
+            array_push($array["bares"], $aux);
+            
+        }
+        echo json_encode($array);
+    }
+
+    
 
     //----------------------------------------
     //RESEÑAS
@@ -368,6 +421,10 @@ class ApiController
             $aux["precio"] = $pincho["precio"];
             $aux["fkBar"] = $pincho["fkBar"];
             $aux["descripcion"] = $pincho["descripcion"];
+            $notaMedia = Conexion::getNotaMediaPincho($pincho["idPincho"]);
+            foreach ($notaMedia as $nota){
+                $aux["notaMedia"] = $nota["notaPincho"];
+            }
             array_push($array["pinchos"], $aux);
         }
         echo json_encode($array);
@@ -392,6 +449,11 @@ class ApiController
             $aux["precio"] = $pincho["precio"];
             $aux["fkBar"] = $pincho["fkBar"];
             $aux["descripcion"] = $pincho["descripcion"];
+            $notaMedia = Conexion::getNotaMediaPincho($pincho["idPincho"]);
+            foreach ($notaMedia as $nota){
+                $aux["notaMedia"] = $nota["notaPincho"];
+            }
+            
             array_push($array["pinchos"], $aux);
         }
         echo json_encode($array);
@@ -477,10 +539,37 @@ class ApiController
             $aux["precio"] = $pincho["precio"];
             $aux["fkBar"] = $pincho["fkBar"];
             $aux["descripcion"] = $pincho["descripcion"];
+            $notaMedia = Conexion::getNotaMediaPincho($pincho["idPincho"]);
+            foreach ($notaMedia as $nota){
+                $aux["notaMedia"] = $nota["notaPincho"];
+            }
             array_push($array["pinchos"], $aux);
         }
         echo json_encode($array);
     }
+
+    private function getPinchosByRestauranteInterno($idRestaurante){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchosByRestaurante($idRestaurante);
+        foreach ($pinchosbd as $pincho) {
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $notaMedia = Conexion::getNotaMediaPincho($pincho["idPincho"]);
+            foreach ($notaMedia as $nota){
+                $aux["notaMedia"] = $nota["notaPincho"];
+            }
+            array_push($array["pinchos"], $aux);
+        }
+        return $array;
+    }
+
+    
     
     /**
      * getImagenPincho
@@ -544,6 +633,34 @@ class ApiController
             
         echo json_encode($imagenbd);
     }
+
+
+    public function getPinchosConImagenesByBar($idBar){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchosConImagenesByBar($idBar);
+        foreach ($pinchosbd as $pincho) {
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $notaMedia = Conexion::getNotaMediaPincho($pincho["idPincho"]);
+            $aux["notaMedia"] = null;
+            foreach ($notaMedia as $nota){
+                $aux["notaMedia"] = $nota["notaPincho"];
+            }
+            $aux["imagen1"] = $pincho["imagen1"];
+            $aux["imagen2"] = $pincho["imagen2"];
+            $aux["imagen3"] = $pincho["imagen3"];
+
+            array_push($array["pinchos"], $aux);
+        }
+        return $array["pinchos"];
+    }
+
     
 
     //----------------------------------------

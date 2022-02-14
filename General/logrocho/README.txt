@@ -7,6 +7,8 @@ Pasos a seguir para abrir el proyecto:
 	5- para visualizar las paginas de error se debe acceder por ruta:
 		- 404 -> /error404
 		- 500 -> /error500
+	6- Para acceder a la zona de administracion se debe acceder por ruta al login: "/login" 
+		y loguearse con las credenciales del usuario admin
 	
 	Credenciales del usuario admin:
 	User: admin

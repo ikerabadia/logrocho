@@ -1,6 +1,6 @@
 <?php
 
-const DB_INFO = 'mysql:host=localhost:3306;dbname=logrocho';
+const DB_INFO = 'mysql:host=localhost:3307;dbname=logrocho';
 
 const DB_USER = 'root';
 
@@ -114,7 +114,7 @@ class Conexion
         try {
             $db = Conexion::getConection();
 
-            $sql = "SELECT * FROM restaurantes LIMIT $cantidadRegistros OFFSET ".($pagina-1)*$cantidadRegistros;
+            $sql = "SELECT *,TRUNCATE((Select avg(nota) from reseñas where fkPincho IN(SELECT idPincho from pinchos WHERE fkBar=idRestaurante)),1) as Puntuacion FROM restaurantes LIMIT $cantidadRegistros OFFSET ".($pagina-1)*$cantidadRegistros;
             $resultado = $db->query($sql);
 
             if ($resultado) {
@@ -312,6 +312,52 @@ class Conexion
             echo $e->getMessage();
         }
     }
+
+    static function getBaresFiltrados($fNombre, $fLocalizacion){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,TRUNCATE((Select avg(nota) from reseñas where fkPincho IN(SELECT idPincho from pinchos WHERE fkBar=idRestaurante)),1) as Puntuacion FROM restaurantes where nombre LIKE '%".$fNombre."%' or localizacion LIKE '%".$fLocalizacion."%'";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getBarConImagenes($idBar){
+        
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,
+            TRUNCATE((Select avg(nota) from reseñas where fkPincho IN(SELECT idPincho from pinchos WHERE fkBar=r.idRestaurante)),1) as Puntuacion, 
+            (SELECT imagen FROM imagenes_bares WHERE fk_Bar = r.idRestaurante and numeroImagen = 1) as imagen1, 
+            (SELECT imagen FROM imagenes_bares WHERE fk_Bar = r.idRestaurante and numeroImagen = 2) as imagen2, 
+            (SELECT imagen FROM imagenes_bares WHERE fk_Bar = r.idRestaurante and numeroImagen = 3) as imagen3 
+            FROM `restaurantes` r where idRestaurante = ".$idBar;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    
 
     /*----------------------------------------------------------------------------------------------------------*/
     /*RESEÑAS*/
@@ -726,6 +772,48 @@ class Conexion
             $db = Conexion::getConection();
 
             $sql = "DELETE FROM imagenes_pincho WHERE `fk_pincho` = ".$fk_pincho." and `numeroImagen` = ".$numeroImagen;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getNotaMediaPincho($idPincho){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT TRUNCATE(AVG(nota),1) as notaPincho FROM `reseñas` GROUP BY fkPincho HAVING fkPincho = ".$idPincho;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getPinchosConImagenesByBar($idBar){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 1) as imagen1 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3 
+            FROM pinchos p WHERE fkBar = ".$idBar;
             $resultado = $db->query($sql);
 
             if ($resultado) {
