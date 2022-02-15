@@ -123,6 +123,11 @@ class UserController
     public function reseñasPublicadas(){
         require("viewFrontal/pagUsuario/reseñasPublicadas/reseñasPublicadas.html");
     }
+
+    /*PAGINA LISTADO DE BARES*/
+    public function baresFront(){
+        require("viewFrontal/bares/bares.html");
+    }
     
 
     /*----------------------------------------------------------------------------------------------------------*/

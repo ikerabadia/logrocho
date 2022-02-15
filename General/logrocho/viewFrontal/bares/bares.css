@@ -1,45 +1,22 @@
 /*GENERALES*/
 .content{
-
+    background: white;
 }
-
 .titulo{
     border-bottom: 1px solid #f6f6f6;
     font-size: 22px;
     text-transform: uppercase;
     font-weight: 300;
     margin-top: 30px;
+    
 }
 .spanTitulo{
     color: rgb(45, 45, 45);
     border-bottom: 2px solid #fc0;
     margin-left: 10%;
 }
-.contenido{
-    width: 100%;
-}
-
-legend{
-    background-color: #f2f2f2;
-    border: medium none;
-    clear: both;
-    color: #999;
-    font-size: 12px;
-    font-weight: 400;
-    padding: 7px 15px;
-    text-transform: uppercase;
-    width: inherit;
-    border-radius: 30px;
-    float: none;
-}
-
-fieldset{
-    background-color: transparent;
-    border-top: 3px solid #eee;
-    margin-top: 60px;
-    padding: 10px 25px;
-    margin-left: 10%;
-    margin-right: 10%;
+.palabraImportante{
+    font-weight: 800;
 }
 
  /*CABECERA*/
@@ -55,7 +32,7 @@ fieldset{
     background: #ffffff;
  }
  .logo{
-    background-image: url("../../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
+    background-image: url("../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
     width: 150px;
     height: 150px;
     background-position: center;
@@ -113,174 +90,137 @@ fieldset{
     text-decoration: none;
     background: #ffffff;
 }
+.btnBares{
+    background: rgb(255, 204, 0);
+}
 
-/*SUBMENU*/
-.subMenu{
+/*FILTROS*/
+.contenedorBaresFiltros{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    color: grey;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.filtroNota input{
+    outline: none;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+    color: grey;
+    width: 20%;
+}
+.filtroNota input:focus{
+    border-left: 10px solid #fc0;
+}
+.contenedorFiltros{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #fc0;
+    padding-bottom: 15px;
+}
+.filtroNota{
+    width: 50%;
+}
+/*BUSCADOR*/
+.buscador{
+    border: 2px solid #fc0;
+    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 10px;
-    margin-left: 10%;
-    margin-right: 10%;
 }
-.enlaceSubmenu{
-    font-size: 11px;
-    font-family: Arial narrow;
-    text-transform: uppercase;
-    display: block;
-    padding: 5px 9px;
-    background-color: #fff;
-    color: grey;
-    border: 1px solid #ddd;
-    text-decoration: none;
-    transition: 0.3s;
+.buscador input:focus{
+    box-shadow: 0px 0px 10px #fc0;
+    border: 0px;
 }
-.enlaceSubmenu:hover{
-    background-color: #e3e3e3;
-    color: #444;
-}
-.btnSubmenu{
-    margin-left: 20px;    
-}
-
-#contenedorBtnInfoPersonal{
-    margin-left: 0px;
-}
-
-#btnReseñasLikeadas{
-    color: #fff;
-    background-color: #444;
-    border-width: 0;
-    border-style: none;
-    
-}
-
-/*RESEÑAS*/
-.reseñas{
-    width: 80%;
-    margin-left: 10%;
-}
-.reseña{
-    width: 100%;
-    min-height: 250px;
-    border: 3px solid #f2f2f2;
-    background: white;
+.buscadorLabel{
+    background: #fc0;
+    width: 20%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 20px;
-}
-.zonaPerfil{
-    width: 20%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: 2px solid #fc0;
-}
-.zonaReseña{
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-}
-.imagenPerfil{
-    width: 100%;
-    height: 70%;
-    display: flex;
     justify-content: center;
-    align-items: center;
 }
-.imgPerfil{
-    border: 1px solid black;
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    background: url(https://previews.123rf.com/images/drawkman/drawkman1709/drawkman170900224/85465511-visage-de-yeti-de-bande-dessin%C3%A9e-bonhomme-de-neige-de-bigfoot-de-vecteur-design-pour-impression-de-t.jpg);
+.buscadorInput{
+    border: 0px;
+    outline: none;
+    box-shadow: 0px 0px 0px #fc0;
+    transition: 0.3s;
+    padding-left: 10px;
+    width: 100%;
+}
+
+/*BARES*/
+.contenedorBares{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.bar{
+    width: 30%;
+    height: 300px;
+    margin-left: 2.5%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    background: url("../../../logrocho/viewFrontal/home/imgRestaurantes/restaurante1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    box-shadow: 0px 0px 0px black;
+    transition: 0.3s;
+    cursor: pointer;
 }
-.nombreUsuario{
-    width: 100%;
-    height: 15%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.bar:hover{
+    box-shadow: 0px 0px 10px black;
 }
-.puntuacion{
-    width: 100%;
-    height: 15%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.bar:hover>.datosBar{
+    bottom: -17%;
+    border-top: 10px solid #fc0;
 }
-.cabeceraReseña{
-    width: 90%;
+.datosBar{
     height: 20%;
+    background: #F8F9FB;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    border-top: 2px solid #fc0;
+    transition: 0.5s;
+}
+.nombrePuntuacionBar{
+    width: 100%;
+    height: 50%;
     display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid #fc0;
-}
-.textoReseña{
-    width: 90%;
-    height: 80%;
-    padding-top: 15px;
-}
-.nombrePincho{
-    width: 50%;
-    height: 100%;    
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .nombreBar{
-    width: 40%;
-    height: 100%;
+    width: 70%;
+    text-transform: initial;
+    font-size: 15px;
 }
-.like{
-    width: 10%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.puntuacionBar{
+    width: 30%;
+    color: goldenrod;
 }
-.user{
-    font-size: 17px;
-    font-family: Arial narrow;
-    color: grey;
-}
-.puntuacionReseña{
-    font-size: 17px;
-    font-family: Arial narrow;
-    color: grey;
-}
-.cabeceraReseña pp{
-    margin: 0px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    text-transform: uppercase;
-    align-items: flex-end;
-    color: #5e5e5e;
-    font-size: 20px;
-}
-/*LIKE*/
-.fa {
-    font-size: 50px;
-    cursor: pointer;
-    user-select: none;
-    color: red;
-    transition: 0.3s;
-}
-  
-.fa:hover {
-    color: darkred;
+.localizacionBar{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    text-transform: initial;
+    text-align: center;
 }
 
-.like{
-    font-size: 40px;    
-}
 
 /*FOOTER*/
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
