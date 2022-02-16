@@ -124,13 +124,16 @@ class UserController
         require("viewFrontal/pagUsuario/reseñasPublicadas/reseñasPublicadas.html");
     }
 
-    /*PAGINA LISTADO DE BARES*/
+    /*BARES FRONT*/
     public function baresFront(){
         require("viewFrontal/bares/bares.html");
     }
-    /*PAGINA FICHA DE PINCHO*/
     public function barFront(){
         require("viewFrontal/bar/bar.html");
+    }
+    /*PAGINA FICHA DE PINCHO*/
+    public function pinchoFront(){
+        require("viewFrontal/pincho/pincho.html");
     }
 
     /*----------------------------------------------------------------------------------------------------------*/

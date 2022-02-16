@@ -223,6 +223,7 @@ fieldset{
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid #fc0;
+    align-items: center;
 }
 .textoReseña{
     width: 90%;
