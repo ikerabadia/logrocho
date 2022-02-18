@@ -179,7 +179,7 @@
     justify-content: flex-end;
     position: relative;
     overflow: hidden;
-    background: url("../../../logrocho/viewFrontal/home/imgRestaurantes/restaurante1.jpg");
+    background: url("../../../logrocho/RecursosGenerales/restauranteDefault.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
