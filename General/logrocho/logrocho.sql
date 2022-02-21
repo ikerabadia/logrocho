@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-02-2022 a las 21:35:43
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 21-02-2022 a las 15:50:57
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,8 +41,8 @@ CREATE TABLE `imagenes_bares` (
 --
 
 INSERT INTO `imagenes_bares` (`id`, `fk_bar`, `imagen`, `numeroImagen`) VALUES
-(6, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen3/tabernaTioBlas3.jfif', 3),
-(10, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png', 2);
+(10, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png', 2),
+(12, 1, 'http://localhost/logrocho/imagenes/restaurantes/1/imagen1/tabernaTioBlas1.jfif', 1);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,8 @@ CREATE TABLE `imagenes_pincho` (
 INSERT INTO `imagenes_pincho` (`id`, `fk_pincho`, `imagen`, `numeroImagen`) VALUES
 (1, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen1/imgPincho1.jpg', 1),
 (3, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen2/imgPincho2.jpg', 2),
-(4, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen3/imgPincho3.jpg', 3);
+(4, 1, 'http://localhost/logrocho/imagenes/pinchos/1/imagen3/imgPincho3.jpg', 3),
+(18, 22, 'http://localhost/logrocho/imagenes/pinchos/22/imagen1/R.jfif', 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,8 @@ INSERT INTO `pinchos` (`idPincho`, `nombre`, `precio`, `fkBar`, `descripcion`) V
 (17, 'tigre', 1, 12, 'tigres fritos, especialidad de la casa'),
 (18, 'mejillones', 9, 13, 'Mejillones en salsa'),
 (19, 'Pate con tostadas', 6, 14, 'pate casero con tostadas'),
-(21, 'Muslo de pollo', 4.25, 20, 'Muslo de pollo de la taberna del tio blas, asado a la leña y con patatas');
+(21, 'Muslo de pollo', 4.25, 20, 'Muslo de pollo de la taberna del tio blas, asado a la leña y con patatas'),
+(22, 'Tortilla de patatas', 3.5, 1, 'Tortilla de patatas sin cebolla muy jugosa y con chorizo ');
 
 -- --------------------------------------------------------
 
@@ -167,7 +169,8 @@ INSERT INTO `reseñas` (`idReseña`, `fkUsuario`, `fkPincho`, `nota`, `textoRese
 (10, 2, 2, 9, 'pero kewenas estan estas croqueottas siuuu'),
 (11, 2, 2, 10, 'las mejores croquetas ke probe en mi vida jeje'),
 (12, 2, 2, 6, 'las mias tan mas ricas pero weno no estan mal'),
-(13, 2, 2, 10, 'Me hallo agradecido a Dios pues me ha permitido probar estas croquetas angelicales, Amén');
+(13, 2, 2, 10, 'Me hallo agradecido a Dios pues me ha permitido probar estas croquetas angelicales, Amén'),
+(17, 7, 2, 7, 'Unas croquetas en un buen punto de fritura pero la bechamel un poco sosa');
 
 -- --------------------------------------------------------
 
@@ -306,13 +309,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `imagenes_bares`
 --
 ALTER TABLE `imagenes_bares`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_pincho`
 --
 ALTER TABLE `imagenes_pincho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_usuarios`
@@ -330,13 +333,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT de la tabla `pinchos`
 --
 ALTER TABLE `pinchos`
-  MODIFY `idPincho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idPincho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `reseñas`
 --
 ALTER TABLE `reseñas`
-  MODIFY `idReseña` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idReseña` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `restaurantes`
@@ -364,7 +367,7 @@ ALTER TABLE `imagenes_bares`
 -- Filtros para la tabla `imagenes_pincho`
 --
 ALTER TABLE `imagenes_pincho`
-  ADD CONSTRAINT `imagenes_pincho_ibfk_1` FOREIGN KEY (`fk_pincho`) REFERENCES `imagenes_pincho` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `imagenes_pincho_ibfk_1` FOREIGN KEY (`fk_pincho`) REFERENCES `pinchos` (`idPincho`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `imagenes_usuarios`
