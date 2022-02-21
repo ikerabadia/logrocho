@@ -26,6 +26,49 @@
     background-size: cover;
     overflow: hidden;
  }
+ /*MENU*/
+ .menu{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 2px solid rgb(255, 204, 0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+ }
+ .menu div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    height: 100%;
+    background: #ffffff;
+ }
+.menu p{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    align-items: center;
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222;
+}
+.menu p:hover{
+    background: rgb(255, 204, 0);
+}
+.btnMenu{
+    height: 100%;
+    width: 50%;
+    text-decoration: none;
+    background: #ffffff;
+}
+
  /*LOGINREGISTER*/
  .contenedorLoginRegister{
     width: 70%;
