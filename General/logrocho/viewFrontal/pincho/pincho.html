@@ -34,7 +34,7 @@
             </a>
         </div>
         <h1 class="titulo">
-            <span class="spanTitulo">Pincho de tortilla</span><span class="spanPrecio">10.50€</span>
+            <span class="spanTitulo" id="spanNombrePincho">Pincho de tortilla</span><span class="spanPrecio" id="spanPrecio">10.50€</span>
         </h1>
 
         <div class="fondoContenedorImgDatos">
@@ -48,8 +48,8 @@
 
                 </div>
                 <div class="contenedorDatos">
-                    <div class="puntuacion"> <span class="spanPuntuacion">★★★☆☆</span> </div>
-                    <div class="descripcionPincho">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    <div class="puntuacion"> <span class="spanPuntuacion" id="spanPuntuacion">★★★☆☆</span> </div>
+                    <div class="descripcionPincho" id="descripcionPincho">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Ut imperdiet lorem vel eleifend auctor. Duis eget lobortis nisl, quis fermentum 
                         turpis. Morbi elementum, augue at fringilla finibus, arcu ante interdum mauris, 
                         vel dictum massa purus in urna. Vestibulum nec aliquam lorem. Curabitur viverra 
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="localizacionPincho">
+            <div class="localizacionPincho" id="barPincho">
                 La taberna del tio Blas
             </div>
         </div>
@@ -68,7 +68,8 @@
             <legend>Reseñas</legend>
 
         </fieldset>
-        <div class="reseñas">
+        <div class="reseñas" id="resenas">
+
             <div class="reseña">
                 <div class="zonaPerfil">
                     <div class="imagenPerfil">
@@ -82,7 +83,7 @@
                     <div class="puntuacion">
                         <pp class="puntuacionReseña">4.5/5</pp>
                     </div>
-                </div>
+                </div>                
                 <div class="zonaReseña">
                     <div class="cabeceraReseña">
                         <div class="nombrePincho">
@@ -387,7 +388,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="../../../logrocho/RecursosGenerales/jquery-3.6.0.js"></script>
     <script src="../../../logrocho/viewFrontal/pincho/pincho.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-const DB_INFO = 'mysql:host=localhost:3307;dbname=logrocho';
+const DB_INFO = 'mysql:host=localhost:3306;dbname=logrocho';
 
 const DB_USER = 'root';
 
@@ -747,9 +747,11 @@ class Conexion
 
             $sql = "INSERT INTO `imagenes_pincho`(`fk_pincho`, `imagen`, `numeroImagen`) VALUES ('$fk_pincho', '$imagen', '$numeroImagen')";
             $resultado = $db->query($sql);
-
+            
             if ($resultado) {
-                return $db->lastInsertId();
+                /* return $db->lastInsertId(); */
+                
+                return $resultado;
             } else {
                 throw new Exception("Error en el select....");
             }
@@ -814,6 +816,29 @@ class Conexion
             ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2 
             ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3 
             FROM pinchos p WHERE fkBar = ".$idBar;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getPinchoConImagenes($idPincho){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,TRUNCATE((Select avg(nota) from reseñas where fkPincho = p.idPincho),1) as Puntuacion, 
+            (SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 1) as imagen1, 
+            (SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2, 
+            (SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3 
+            FROM `pinchos` p where idPincho = ".$idPincho;
             $resultado = $db->query($sql);
 
             if ($resultado) {

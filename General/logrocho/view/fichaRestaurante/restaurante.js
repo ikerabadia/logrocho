@@ -17,7 +17,7 @@ function establecerIdRestaurante() {
 function mostrarDatos(){  
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/restaurante/"+idRestaurante,
+        "url": "http://localhost/logrocho/index.php/api/restaurantesConPinchos/"+idRestaurante,
         "method": "GET",
         "timeout": 0,
       };
@@ -27,10 +27,11 @@ function mostrarDatos(){
         resultados=eval(json);
         datosOriginales = resultados;
 
-        document.getElementById("inputNombreRestaurante").value = resultados["bar"][0]["nombre"];
-        document.getElementById("muestraId").innerHTML = "ID: "+ resultados["bar"][0]["idRestaurante"];
-        document.getElementById("inputDescripcion").value = resultados["bar"][0]["descripcion"];
-        document.getElementById("inputDireccionRestaurante").value = resultados["bar"][0]["localizacion"];
+        document.getElementById("inputNombreRestaurante").value = resultados["bares"][0]["nombre"];
+        document.getElementById("muestraId").innerHTML = "ID: "+ resultados["bares"][0]["idRestaurante"];
+        document.getElementById("inputDescripcion").value = resultados["bares"][0]["descripcion"];
+        document.getElementById("inputDireccionRestaurante").value = resultados["bares"][0]["localizacion"];
+        document.getElementById("spanNota").innerHTML = resultados["bares"][0]["nota"];
         
         
       });

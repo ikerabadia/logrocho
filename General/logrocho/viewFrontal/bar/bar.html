@@ -33,22 +33,22 @@
             </a>
         </div>
         <h1 class="titulo">
-            <span class="spanTitulo">La taberna del tio blas</span>
+            <span class="spanTitulo" id="spanTitulo">La taberna del tio blas</span>
         </h1>
 
         <div class="fondoContenedorImgDatos">
             <div class="contenedorImgDatos">
                 <div class="contenedorImg">
     
-                    <div class="slider" id="slider">                      
-                        <div class="btnSlider" id="btnSliderDerecha">🠺</div>
-                        <div class="btnSlider" id="btnSliderIzquierda">🠸</div>
+                    <div class="slider" id="imagenMostrada">                      
+                        <div class="btnSlider" id="btnSliderDerecha" onclick="siguienteImagen()">🠺</div>
+                        <div class="btnSlider" id="btnSliderIzquierda" onclick="anteriorImagen()">🠸</div>
                     </div>
 
                 </div>
                 <div class="contenedorDatos">
-                    <div class="puntuacion"> <span class="spanPuntuacion">★★★☆☆</span> </div>
-                    <div class="descripcionBar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    <div class="puntuacion"> <span class="spanPuntuacion" id="spanPuntuacion">★★★☆☆</span> </div>
+                    <div class="descripcionBar" id="descripcionBar">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Ut imperdiet lorem vel eleifend auctor. Duis eget lobortis nisl, quis fermentum 
                         turpis. Morbi elementum, augue at fringilla finibus, arcu ante interdum mauris, 
                         vel dictum massa purus in urna. Vestibulum nec aliquam lorem. Curabitur viverra 
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="localizacionBar">
+            <div class="localizacionBar" id="localizacionBar">
                 📌 Calle Laurel 27
             </div>
         </div>
@@ -67,14 +67,13 @@
             <legend>Pinchos</legend>
 
         </fieldset>            
-            <div class="contenedorPinchos">
+            <div class="contenedorPinchos" id="contenedorPinchos">
 
                 <a href="frontPincho">
                     <div class="pincho" id="pincho1">
                         <div class="datosPincho">
                             <div class="nombrePincho">
-                                Pincho de tortilla de patata
-                                
+                                Pincho de tortilla de patata                                
                             </div>
                             <div class="puntuacionPincho">
                                 ★★★☆☆
@@ -87,8 +86,7 @@
                     <div class="pincho" id="pincho1">
                         <div class="datosPincho">
                             <div class="nombrePincho">
-                                Pincho de tortilla de patata
-                                
+                                Pincho de tortilla de patata                                
                             </div>
                             <div class="puntuacionPincho">
                                 ★★★☆☆
@@ -191,5 +189,6 @@
     </footer>
 
     <script src="../../../logrocho/viewFrontal/bar/bar.js"></script>
+    <script src="../../../logrocho/RecursosGenerales/jquery-3.6.0.js"></script>
 </body>
 </html>

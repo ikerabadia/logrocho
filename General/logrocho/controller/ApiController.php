@@ -53,7 +53,7 @@ class ApiController
             $aux["nombre"] = $bar["nombre"];
             $aux["descripcion"] = $bar["descripcion"];
             $aux["localizacion"] = $bar["localizacion"];
-            $aux["notaMedia"] = $this->getNotaMediaRestaurante($bar["idRestaurante"]);
+            /* $aux["notaMedia"] = $this->getNotaMediaRestaurante($bar["idRestaurante"]); */
             array_push($array["bar"], $aux);
         }
         echo json_encode($array);
@@ -616,7 +616,7 @@ class ApiController
             move_uploaded_file($imagen["tmp_name"], "./imagenes/pinchos/".$fk_pincho."/imagen".$numeroImagen."/".$imagen["name"]);
         }
         
-        Conexion::guardarImagenPincho($fk_pincho,$numeroImagen, $ruta);
+        echo json_encode(Conexion::guardarImagenPincho($fk_pincho,$numeroImagen, $ruta));
     }
     
     /**
@@ -659,6 +659,41 @@ class ApiController
             array_push($array["pinchos"], $aux);
         }
         return $array["pinchos"];
+    }
+
+    public function getPinchoConImagenesReseñas($idPincho){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchoConImagenes($idPincho);
+        foreach ($pinchosbd as $pincho) {
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $aux["nota"] = $pincho["Puntuacion"];
+            $aux["imagen1"] = $pincho["imagen1"];
+            $aux["imagen2"] = $pincho["imagen2"];
+            $aux["imagen3"] = $pincho["imagen3"];
+            
+            $aux["resenas"] = array();
+            $reseñas = Conexion::getReseñasByPincho($aux["idPincho"]);
+            foreach ($reseñas as $reseña) {
+                $auxReseña = array();
+                $auxReseña["idReseña"] = $reseña["idReseña"];
+                $auxReseña["fkUsuario"] = $reseña["fkUsuario"];
+                $auxReseña["fkPincho"] = $reseña["fkPincho"];
+                $auxReseña["nota"] = $reseña["nota"];
+                $auxReseña["textoReseña"] = $reseña["textoReseña"];
+                array_push($aux["resenas"], $auxReseña);
+            }
+            
+            array_push($array["pinchos"], $aux);
+            
+        }
+        echo json_encode($array);
     }
 
     

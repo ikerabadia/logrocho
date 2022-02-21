@@ -30,8 +30,8 @@ function mostrarDatos() {
         for (let i = 0; i < resultados["bares"].length; i++) {
             bar = resultados["bares"][i];
             document.getElementById("contenedorBares").innerHTML += ""+
-            "<a href=\"barFront/"+bar["idRestaurante"]+"\">"+
-                    "<div class=\"bar\" id=\"bar\""+bar["idRestaurante"]+">"+
+            "<a href=\"barFront?id="+bar["idRestaurante"]+"\">"+
+                    "<div class=\"bar\" id=\"bar"+bar["idRestaurante"]+"\">"+
                         "<div class=\"datosBar\">"+
                             "<div class=\"nombrePuntuacionBar\">"+
                                 "<div class=\"nombreBar\">"+bar["nombre"]+"</div>"+
@@ -43,7 +43,7 @@ function mostrarDatos() {
                 "</a>";
         }
         //Asigno las imagenes
-        for (let i = 0; resultados["bares"].length; i++) {
+         for (let i = 0; i < resultados["bares"].length; i++) {
             
             var settings = {
                 "url": "http://localhost/logrocho/index.php/api/getImagenRestaurante",
@@ -53,17 +53,20 @@ function mostrarDatos() {
                 "Content-Type": "application/x-www-form-urlencoded"
                 },
                 "data": {
-                "idBar": ""+resultados["bares"]["idRestaurante"],
+                "idBar": ""+resultados["bares"][i]["idRestaurante"],
                 "numeroImagen": "1"
                 }
             };
             
             $.ajax(settings).done(function (response) {
-                var json = response;
-                var resultados=eval(json);
-                document.getElementById("bar"+resultados["bares"]["idRestaurante"]).style.background("url(\""+resultados["imagenes"][0]["imagen"]+"\")")
-            });
-            
+                var json2 = response;
+                var resultados2=eval(json2);
+                var idContenedor = "bar"+resultados["bares"][i]["idRestaurante"];
+                var contenedor = document.getElementById(idContenedor);
+                if (resultados2["imagenes"][0] != undefined) {
+                    contenedor.style.backgroundImage = "url(\""+resultados2["imagenes"][0]["imagen"]+"\")";
+                }                
+            });            
         }
       });
       

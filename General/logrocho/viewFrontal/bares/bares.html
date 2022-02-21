@@ -39,13 +39,13 @@
         <div class="contenedorBaresFiltros">
             <div class="contenedorFiltros">
                 <div class="filtroNota">
-                    Nota <span class="palabraImportante">desde</span> <input type="number" max="10" min="0" name="inputNotaMinima" id="inputNotaMinima" value="0"> <span class="palabraImportante">hasta</span> <input type="number" max="10" min="0" name="inputNotaMaxima" id="inputNotaMaxima" value="10">
+                    Nota <span class="palabraImportante">desde</span> <input type="number" max="10" min="0" name="inputNotaMinima" id="inputNotaMinima" value="0" onchange="mostrarDatos()" onkeyup="mostrarDatos()"> <span class="palabraImportante">hasta</span> <input type="number" max="10" min="0" name="inputNotaMaxima" id="inputNotaMaxima" value="10" onchange="mostrarDatos()" onkeyup="mostrarDatos()">
                 </div>
                 <div class="buscador">
                     <div class="buscadorLabel">
                         🔎
                     </div>
-                    <input type="text" id="buscadorInput" class="buscadorInput">
+                    <input type="text" id="buscadorInput" class="buscadorInput" onkeyup="mostrarDatos()">
                 </div>
             </div>
             <div class="contenedorBares" id="contenedorBares">

@@ -47,9 +47,9 @@
         $userController->reseñasPublicadas();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "baresFront") {
         $userController->baresFront();
-    }else if (isset($array_ruta[0]) && $array_ruta[0] == "barFront") {
+    }else if (isset($array_ruta[0]) && preg_match('/barFront/', $array_ruta[0]) ) {
         $userController->barFront();
-    }else if (isset($array_ruta[0]) && $array_ruta[0] == "frontPincho") {
+    }else if (isset($array_ruta[0]) && preg_match('/frontPincho/', $array_ruta[0]) ) {
         $userController->pinchoFront();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API //Restaurantes
         $apiController->getBares($_POST["pagina"], $_POST["cantidadRegistros"]);
@@ -116,6 +116,8 @@
         $fk_pincho = $_POST["fk_pincho"];
         $numeroImagen = $_POST["numeroImagen"];
         $apiController->deleteImagenPincho($fk_pincho, $numeroImagen);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pinchosImagenesResenas") {
+        $apiController->getPinchoConImagenesReseñas($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "usuarios") { //Usuarios
         $apiController->getUsuarios($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "usuario") {
