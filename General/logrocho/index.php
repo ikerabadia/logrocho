@@ -49,6 +49,8 @@
         $userController->baresFront();
     }else if (isset($array_ruta[0]) && preg_match('/barFront/', $array_ruta[0]) ) {
         $userController->barFront();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "frontPinchos") {
+        $userController->pinchosFront();
     }else if (isset($array_ruta[0]) && preg_match('/frontPincho/', $array_ruta[0]) ) {
         $userController->pinchoFront();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantes") { //API //Restaurantes

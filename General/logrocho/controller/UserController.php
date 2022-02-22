@@ -131,9 +131,12 @@ class UserController
     public function barFront(){
         require("viewFrontal/bar/bar.html");
     }
-    /*PAGINA FICHA DE PINCHO*/
+    /*PINCHOS FRONT*/
     public function pinchoFront(){
         require("viewFrontal/pincho/pincho.html");
+    }
+    public function pinchosFront(){
+        require("viewFrontal/pinchos/pinchos.html");
     }
 
     /*----------------------------------------------------------------------------------------------------------*/
