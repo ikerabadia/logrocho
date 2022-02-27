@@ -398,6 +398,64 @@ class ApiController
         echo json_encode($array);
     }
 
+    public function darLike($idReseña){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        
+
+        $array = array();
+        $array["resultado"] = "";
+
+        /* Conexion::darLike($idReseña, 4); */
+
+        if (isset($_SESSION["usuarioActual"])) {
+            $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+            Conexion::darLike($idReseña, $idUsuario);
+            $array["resultado"] = "Like aplicado correctamente a la reseña";
+        }else{
+            $array["resultado"] = "No existe un usuario registrado";
+        }
+
+        echo json_encode($array);
+        
+    }
+
+
+    public function getReseñasPinchosOrdenPopularidad(){
+
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchosOrderedNota();
+        foreach ($pinchosbd as $pincho) {
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["nombreBar"] = $pincho["nombreBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $aux["nota"] = $pincho["nota"];
+            array_push($array["pinchos"], $aux);
+        }  
+
+        $array["reseñas"] = array();        
+        $reseñasbd = Conexion::getReseñasOrderedLikes();
+        foreach ($reseñasbd as $reseña) {
+            $aux = array();
+            $aux["idReseña"] = $reseña["idReseña"];
+            $aux["fkUsuario"] = $reseña["fkUsuario"];
+            $aux["nombreUsuario"] = $reseña["nombreUsuario"];
+            $aux["fkPincho"] = $reseña["fkPincho"];
+            $aux["nombrePincho"] = $reseña["nombrePincho"];
+            $aux["nota"] = $reseña["nota"];
+            $aux["cantidadLikes"] = $reseña["cantidadLikes"];
+            $aux["textoReseña"] = $reseña["textoReseña"];
+            array_push($array["reseñas"], $aux);
+        }
+        echo json_encode($array);
+
+    }
     //----------------------------------------
     //PINCHOS
     //----------------------------------------    
@@ -696,6 +754,31 @@ class ApiController
         echo json_encode($array);
     }
 
+    public function getPinchosFiltrados($notaMinima, $notaMaxima, $precioMinimo, $precioMaximo, $textoBuscador){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["pinchos"] = array();
+        $pinchosbd = Conexion::getPinchosFiltrados($textoBuscador, $precioMinimo, $precioMaximo, $notaMinima, $notaMaxima);
+
+        foreach($pinchosbd as $pincho){
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["nombreBar"] = $pincho["nombreBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $aux["nota"] = $pincho["notaPincho"];
+            $aux["imagen1"] = $pincho["imagen1"];
+            $aux["imagen2"] = $pincho["imagen2"];
+            $aux["imagen3"] = $pincho["imagen3"];
+
+            array_push($array["pinchos"], $aux);
+        }
+
+        echo json_encode($array);
+    }
+
     
 
     //----------------------------------------
@@ -906,6 +989,27 @@ class ApiController
         
     }
     
+
+    public function bajaUsuario(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        
+
+        $array = array();
+        $array["resultado"] = "";
+
+        
+        /* echo $_SESSION["usuarioActual"]["idUsuario"]; */
+
+        if (isset($_SESSION["usuarioActual"])) {
+            $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+            Conexion::deleteUsuario($idUsuario);
+            $array["resultado"] = "Usuario dado de baja correctamente";
+        }else{
+            $array["resultado"] = "No existe un usuario logueado";
+        }
+
+        echo json_encode($array);
+    }
 
 
 }

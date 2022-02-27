@@ -545,6 +545,49 @@ class Conexion
         }
     }
 
+    static function darLike($idReseña, $idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "INSERT INTO `reseñas_likes`(`fk_usuario`, `fk_reseña`) VALUES ('$idUsuario', '$idReseña')";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $db->lastInsertId();
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getReseñasOrderedLikes(){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *, 
+            (select user from usuarios where idUsuario = r.fkUsuario) as nombreUsuario,
+            (select nombre from pinchos where idPincho = r.fkPincho) as nombrePincho,
+            (select COUNT(*) from reseñas_likes where fk_reseña = r.idReseña) as cantidadLikes
+            FROM reseñas r ORDER BY cantidadLikes desc";
+            
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     /*----------------------------------------------------------------------------------------------------------*/
     /*PINCHOS*/    
     /*----------------------------------------------------------------------------------------------------------*/
@@ -839,6 +882,64 @@ class Conexion
             (SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2, 
             (SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3 
             FROM `pinchos` p where idPincho = ".$idPincho;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getPinchosFiltrados($textoBuscador, $precioMinimo, $precioMaximo, $notaMinima, $notaMaxima){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 1) as imagen1 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3
+            ,(SELECT nombre FROM restaurantes WHERE idRestaurante = p.fkBar) as nombreBar
+            ,(SELECT AVG(nota) FROM reseñas WHERE fkPincho = p.idPincho) as notaPincho
+            FROM pinchos p WHERE p.precio BETWEEN ".$precioMinimo." and ".$precioMaximo."
+            AND (p.nombre LIKE '%".$textoBuscador."%'
+            OR (SELECT nombre FROM restaurantes WHERE idRestaurante = p.fkBar) LIKE '%".$textoBuscador."%')
+            AND COALESCE((SELECT AVG(nota) FROM reseñas WHERE fkPincho = p.idPincho),0) BETWEEN ".$notaMinima." and ".$notaMaxima."";
+
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    /**
+     * getPinchos
+     *
+     * @param  mixed $pagina
+     * @param  mixed $cantidadRegistros
+     * @return void
+     */
+    static function getPinchosOrderedNota(){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,
+            (select nombre from restaurantes where p.fkBar = idRestaurante) as nombreBar, 
+            round((select avg(nota) from reseñas where fkPincho = p.idPincho),1) as nota  
+            FROM pinchos p order by nota desc";
             $resultado = $db->query($sql);
 
             if ($resultado) {

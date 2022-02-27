@@ -95,6 +95,11 @@
         $apiController->getReseñasByUsuario($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenasByPincho") {
         $apiController->getReseñasByPincho($array_ruta[2]);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "darLike") {
+        $fk_resena = $_POST["fk_resena"];
+        $apiController->darLike($fk_resena);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenasPinchosOrdenPopularidad") {
+        $apiController->getReseñasPinchosOrdenPopularidad();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pinchos") { //Pinchos
         $apiController->getPinchos($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pincho") {
@@ -120,6 +125,13 @@
         $apiController->deleteImagenPincho($fk_pincho, $numeroImagen);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pinchosImagenesResenas") {
         $apiController->getPinchoConImagenesReseñas($array_ruta[2]);
+    }else if (isset($array_ruta[0]) && $array_ruta[0]=="api" && $array_ruta[1] == "getPinchosFiltrados") {
+        $textoBuscador = $_POST["textoBuscador"];
+        $notaMinima = $_POST["notaMinima"];
+        $notaMaxima = $_POST["notaMaxima"];
+        $precioMinimo = $_POST["precioMinimo"];
+        $precioMaximo = $_POST["precioMaximo"];
+        $apiController->getPinchosFiltrados($notaMinima, $notaMaxima, $precioMinimo, $precioMaximo, $textoBuscador);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "usuarios") { //Usuarios
         $apiController->getUsuarios($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "usuario") {
@@ -140,6 +152,8 @@
         $apiController->getImagenUsuario($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "deleteImagenUsuario") {
         $apiController->deleteImagenUsuario($array_ruta[2]);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "bajaUsuario") {
+        $apiController->bajaUsuario();
     }else if(count($array_ruta)==0){ //Pagina mostrada por defecto
         header("Location: ".$_SERVER["REQUEST_URI"]."home");
     }else{
