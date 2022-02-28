@@ -14,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 100px;
-    padding-right: 300px;
+    padding-right: 100px;
     background: #ffffff;
  }
  .logo{
@@ -173,6 +173,12 @@
     padding-left: 10px;
     width: 60%;
 }
+#errorLogin{
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
 
  /*REGISTER*/
  .contenedorRegister{
@@ -200,6 +206,13 @@
     justify-content: flex-start;
     margin-top: 30px;
     height: 60%;
+}
+
+#errorRegister{
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
 }
 
 /*FOOTER*/

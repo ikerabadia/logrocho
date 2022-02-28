@@ -47,12 +47,13 @@
                         <div class="campoLoginLabel">
                             <h3>Contraseña</h3>
                         </div>
-                        <input type="password" id="campoLoginInputContraseña" class="campoLoginInput">
-                    </div>                    
+                        <input type="password" id="campoLoginInputContraseña" class="campoLoginInput">                        
+                    </div>                                     
                 </div>
-                <div class="btnLoginRegister" id="btnLogin">
+                <div class="btnLoginRegister" id="btnLogin" onclick="verificarLogin()">
                     <p class="txtBtnLoginRegister">login</p>
                 </div>
+                <p><small id="errorLogin"></small></p>   
             </div>
             <div class="contenedorRegister">
                 <h2 class="tituloRegister">
@@ -84,9 +85,10 @@
                         <input type="password" id="campoRegisterInputRepetirContraseña" class="campoLoginInput">
                     </div>                
                 </div>
-                <div class="btnLoginRegister" id="btnLogin">
+                <div class="btnLoginRegister" id="btnLogin" onclick="register()">
                     <p class="txtBtnLoginRegister">Registrarse</p>
                 </div>
+                <p><small id="errorRegister"></small></p> 
             </div>
         </div>
 
@@ -133,7 +135,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="../../../logrocho/RecursosGenerales/jquery-3.6.0.js"></script>
     <script src="../../../logrocho/viewFrontal/loginRegister/loginRegister.js"></script>
 </body>
 </html>

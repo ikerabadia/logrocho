@@ -1011,5 +1011,46 @@ class ApiController
         echo json_encode($array);
     }
 
+    public function getUsuarioLogueado(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+
+        if(isset($_SESSION["usuarioActual"])){
+            $array = array();
+            $array["usuarios"] = array();
+            $usuario = array();
+            $usuario["idUsuario"] = $_SESSION["usuarioActual"]["idUsuario"];
+            $usuario["nombre"] = $_SESSION["usuarioActual"]["nombre"];
+            $usuario["apellido1"] = $_SESSION["usuarioActual"]["apellido1"];
+            $usuario["apellido2"] = $_SESSION["usuarioActual"]["apellido2"];
+            $usuario["correoElectronico"] = $_SESSION["usuarioActual"]["correoElectronico"];
+            $usuario["user"] = $_SESSION["usuarioActual"]["user"];
+            $usuario["password"] = $_SESSION["usuarioActual"]["password"];
+
+            /* array_push($array["usuarios"], $usuario); */
+
+            echo json_encode($usuario);
+        }else{
+            echo json_encode("false");
+        }
+    }
+
+    public function loginFront($user, $password){
+
+        $login = Conexion::getLogin($user, $password);
+
+        if ($login->rowCount() == 1) {
+            $_SESSION["usuarioActual"] = $login->fetch();
+
+            echo json_encode("true");
+        } else {
+            echo json_encode("false");
+        }
+
+    }
+
+    public function logout(){
+        session_destroy();
+    }
+
 
 }

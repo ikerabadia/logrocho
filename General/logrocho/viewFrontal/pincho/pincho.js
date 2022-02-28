@@ -1,8 +1,10 @@
 var imagenesPincho = ["../../../logrocho/imagenes/restaurantes/1/imagen1/tabernaTioBlas1.jfif", "../../../logrocho/imagenes/restaurantes/1/imagen2/tabernaTioBlas2.png", "../../../logrocho/imagenes/restaurantes/1/imagen3/tabernaTioBlas3.jfif"];
 var idPincho;
 var imagenMostrada = 0;
+var usuario = "";
 
 window.onload = function() {
+    comprobarUsuarioLogueado();
     pintarDatos();
 };
 
@@ -298,6 +300,78 @@ function anteriorImagen() {
 
 function mostrarImagen() {    
     document.getElementById("slider").style.backgroundImage = "url("+imagenesPincho[imagenMostrada]+")";
+}
+
+function comprobarUsuarioLogueado(){
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+        },
+      };
+      
+      $.ajax(settings).done(function (response) {
+        var json = response;
+        var resultados=eval(json);
+  
+        if (resultados == false) {
+            document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"frontLoginRegister\">👤 Login/Register</a>";
+            
+        }else{
+            usuario = resultados;
+            document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"infoPersonal\">👤 "+resultados["user"]+"</a>";
+            document.getElementById("contenedorBtnLogin").innerHTML += "<a onclick=\"logout()\"  id=\"btnLogout\">Logout</a>";
+        }
+      });
+  }
+  
+  function logout() {
+    var settings = {
+      "url": "http://localhost/logrocho/index.php/api/logout",
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+      },
+    };
+    
+    $.ajax(settings).done(function (response) {
+      window.location.href = "home";
+    });
+  }
+
+function publicarResena() {
+    var textoReseña = document.getElementById("inputDescripcionReseña").value;
+
+    if (/\'/.test(textoReseña)) {
+        document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 10px red";
+        document.getElementById("inputDescripcionReseña").style.border = "2px solid red";
+    }else{
+        var nota = document.getElementById("inputPuntuacionResena").value;
+        var textoResena = document.getElementById("inputDescripcionReseña").value;
+        var settings = {
+            "url": "http://localhost/logrocho/index.php/api/nuevaResena",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            "data": {
+              "fkUsuario": ""+usuario["idUsuario"],
+              "fkPincho": ""+idPincho,
+              "nota": ""+nota,
+              "textoResena": ""+textoResena
+            }
+          };
+          
+          $.ajax(settings).done(function (response) {
+            document.getElementById("inputPuntuacionResena").value = 0;
+            document.getElementById("inputDescripcionReseña").value = "";
+            document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 0px black";
+            document.getElementById("inputDescripcionReseña").style.border = "1px solid black";
+            pintarDatos();
+          });
+    }
 }
 
 function getEstrellasPuntuacion(puntuacion) {

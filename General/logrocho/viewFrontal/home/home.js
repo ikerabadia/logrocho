@@ -2,10 +2,11 @@ var fotoMostrada = 1;
 var imagenesPinchosPreferidos = ["pincho01", "pincho02", "pincho03", "pincho04", "pincho05"];
 var movimientoAuto = true;
 var sliderMostrado = "preferidos";
+var intervalo;
 
 window.onload = function() {
-    
-    setInterval(() => {
+    comprobarUsuarioLogueado();
+    intervalo = setInterval(() => {
         if (movimientoAuto) {
             moverFotoIzquierda();
         }        
@@ -13,7 +14,51 @@ window.onload = function() {
 
 };
 
+function comprobarUsuarioLogueado(){
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+        },
+      };
+      
+      $.ajax(settings).done(function (response) {
+        var json = response;
+        var resultados=eval(json);
+  
+        if (resultados == false) {
+            document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"frontLoginRegister\">👤 Login/Register</a>";
+            
+        }else{
+            document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"infoPersonal\">👤 "+resultados["user"]+"</a>";
+            document.getElementById("contenedorBtnLogin").innerHTML += "<a onclick=\"logout()\"  id=\"btnLogout\">Logout</a>";
+        }
+      });
+  }
+  
+  function logout() {
+    var settings = {
+      "url": "http://localhost/logrocho/index.php/api/logout",
+      "method": "GET",
+      "timeout": 0,
+      "headers": {
+      },
+    };
+    
+    $.ajax(settings).done(function (response) {
+      window.location.href = "home";
+    });
+  }
+
 function moverFotoIzquierda(){
+
+    clearInterval(intervalo);
+    intervalo = setInterval(() => {
+        if (movimientoAuto) {
+            moverFotoIzquierda();
+        }        
+    }, 5000);
 
     fotoMostrada++;
     if (fotoMostrada == 6) {
@@ -69,12 +114,22 @@ function moverFotoIzquierda(){
 }
 function moverFotoDerecha(){
 
+    clearInterval(intervalo);
+    intervalo = setInterval(() => {
+        if (movimientoAuto) {
+            moverFotoIzquierda();
+        }        
+    }, 5000);
+
     fotoMostrada--;
     if (fotoMostrada == 0) {
         fotoMostrada = 5;
     }
 
     if (sliderMostrado == "preferidos") {
+
+        
+
         var img1 = document.getElementById("imagen1");
         var img2 = document.getElementById("imagen2");   
         
@@ -125,10 +180,16 @@ function pararReanudarAnimacion() {
     var boton = document.getElementById("btnPararAnimacion");
     if (movimientoAuto == true) {
         movimientoAuto = false
+        clearInterval(intervalo);
         boton.innerHTML = "Reanudar animacion";
         boton.style.backgroundColor = "rgb(255, 204, 0)";
     }else{
         movimientoAuto = true;
+        intervalo = setInterval(() => {
+            if (movimientoAuto) {
+                moverFotoIzquierda();
+            }        
+        }, 5000);
         boton.innerHTML = "Parar animacion";
         boton.style.backgroundColor = "transparent";
     }

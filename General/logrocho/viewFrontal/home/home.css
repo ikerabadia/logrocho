@@ -12,11 +12,11 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 100px;
-    padding-right: 300px;
+    padding-right: 100px;
     background: #ffffff;
  }
  .logo{
-    background-image: url("../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
+    background-image: url("../../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
     width: 150px;
     height: 150px;
     background-position: center;
@@ -26,6 +26,12 @@
  }
  .btnLogin{
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+ #btnLogout{
+     color: red;
  }
  #btnLogin{
      text-decoration: none;

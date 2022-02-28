@@ -58,11 +58,11 @@ fieldset{
     justify-content: space-between;
     align-items: center;
     padding-left: 100px;
-    padding-right: 300px;
+    padding-right: 100px;
     background: #ffffff;
  }
  .logo{
-    background-image: url("../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
+    background-image: url("../../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
     width: 150px;
     height: 150px;
     background-position: center;
@@ -72,6 +72,12 @@ fieldset{
  }
  .btnLogin{
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+ #btnLogout{
+     color: red;
  }
  #btnLogin{
      text-decoration: none;
@@ -236,6 +242,43 @@ fieldset{
 }
 
 /*RESEÑAS*/
+/*FORMULARIO DEJAR RESEÑA*/
+.formularioReseña{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+}
+#inputPuntuacionResena{
+    color: goldenrod;
+    width: 15%;
+}
+#inputDescripcionReseña{
+    height: 250px;
+}
+.btnPublicarResena{
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: 1px solid #fc0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 35px;
+    width: 20%;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-left: 80%;
+}
+.btnPublicarResena p{
+    margin: 0px;
+}
+.btnPublicarResena:hover{
+    background: #fc0;
+}
+
 /*RESEÑAS*/
 .reseñas{
     width: 80%;

@@ -1030,14 +1030,14 @@ class Conexion
             $resultado = $db->query($sql);
 
             if ($resultado) {
-                return $db->lastInsertId();
+                return "true";
             } else {
-                throw new Exception("Error en el select....");
+                return "false";
             }
         } catch (\Exception $th) {
-            echo $th->getMessage();
+            return "false";
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            return "false";
         }
     }
     
@@ -1185,6 +1185,25 @@ class Conexion
             $db = Conexion::getConection();
 
             $sql = "DELETE FROM imagenes_usuarios WHERE fk_usuario = ".$idUsuario;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getUserByUsername($user){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM usuarios WHERE user = ".$user;
             $resultado = $db->query($sql);
 
             if ($resultado) {

@@ -154,6 +154,14 @@
         $apiController->deleteImagenUsuario($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "bajaUsuario") {
         $apiController->bajaUsuario();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "getUsuarioLogueado") {
+        $apiController->getUsuarioLogueado();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "loginFront") {
+        $user = $_POST["user"];
+        $password = $_POST["password"];
+        $apiController->loginFront($user, $password);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "logout") {
+        $apiController->logout();
     }else if(count($array_ruta)==0){ //Pagina mostrada por defecto
         header("Location: ".$_SERVER["REQUEST_URI"]."home");
     }else{
