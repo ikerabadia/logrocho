@@ -1,3 +1,5 @@
+var usuarioActual;
+
 window.onload = function() {
   comprobarUsuarioLogueado();
 
@@ -16,6 +18,8 @@ function comprobarUsuarioLogueado(){
       var json = response;
       var resultados=eval(json);
 
+      usuarioActual = resultados;
+
       if (resultados == false) {
           document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"frontLoginRegister\">👤 Login/Register</a>";
           
@@ -23,7 +27,26 @@ function comprobarUsuarioLogueado(){
           document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"infoPersonal\">👤 "+resultados["user"]+"</a>";
           document.getElementById("contenedorBtnLogin").innerHTML += "<a onclick=\"logout()\"  id=\"btnLogout\">Logout</a>";
       }
+
+      pintarDatosUsuario()
     });
+}
+
+function pintarDatosUsuario(){
+  document.getElementById("inputNombre").value = usuarioActual["nombre"];
+  document.getElementById("inputApellido1").value = usuarioActual["apellido1"];
+  document.getElementById("inputApellido2").value = usuarioActual["apellido2"];
+  document.getElementById("inputNombreUsuario").value = usuarioActual["user"];
+  document.getElementById("inputMail").value = usuarioActual["correoElectronico"];
+
+  
+
+  if (usuarioActual["imagen"] != "") {
+    document.getElementById("foto").innerHTML = "";
+    document.getElementById("foto").style.backgroundImage = "url("+usuarioActual["imagen"]+")";
+  }
+
+
 }
 
 function logout() {

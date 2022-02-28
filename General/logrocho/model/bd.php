@@ -1218,4 +1218,43 @@ class Conexion
         }
     }
 
+    //GENERICOS
+    static function getImagenesMejorValorados(){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT imagen FROM `imagenes_pincho` limit 5";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getImagenesPreferidos($idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT * FROM `imagenes_pincho` where fk_pincho in(SELECT fkPincho from reseñas where fkUsuario = ".$idUsuario.") AND numeroImagen = 1";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }

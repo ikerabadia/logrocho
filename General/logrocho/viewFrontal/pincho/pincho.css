@@ -211,6 +211,7 @@ fieldset{
     align-items: center;
     background: white;
     border-top: 10px solid #fc0;
+    overflow-y: scroll;
 }
 .puntuacion{
     width: 100%;

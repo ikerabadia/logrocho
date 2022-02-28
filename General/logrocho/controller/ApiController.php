@@ -1026,6 +1026,12 @@ class ApiController
             $usuario["user"] = $_SESSION["usuarioActual"]["user"];
             $usuario["password"] = $_SESSION["usuarioActual"]["password"];
 
+            $usuario["imagen"] ="";
+            $imagenesbd = Conexion::getImagenUsuario($usuario["idUsuario"]);
+            foreach ($imagenesbd as $imagen) {
+                $usuario["imagen"] = $imagen["imagen"];
+            }
+
             /* array_push($array["usuarios"], $usuario); */
 
             echo json_encode($usuario);
@@ -1052,5 +1058,39 @@ class ApiController
         session_destroy();
     }
 
+    //-------------------------------------
+    //GENERICAS
+    //-------------------------------------
+    public function getImagenesSlider(){
+
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["mejorValorados"] = array();
+        $mejorValoradosbd = Conexion::getImagenesMejorValorados();
+        foreach ($mejorValoradosbd as $imagen) {
+            $aux = array();
+            $aux["imagen"] = $imagen["imagen"];
+
+            array_push($array["mejorValorados"], $aux);
+        }
+
+        $idUsuario = 0;
+
+        if (isset($_SESSION["usuarioActual"])) {
+            $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+        }
+
+        $array["preferidos"] = array();
+        $preferidos = Conexion::getImagenesPreferidos($idUsuario);
+        foreach ($preferidos as $imagen) {
+            $aux = array();
+            $aux["imagen"] = $imagen["imagen"];
+
+            array_push($array["preferidos"], $aux);
+        }
+
+        echo json_encode($array);
+
+    }
 
 }

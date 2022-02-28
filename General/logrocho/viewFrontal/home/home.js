@@ -1,11 +1,13 @@
 var fotoMostrada = 1;
-var imagenesPinchosPreferidos = ["pincho01", "pincho02", "pincho03", "pincho04", "pincho05"];
+var imagenesPinchosPreferidos = ["", "", "", "", ""];
+var imagenesPinchosMejorValorados = ["", "", "", "", ""];
 var movimientoAuto = true;
 var sliderMostrado = "preferidos";
 var intervalo;
 
 window.onload = function() {
     comprobarUsuarioLogueado();
+    establecerImagenes();
     intervalo = setInterval(() => {
         if (movimientoAuto) {
             moverFotoIzquierda();
@@ -13,6 +15,86 @@ window.onload = function() {
     }, 5000);
 
 };
+
+function establecerImagenes() {
+    var settings = {
+        "url": "http://localhost/logrocho/index.php/api/getImagenesSlider",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+        },
+      };
+      
+      $.ajax(settings).done(function (response) {
+        var json = response;
+        var resultados=eval(json);
+
+        //MEJOR VALORADOS
+        if (resultados["mejorValorados"][0] != undefined) {
+            imagenesPinchosMejorValorados[0] = resultados["mejorValorados"][0]["imagen"];
+        }else{
+            imagenesPinchosMejorValorados[0] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["mejorValorados"][1] != undefined) {
+            imagenesPinchosMejorValorados[1] = resultados["mejorValorados"][1]["imagen"];
+        }else{
+            imagenesPinchosMejorValorados[1] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["mejorValorados"][2] != undefined) {
+            imagenesPinchosMejorValorados[2] = resultados["mejorValorados"][2]["imagen"];
+        }else{
+            imagenesPinchosMejorValorados[2] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["mejorValorados"][3] != undefined) {
+            imagenesPinchosMejorValorados[3] = resultados["mejorValorados"][3]["imagen"];
+        }else{
+            imagenesPinchosMejorValorados[3] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["mejorValorados"][4] != undefined) {
+            imagenesPinchosMejorValorados[4] = resultados["mejorValorados"][4]["imagen"];
+        }else{
+            imagenesPinchosMejorValorados[4] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        //PREFERIDOS
+        if (resultados["preferidos"][0] != undefined) {
+            imagenesPinchosPreferidos[0] = resultados["preferidos"][0]["imagen"];
+        }else{
+            imagenesPinchosPreferidos[0] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["preferidos"][1] != undefined) {
+            imagenesPinchosPreferidos[1] = resultados["preferidos"][1]["imagen"];
+        }else{
+            imagenesPinchosPreferidos[1] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["preferidos"][2] != undefined) {
+            imagenesPinchosPreferidos[2] = resultados["preferidos"][2]["imagen"];
+        }else{
+            imagenesPinchosPreferidos[2] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["preferidos"][3] != undefined) {
+            imagenesPinchosPreferidos[3] = resultados["preferidos"][3]["imagen"];
+        }else{
+            imagenesPinchosPreferidos[3] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        if (resultados["preferidos"][4] != undefined) {
+            imagenesPinchosPreferidos[4] = resultados["preferidos"][4]["imagen"];
+        }else{
+            imagenesPinchosPreferidos[4] = "../../../logrocho/RecursosGenerales/restauranteDefault.png";
+        }
+
+        moverFotoIzquierda();
+
+      });
+}
 
 function comprobarUsuarioLogueado(){
     var settings = {
@@ -76,7 +158,7 @@ function moverFotoIzquierda(){
             img2.classList.remove("noMostrado");
             img2.classList.add("mostrado");
 
-            img2.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosFav/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")";
+            img2.style.backgroundImage = "url("+imagenesPinchosPreferidos[fotoMostrada-1]+")";
 
             img1.style.transition = "1s";
             img1.style.left = "-100%"
@@ -92,7 +174,7 @@ function moverFotoIzquierda(){
             img1.classList.remove("noMostrado");
             img1.classList.add("mostrado")
 
-            img1.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosFav/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")\")";
+            img1.style.backgroundImage = "url("+imagenesPinchosPreferidos[fotoMostrada-1]+")";
 
             img2.style.transition = "1s";
             img2.style.left = "-100%"
@@ -107,7 +189,7 @@ function moverFotoIzquierda(){
         var imagen = document.getElementById("imagen2_1");
 
         imagen.style.opacity = 0;
-        imagen.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosMejorVal/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")";
+        imagen.style.backgroundImage = "url("+imagenesPinchosMejorValorados[fotoMostrada-1]+")";
         imagen.style.opacity = 1;
     }
     
@@ -139,7 +221,7 @@ function moverFotoDerecha(){
             img2.classList.remove("noMostrado");
             img2.classList.add("mostrado")
 
-            img2.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosFav/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")";
+            img2.style.backgroundImage = "url("+imagenesPinchosPreferidos[fotoMostrada-1]+")";
 
             img1.style.transition = "1s";
             img1.style.left = "100%"
@@ -155,7 +237,7 @@ function moverFotoDerecha(){
             img1.classList.remove("noMostrado");
             img1.classList.add("mostrado");
 
-            img1.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosFav/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")";
+            img1.style.backgroundImage = "url("+imagenesPinchosPreferidos[fotoMostrada-1]+")";
 
             img2.style.transition = "1s";
             img2.style.left = "100%"
@@ -170,7 +252,7 @@ function moverFotoDerecha(){
         var imagen = document.getElementById("imagen2_1");
 
         imagen.style.opacity = 0;
-        imagen.style.backgroundImage = "url(\"../../../logrocho/viewFrontal/home/imgPinchosMejorVal/"+imagenesPinchosPreferidos[fotoMostrada-1]+".jpg\")";
+        imagen.style.backgroundImage = "url("+imagenesPinchosMejorValorados[fotoMostrada-1]+")";
         imagen.style.opacity = 1;
     }
     
@@ -208,6 +290,7 @@ function mostrarMejorValorados() {
     document.getElementById("imagenes2").style.display = "block";
 
     sliderMostrado = "mejorValorados";
+    moverFotoIzquierda();
 }
 
 function mostrarPreferidos() {
@@ -223,4 +306,5 @@ function mostrarPreferidos() {
     document.getElementById("imagenes2").style.display = "none";
 
     sliderMostrado = "preferidos";
+    moverFotoIzquierda();
 }

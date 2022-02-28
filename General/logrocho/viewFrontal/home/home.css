@@ -106,7 +106,7 @@
     background: black;
 }
 .imagen1{
-    background-image: url("../../../logrocho/viewFrontal/home/imgPinchosFav/pincho01.jpg");  
+    background-image: url("../../../logrocho/RecursosGenerales/restauranteDefault.png");  
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -118,7 +118,7 @@
     left: 0%;
 }
 .imagen2{
-    background-image: url("../../../logrocho/viewFrontal/home/imgPinchosFav/pincho02.jpg");  
+    background-image: url("../../../logrocho/RecursosGenerales/restauranteDefault.png");  
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
