@@ -112,6 +112,10 @@ function comprobarUsuarioLogueado(){
         if (resultados == false) {
             document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"frontLoginRegister\">👤 Login/Register</a>";
             
+            document.getElementById("btnPreferidos").style.display = "none";
+            document.getElementById("btnMejorValorados").style.width = "100%";
+            document.getElementById("btnMejorValorados").style.borderRadius = "10px 10px 0px 0px";
+            mostrarMejorValorados();
         }else{
             document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"infoPersonal\">👤 "+resultados["user"]+"</a>";
             document.getElementById("contenedorBtnLogin").innerHTML += "<a onclick=\"logout()\"  id=\"btnLogout\">Logout</a>";

@@ -3,6 +3,29 @@
 
 }
 
+legend{
+    background-color: #f2f2f2;
+    border: medium none;
+    clear: both;
+    color: #999;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    width: inherit;
+    border-radius: 30px;
+    float: none;
+}
+
+fieldset{
+    background-color: transparent;
+    border-top: 3px solid #eee;
+    padding: 10px 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+
  /*CABECERA*/
  .cabecera{
     width: 100%;
@@ -163,6 +186,24 @@
 .der:hover{
     background: rgb(255, 204, 0);
 }
+/*EXPLICACION WEB*/
+.explicacionWeb{
+    background: #fc0;
+    height: 400px;
+    width: 100%;
+    padding-top: 20px;
+}
+#parrafoExplicacionWeb{
+    width: 80%;
+    margin-left: 10%;
+    font-style: italic;
+    font-size: 20px !important;
+    text-align: center;
+}
+#parrafoExplicacionWeb span{
+    font-weight: 900;
+}
+
 /*pinchos mejor valorados*/
 .imagenes2{
     display: none;
