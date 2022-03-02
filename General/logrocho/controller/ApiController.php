@@ -419,6 +419,27 @@ class ApiController
         
     }
 
+    public function eliminarLike($idReseña){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        
+
+        $array = array();
+        $array["resultado"] = "";
+
+        /* Conexion::darLike($idReseña, 4); */
+
+        if (isset($_SESSION["usuarioActual"])) {
+            $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+            Conexion::eliminarLike($idReseña, $idUsuario);
+            $array["resultado"] = "Like eliminado correctamente de la reseña";
+        }else{
+            $array["resultado"] = "No existe un usuario registrado";
+        }
+
+        echo json_encode($array);
+        
+    }
+
 
     public function getReseñasPinchosOrdenPopularidad(){
 
@@ -745,6 +766,7 @@ class ApiController
                 $auxReseña["fkPincho"] = $reseña["fkPincho"];
                 $auxReseña["nota"] = $reseña["nota"];
                 $auxReseña["textoReseña"] = $reseña["textoReseña"];
+                $auxReseña["likes"] = $reseña["likes"];
                 array_push($aux["resenas"], $auxReseña);
             }
             

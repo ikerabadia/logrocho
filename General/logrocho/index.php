@@ -98,6 +98,9 @@
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "darLike") {
         $fk_resena = $_POST["fk_resena"];
         $apiController->darLike($fk_resena);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "eliminarLike") {
+        $fk_resena = $_POST["fk_resena"];
+        $apiController->eliminarLike($fk_resena);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenasPinchosOrdenPopularidad") {
         $apiController->getReseñasPinchosOrdenPopularidad();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pinchos") { //Pinchos

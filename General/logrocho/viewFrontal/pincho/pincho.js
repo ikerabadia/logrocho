@@ -36,14 +36,14 @@ function pintarDatos() {
             "timeout": 0,
             "headers": {
             },
-          };
+        };
           
-          $.ajax(settings2).done(function (response2) {
+        $.ajax(settings2).done(function (response2) {
             var json2 = response2;
             var resultados2=eval(json2);
 
             document.getElementById("barPincho").innerHTML = resultados2["bar"][0]["nombre"];
-          });
+        });
 
         
         if (resultados["pinchos"][0]["imagen1"] == null) {
@@ -135,6 +135,13 @@ function pintarResenas(resenas) {
             
                         nombreBar = resultados2["bar"][0]["nombre"];
 
+                        var textoLike = "";
+                        if (resena["likes"] > 0) {
+                            textoLike = "<i onclick=\"toogleLike(this, "+resena["idReseña"]+")\" class=\"fa fa-heart btnLike\"></i>"
+                        }else{
+                            textoLike = "<i onclick=\"toogleLike(this, "+resena["idReseña"]+")\" class=\"fa fa-heart btnLike fa-heart-o\"></i>"
+                        }
+
                         document.getElementById("resenas").innerHTML += ""+ //Pinto la reseña
                                 "<div class=\"reseña\">"+
                                     "<div class=\"zonaPerfil\">"+
@@ -156,8 +163,8 @@ function pintarResenas(resenas) {
                                             "<div class=\"nombreBar\">"+
                                                 "<pp>"+nombreBar+"</pp>"+
                                             "</div>"+
-                                            "<div class=\"like\">"+
-                                                "<i onclick=\"toogleLike(this)\" class=\"fa fa-heart btnLike\"></i>"+
+                                            "<div class=\"like\">"+                                            
+                                                textoLike+
                                             "</div>"+
                                         "</div>"+
                                         "<div class=\"textoReseña\">"+
@@ -165,6 +172,8 @@ function pintarResenas(resenas) {
                                         "</div>"+
                                     "</div>"+
                                 "</div>";   
+
+                        
         
                         var imagenUsuario = "";
                         var settings = {
@@ -323,6 +332,7 @@ function comprobarUsuarioLogueado(){
             document.getElementById("contenedorBtnLogin").innerHTML = "<a id=\"btnLogin\" href=\"infoPersonal\">👤 "+resultados["user"]+"</a>";
             document.getElementById("contenedorBtnLogin").innerHTML += "<a onclick=\"logout()\"  id=\"btnLogout\">Logout</a>";
         }
+        usuario = resultados;
       });
   }
   
@@ -343,35 +353,41 @@ function comprobarUsuarioLogueado(){
 function publicarResena() {
     var textoReseña = document.getElementById("inputDescripcionReseña").value;
 
-    if (/\'/.test(textoReseña)) {
-        document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 10px red";
-        document.getElementById("inputDescripcionReseña").style.border = "2px solid red";
+    if (usuario != false) {
+        if (/\'/.test(textoReseña)) {
+            document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 10px red";
+            document.getElementById("inputDescripcionReseña").style.border = "2px solid red";
+        }else{
+            var nota = document.getElementById("inputPuntuacionResena").value;
+            var textoResena = document.getElementById("inputDescripcionReseña").value;
+            var settings = {
+                "url": "http://localhost/logrocho/index.php/api/nuevaResena",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                "data": {
+                  "fkUsuario": ""+usuario["idUsuario"],
+                  "fkPincho": ""+idPincho,
+                  "nota": ""+nota,
+                  "textoResena": ""+textoResena
+                }
+              };
+              
+              $.ajax(settings).done(function (response) {
+                document.getElementById("inputPuntuacionResena").value = 0;
+                document.getElementById("inputDescripcionReseña").value = "";
+                document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 0px black";
+                document.getElementById("inputDescripcionReseña").style.border = "1px solid black";
+                pintarDatos();
+              });
+        }
     }else{
-        var nota = document.getElementById("inputPuntuacionResena").value;
-        var textoResena = document.getElementById("inputDescripcionReseña").value;
-        var settings = {
-            "url": "http://localhost/logrocho/index.php/api/nuevaResena",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            "data": {
-              "fkUsuario": ""+usuario["idUsuario"],
-              "fkPincho": ""+idPincho,
-              "nota": ""+nota,
-              "textoResena": ""+textoResena
-            }
-          };
-          
-          $.ajax(settings).done(function (response) {
-            document.getElementById("inputPuntuacionResena").value = 0;
-            document.getElementById("inputDescripcionReseña").value = "";
-            document.getElementById("inputDescripcionReseña").style.boxShadow = "0px 0px 0px black";
-            document.getElementById("inputDescripcionReseña").style.border = "1px solid black";
-            pintarDatos();
-          });
+        this.window.href = window.location.href = "frontLoginRegister";
     }
+
+    
 }
 
 function getEstrellasPuntuacion(puntuacion) {
@@ -391,6 +407,47 @@ function getEstrellasPuntuacion(puntuacion) {
 }
 
 /*LIKE*/
-function toogleLike(like) {
-    like.classList.toggle("fa-heart-o");
+function toogleLike(like, idResena) {
+    if (usuario != false) {
+        like.classList.toggle("fa-heart-o");
+        if (like.classList.contains("fa-heart-o")) {
+
+            var settings = {
+                "url": "api/eliminarLike",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "data": {
+                  "fk_resena": ""+idResena
+                }
+              };
+              
+              $.ajax(settings).done(function (response) {
+                console.log("se ha eliminado el like de la reseña");
+              });
+
+        }else{
+
+            var settings = {
+                "url": "api/darLike",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "data": {
+                  "fk_resena": ""+idResena
+                }
+              };
+              
+              $.ajax(settings).done(function (response) {
+                console.log("se ha dado like a la reseña");
+              });            
+        }
+    }else{
+        this.window.href = window.location.href = "frontLoginRegister";
+    }
+    
 }

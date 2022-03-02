@@ -530,7 +530,13 @@ class Conexion
         try {
             $db = Conexion::getConection();
 
-            $sql = "SELECT * FROM reseñas WHERE fkPincho = $idPincho";
+            if (isset($_SESSION["usuarioActual"])) {
+                $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+            }else{
+                $idUsuario = -1;
+            }            
+
+            $sql = "SELECT *, (select COUNT(*) from reseñas_likes WHERE fk_usuario = $idUsuario and fk_reseña = r.idReseña) as likes FROM reseñas r WHERE fkPincho = $idPincho";
             $resultado = $db->query($sql);
 
             if ($resultado) {
@@ -550,6 +556,25 @@ class Conexion
             $db = Conexion::getConection();
 
             $sql = "INSERT INTO `reseñas_likes`(`fk_usuario`, `fk_reseña`) VALUES ('$idUsuario', '$idReseña')";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $db->lastInsertId();
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function eliminarLike($idReseña, $idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "DELETE FROM reseñas_likes WHERE fk_usuario = $idUsuario and fk_reseña = $idReseña";
             $resultado = $db->query($sql);
 
             if ($resultado) {
