@@ -64,10 +64,10 @@ function pintarTablaPinchos() {
 }
 
 function descartarCambios() {
-    document.getElementById("inputNombreRestaurante").value = datosOriginales["bar"][0]["nombre"];
-    document.getElementById("muestraId").innerHTML = "ID: "+ datosOriginales["bar"][0]["idRestaurante"];
-    document.getElementById("inputDescripcion").value = datosOriginales["bar"][0]["descripcion"];
-    document.getElementById("inputDireccionRestaurante").value = datosOriginales["bar"][0]["localizacion"];
+    document.getElementById("inputNombreRestaurante").value = datosOriginales["bares"][0]["nombre"];
+    document.getElementById("muestraId").innerHTML = "ID: "+ datosOriginales["bares"][0]["idRestaurante"];
+    document.getElementById("inputDescripcion").value = datosOriginales["bares"][0]["descripcion"];
+    document.getElementById("inputDireccionRestaurante").value = datosOriginales["bares"][0]["localizacion"];
 }
 
 function guardarCambios() {
@@ -97,7 +97,7 @@ function guardarCambios() {
 
 function eliminarRestaurante() {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteRestaurante/"+datosOriginales["bar"][0]["idRestaurante"],
+    "url": "http://localhost/logrocho/index.php/api/deleteRestaurante/"+datosOriginales["bares"][0]["idRestaurante"],
     "method": "DELETE",
     "timeout": 0,
   };

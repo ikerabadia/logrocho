@@ -162,11 +162,11 @@ class Conexion
      * @param  mixed $localizacion
      * @return void
      */
-    static function newBar($nombre, $descripcion, $localizacion){
+    static function newBar($nombre, $descripcion, $localizacion, $latitud, $longitud){
         try {
             $db = Conexion::getConection();
 
-            $sql = "INSERT INTO `restaurantes`(`nombre`, `descripcion`, `localizacion`) VALUES ('$nombre', '$descripcion', '$localizacion')";
+            $sql = "INSERT INTO `restaurantes`(`nombre`, `descripcion`, `localizacion`, `latitud`, `longitud`) VALUES ('$nombre', '$descripcion', '$localizacion', '$latitud', '$longitud')";
             $resultado = $db->query($sql);
 
             if ($resultado) {
@@ -343,6 +343,25 @@ class Conexion
             (SELECT imagen FROM imagenes_bares WHERE fk_Bar = r.idRestaurante and numeroImagen = 2) as imagen2, 
             (SELECT imagen FROM imagenes_bares WHERE fk_Bar = r.idRestaurante and numeroImagen = 3) as imagen3 
             FROM `restaurantes` r where idRestaurante = ".$idBar;
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getFullRestaurantes(){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,TRUNCATE((Select avg(nota) from reseñas where fkPincho IN(SELECT idPincho from pinchos WHERE fkBar=idRestaurante)),1) as Puntuacion FROM restaurantes";
             $resultado = $db->query($sql);
 
             if ($resultado) {

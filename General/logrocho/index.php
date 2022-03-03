@@ -58,7 +58,7 @@
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurante") {
         $apiController->getBar($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "nuevoRestaurante") {
-        $apiController->newBar($_POST["nombre"], $_POST["descripcion"], $_POST["localizacion"]);
+        $apiController->newBar($_POST["nombre"], $_POST["descripcion"], $_POST["localizacion"], $_POST["latitud"], $_POST["longitud"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "deleteRestaurante") {
         $apiController->deleteBar($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "updateRestaurante") {
@@ -79,6 +79,8 @@
         $fNotaMinima = $_POST["fNotaMinima"];
         $fNotaMaxima = $_POST["fNotaMaxima"];
         $apiController->getBaresFiltrados($fTextoBuscador, $fTextoBuscador, $fNotaMinima, $fNotaMaxima);
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "getFullRestaurantes") { 
+        $apiController->getFullRestaurantes();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "restaurantesConPinchos") {
         $apiController->getBarConPinchos($array_ruta[2]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenas") { //Reseñas

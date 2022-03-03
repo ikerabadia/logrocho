@@ -90,6 +90,8 @@ function insertarRestaurante() {
     var nombre = document.getElementById("inputNombreRestaurante").value;
     var localizacion = document.getElementById("inputLocalizacion").value;
     var descripcion = document.getElementById("inputDescripcion").value;
+    var latitud = document.getElementById("inputLatitud").value;
+    var longitud = document.getElementById("inputLongitud").value;
 
     var settings = {
         "url": "http://localhost/logrocho/index.php/api/nuevoRestaurante",
@@ -101,7 +103,9 @@ function insertarRestaurante() {
         "data": {
           "nombre": ""+nombre,
           "descripcion": ""+descripcion,
-          "localizacion": ""+localizacion
+          "localizacion": ""+localizacion,
+          "latitud": ""+latitud,
+          "longitud": ""+longitud
         }
       };
       
@@ -109,6 +113,8 @@ function insertarRestaurante() {
         document.getElementById("inputNombreRestaurante").value = "";
         document.getElementById("inputLocalizacion").value = "";
         document.getElementById("inputDescripcion").value = "";
+        document.getElementById("inputLatitud").value = "";
+        document.getElementById("inputLongitud").value = "";
         mostrarDatos();
       });
 }

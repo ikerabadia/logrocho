@@ -87,7 +87,6 @@ th:hover{
     height: 100%;
 }
 .inputsLocalizacion{
-    margin-top: 40px;
 }
 #inputDescripcion{
     height: 250px;
@@ -99,6 +98,11 @@ th:hover{
 }
 .btnInsertarRestaurante{
     width: 90%;
+}
+.nombreLocalizacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /*PAGINACION TABLA*/

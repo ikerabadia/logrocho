@@ -67,12 +67,12 @@ class ApiController
      * @param  mixed $localizacion
      * @return void
      */
-    public function newBar($nombre, $descripcion, $localizacion)
+    public function newBar($nombre, $descripcion, $localizacion, $latitud, $longitud)
     {
         header("Content-Type: application/json', 'HTTP/1.1 200 OK");
         $array = array();
         $array["bar"] = array();
-        $baresbd = Conexion::newBar($nombre, $descripcion, $localizacion);
+        $baresbd = Conexion::newBar($nombre, $descripcion, $localizacion, $latitud, $longitud);
         
         echo json_encode($baresbd);
     }
@@ -224,6 +224,26 @@ class ApiController
             
             array_push($array["bares"], $aux);
             
+        }
+        echo json_encode($array);
+    }
+
+    public function getFullRestaurantes(){
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["bares"] = array();
+        $baresbd = Conexion::getFullRestaurantes();
+        foreach ($baresbd as $bar) {
+            $aux = array();
+            $aux["idRestaurante"] = $bar["idRestaurante"];
+            $aux["nombre"] = $bar["nombre"];
+            $aux["descripcion"] = $bar["descripcion"];
+            $aux["localizacion"] = $bar["localizacion"];
+            $aux["nota"] = $bar["Puntuacion"];
+            $aux["latitud"] = $bar["latitud"];
+            $aux["longitud"] = $bar["longitud"];
+
+            array_push($array["bares"], $aux);
         }
         echo json_encode($array);
     }
