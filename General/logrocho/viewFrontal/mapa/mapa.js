@@ -56,7 +56,6 @@ function pintarBaresMapa() {
     var marker;
 
     resultados["bares"].forEach((bar) => {
-      //bar.addEventListener("click", () => {
       marker = L.marker([
         parseFloat(bar["latitud"]),
         parseFloat(bar["longitud"])

@@ -140,6 +140,8 @@ function insertarPincho() {
         document.getElementById("inputPrecio").value = "";
         document.getElementById("inputBar").value = "";
         document.getElementById("inputDescripcion").value = "";
+
+        mostrarDatos();
       });
 }
 

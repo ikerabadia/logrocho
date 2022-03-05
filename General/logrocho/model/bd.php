@@ -632,6 +632,32 @@ class Conexion
         }
     }
 
+    static function getResenasLikeadasUsuario($idUsuario){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,
+            (select user from usuarios where idUsuario = r.fkUsuario) as nombreUsuario,
+            (select nombre from pinchos where idPincho = r.fkPincho) as nombrePincho,
+            (select nombre from restaurantes where idRestaurante = (select fkBar from pinchos where idPincho = r.fkPincho)) as nombreBar,
+            (select imagen from imagenes_usuarios where fk_usuario = r.fkUsuario) as imagenUsuario
+            FROM reseñas r
+            where idReseña IN (select fk_reseña from reseñas_likes rl where rl.fk_usuario = $idUsuario)";
+            
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     /*----------------------------------------------------------------------------------------------------------*/
     /*PINCHOS*/    
     /*----------------------------------------------------------------------------------------------------------*/

@@ -497,6 +497,37 @@ class ApiController
         echo json_encode($array);
 
     }
+
+    public function getResenasLikeadasUsuario(){
+
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+
+        $array["resenas"] = array();
+        if (isset($_SESSION["usuarioActual"])) {
+            $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
+            $resenasbd = Conexion::getResenasLikeadasUsuario($idUsuario);
+            foreach ($resenasbd as $resena) {
+                $aux = array();
+                $aux["idReseña"] = $resena["idReseña"];
+                $aux["fkUsuario"] = $resena["fkUsuario"];
+                $aux["fkPincho"] = $resena["fkPincho"];
+                $aux["nota"] = $resena["nota"];
+                $aux["textoReseña"] = $resena["textoReseña"];
+                $aux["nombreUsuario"] = $resena["nombreUsuario"];
+                $aux["nombrePincho"] = $resena["nombrePincho"];
+                $aux["nombreBar"] = $resena["nombreBar"];
+                $aux["imagenUsuario"] = $resena["imagenUsuario"];
+
+                array_push($array["resenas"], $aux);
+            } 
+            echo json_encode($array);
+        }else{
+            $error = "Debes loguearte para realizar esta peticion";
+            echo json_encode($error);
+        }
+         
+    }
     //----------------------------------------
     //PINCHOS
     //----------------------------------------    

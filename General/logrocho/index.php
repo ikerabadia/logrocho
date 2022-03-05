@@ -105,6 +105,8 @@
         $apiController->eliminarLike($fk_resena);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenasPinchosOrdenPopularidad") {
         $apiController->getReseñasPinchosOrdenPopularidad();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "resenasLikeadasUsuario") {
+        $apiController->getResenasLikeadasUsuario();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pinchos") { //Pinchos
         $apiController->getPinchos($_POST["pagina"], $_POST["cantidadRegistros"]);
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "pincho") {
