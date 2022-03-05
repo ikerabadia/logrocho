@@ -1,4 +1,5 @@
 window.onload = function() {
+    Console.error = () =>{};
     comprobarUsuarioLogueado();
     mostrarDatos();
 };
@@ -11,7 +12,7 @@ function mostrarDatos(){
     var precioMaximo = document.getElementById("inputPrecioMaximo").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getPinchosFiltrados",
+        "url": "api/getPinchosFiltrados",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -64,7 +65,7 @@ function mostrarDatos(){
 
 function comprobarUsuarioLogueado(){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "url": "api/getUsuarioLogueado",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -87,7 +88,7 @@ function comprobarUsuarioLogueado(){
   
   function logout() {
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/logout",
+      "url": "api/logout",
       "method": "GET",
       "timeout": 0,
       "headers": {

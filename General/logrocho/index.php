@@ -171,6 +171,9 @@
         $apiController->logout();
     }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "getImagenesSlider") {//GENERICAS
         $apiController->getImagenesSlider();
+    }else if (isset($array_ruta[0]) && $array_ruta[0] == "api" && $array_ruta[1] == "buscadorBaresPinchos") {
+        $textoBuscador = $_POST["textoBuscador"];
+        $apiController->buscadorBaresPinchos($textoBuscador);
     }else if(count($array_ruta)==0){ //Pagina mostrada por defecto
         header("Location: ".$_SERVER["REQUEST_URI"]."home");
     }else{

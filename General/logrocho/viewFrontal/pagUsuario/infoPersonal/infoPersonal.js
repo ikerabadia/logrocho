@@ -1,13 +1,14 @@
 var usuarioActual;
 
 window.onload = function() {
+  Console.error = () =>{};
   comprobarUsuarioLogueado();
 
 };
 
 function comprobarUsuarioLogueado(){
   var settings = {
-      "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+      "url": "api/getUsuarioLogueado",
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -44,6 +45,12 @@ function pintarDatosUsuario(){
   if (usuarioActual["imagen"] != "") {
     document.getElementById("foto").innerHTML = "";
     document.getElementById("foto").style.backgroundImage = "url("+usuarioActual["imagen"]+")";
+    document.getElementById("btnEliminarFoto").style.display = "flex";
+    document.getElementById("btnGuardarFoto").style.display = "none";
+  }else{
+    document.getElementById("foto").innerHTML = "<input type=\"file\" id=\"inputImagenPerfil\">";
+    document.getElementById("btnEliminarFoto").style.display = "none";
+    document.getElementById("btnGuardarFoto").style.display = "flex";
   }
 
 
@@ -51,7 +58,7 @@ function pintarDatosUsuario(){
 
 function logout() {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/logout",
+    "url": "api/logout",
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -63,6 +70,76 @@ function logout() {
   });
 }
 
+function updateUsuario(){
+  var settings = {
+    "url": "api/updateUsuario/"+usuarioActual["idUsuario"],
+    "method": "POST",
+    "timeout": 0,
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+      "nombre": ""+document.getElementById("inputNombre").value,
+      "apellido1": ""+document.getElementById("inputApellido1").value,
+      "apellido2": ""+document.getElementById("inputApellido2").value,
+      "correoElectronico": ""+document.getElementById("inputMail").value,
+      "user": ""+document.getElementById("inputNombreUsuario").value,
+      "password": ""+usuarioActual["password"],
+      "admin": ""+usuarioActual["admin"]
+    }
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
+
+function guardarFoto() {
+  var formData = new FormData();
+      formData.append('imagen', document.getElementById("inputImagenPerfil").files[0]);
+      formData.append('usuario', usuarioActual["idUsuario"]);
+      $.ajax({
+          url: 'api/guardarImagenUsuario',
+          type: 'post',
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            console.log(response);
+            comprobarUsuarioLogueado();
+          }
+      });
+}
+
+function eliminarFoto(){
+  var settings = {
+    "url": "api/deleteImagenUsuario/"+usuarioActual["idUsuario"],
+    "method": "DELETE",
+    "timeout": 0,
+    "headers": {
+    },
+  };
+  
+  $.ajax(settings).done(function (response) {
+    document.getElementById("foto").style.backgroundImage = "";
+    comprobarUsuarioLogueado();
+  });
+}
+
+function bajaUsuario(){
+  var settings = {
+    "url": "api/bajaUsuario/"+usuarioActual["idUsuario"],
+    "method": "GET",
+    "timeout": 0,
+    "headers": {
+    },
+  };
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    window.location.href = "home";
+  });
+}
 
 
 

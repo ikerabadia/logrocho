@@ -4,6 +4,7 @@ var imagenMostrada = 0;
 var usuario = "";
 
 window.onload = function() {
+    Console.error = () =>{};
     comprobarUsuarioLogueado();
     pintarDatos();
 };
@@ -14,7 +15,7 @@ function pintarDatos() {
     idPincho = urlParams.get('id');
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/pinchosImagenesResenas/"+idPincho,
+        "url": "api/pinchosImagenesResenas/"+idPincho,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -31,7 +32,7 @@ function pintarDatos() {
         document.getElementById("descripcionPincho").innerHTML = resultados["pinchos"][0]["descripcion"];
 
         var settings2 = {
-            "url": "http://localhost/logrocho/index.php/api/restaurante/"+resultados["pinchos"][0]["fkBar"],
+            "url": "api/restaurante/"+resultados["pinchos"][0]["fkBar"],
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -80,7 +81,7 @@ function pintarResenas(resenas) {
         var nombreBar = getNombreBar(resena["fkPincho"]);
 
         var settings = {
-            "url": "http://localhost/logrocho/index.php/api/usuario/"+resena["fkUsuario"], //Obtengo el nombre de usuario
+            "url": "api/usuario/"+resena["fkUsuario"], //Obtengo el nombre de usuario
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -94,7 +95,7 @@ function pintarResenas(resenas) {
             nombreUsuario = resultados["usuarios"][0]["user"];
 
             var settings = {
-                "url": "http://localhost/logrocho/index.php/api/pincho/"+resena["fkPincho"], //Obtengo el nombre del pincho
+                "url": "api/pincho/"+resena["fkPincho"], //Obtengo el nombre del pincho
                 "method": "GET",
                 "timeout": 0,
                 "headers": {
@@ -108,7 +109,7 @@ function pintarResenas(resenas) {
                 nombrePincho = resultados2["pinchos"][0]["nombre"];
 
                 var settings = {
-                    "url": "http://localhost/logrocho/index.php/api/pincho/"+resena["fkPincho"], //Obtengo el nombre del bar
+                    "url": "api/pincho/"+resena["fkPincho"], //Obtengo el nombre del bar
                     "method": "GET",
                     "timeout": 0,
                     "headers": {
@@ -122,7 +123,7 @@ function pintarResenas(resenas) {
                     var idBar = resultados3["pinchos"][0]["fkBar"];
             
                     var settings = {
-                        "url": "http://localhost/logrocho/index.php/api/restaurante/"+idBar,
+                        "url": "api/restaurante/"+idBar,
                         "method": "GET",
                         "timeout": 0,
                         "headers": {
@@ -177,7 +178,7 @@ function pintarResenas(resenas) {
         
                         var imagenUsuario = "";
                         var settings = {
-                            "url": "http://localhost/logrocho/index.php/api/getImagenUsuario/"+resena["fkUsuario"],
+                            "url": "api/getImagenUsuario/"+resena["fkUsuario"],
                             "method": "GET",
                             "timeout": 0,
                             "headers": {
@@ -209,7 +210,7 @@ function pintarResenas(resenas) {
 
 function getImagenUsuario(fkUsuario){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getImagenUsuario/"+fkUsuario,
+        "url": "api/getImagenUsuario/"+fkUsuario,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -226,7 +227,7 @@ function getImagenUsuario(fkUsuario){
 
 function getNombreBar(fkPincho) {
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/pincho/"+fkPincho,
+        "url": "api/pincho/"+fkPincho,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -240,7 +241,7 @@ function getNombreBar(fkPincho) {
         var idBar = resultados["pinchos"][0]["fkBar"];
 
         var settings = {
-            "url": "http://localhost/logrocho/index.php/api/restaurante/"+idBar,
+            "url": "api/restaurante/"+idBar,
             "method": "GET",
             "timeout": 0,
             "headers": {
@@ -258,7 +259,7 @@ function getNombreBar(fkPincho) {
 
 function getNombrePincho(fkPincho) {
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/pincho/"+fkPincho,
+        "url": "api/pincho/"+fkPincho,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -276,7 +277,7 @@ function getNombrePincho(fkPincho) {
 function getNombreUsuario(fkUsuario) {
     
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/usuario/"+fkUsuario,
+        "url": "api/usuario/"+fkUsuario,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -313,7 +314,7 @@ function mostrarImagen() {
 
 function comprobarUsuarioLogueado(){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "url": "api/getUsuarioLogueado",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -338,7 +339,7 @@ function comprobarUsuarioLogueado(){
   
   function logout() {
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/logout",
+      "url": "api/logout",
       "method": "GET",
       "timeout": 0,
       "headers": {
@@ -361,7 +362,7 @@ function publicarResena() {
             var nota = document.getElementById("inputPuntuacionResena").value;
             var textoResena = document.getElementById("inputDescripcionReseña").value;
             var settings = {
-                "url": "http://localhost/logrocho/index.php/api/nuevaResena",
+                "url": "api/nuevaResena",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {

@@ -3,13 +3,14 @@ var datos;
 var datosOrdenados;
 
 window.onload = function() {
+   Console.error = () =>{};
    mostrarDatos();
 };
 
 function mostrarDatos() {
     var numFilas = document.getElementById("itemsPaginacion").value;    
      $.ajax({
-        url: "http://localhost/logrocho/index.php/api/usuarios",
+        url: "api/usuarios",
         method: "POST",
         timeout: 0,
         headers: {
@@ -96,7 +97,7 @@ function insertarUsuario() {
     var password = document.getElementById("inputPassword").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/nuevoUsuario",
+        "url": "api/nuevoUsuario",
         "method": "POST",
         "timeout": 0,
         "headers": {

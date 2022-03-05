@@ -1,9 +1,13 @@
+window.onload = function() {
+  Console.error = () =>{};
+};
+
 function verificarLogin() {
     var user = document.getElementById("campoLoginInputUsuario").value;
     var password = document.getElementById("campoLoginInputContraseña").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/loginFront",
+        "url": "api/loginFront",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -78,7 +82,7 @@ function register(){
 
   if(camposCorrectos){
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/nuevoUsuario",
+      "url": "api/nuevoUsuario",
       "method": "POST",
       "timeout": 0,
       "headers": {

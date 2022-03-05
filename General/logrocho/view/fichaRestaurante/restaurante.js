@@ -2,6 +2,7 @@ var datosOriginales;
 var idRestaurante;
 
 window.onload = function() {
+    //Console.error = () =>{};
     establecerIdRestaurante();
     mostrarDatos();
     pintarTablaPinchos();
@@ -17,7 +18,7 @@ function establecerIdRestaurante() {
 function mostrarDatos(){  
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/restaurantesConPinchos/"+idRestaurante,
+        "url": "api/restaurantesConPinchos/"+idRestaurante,
         "method": "GET",
         "timeout": 0,
       };
@@ -39,7 +40,7 @@ function mostrarDatos(){
 
 function pintarTablaPinchos() {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/pinchosByRestaurante/"+idRestaurante,
+    "url": "api/pinchosByRestaurante/"+idRestaurante,
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -77,7 +78,7 @@ function guardarCambios() {
     var localizacion = document.getElementById("inputDireccionRestaurante").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/updateRestaurante/"+idRestaurante,
+        "url": "api/updateRestaurante/"+idRestaurante,
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -97,7 +98,7 @@ function guardarCambios() {
 
 function eliminarRestaurante() {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteRestaurante/"+datosOriginales["bares"][0]["idRestaurante"],
+    "url": "api/deleteRestaurante/"+datosOriginales["bares"][0]["idRestaurante"],
     "method": "DELETE",
     "timeout": 0,
   };
@@ -116,7 +117,7 @@ function pintarImagenes() {
 
 function pintarImagen(numeroImagen) {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/getImagenRestaurante",
+    "url": "api/getImagenRestaurante",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -153,7 +154,7 @@ function guardarImagen(numeroImagen) {
       var input = document.getElementById(idInput);
       formData.append('imagen', input.files[0]);
       $.ajax({
-          url: 'http://localhost/logrocho/index.php/api/guardarImagenRestaurante',
+          url: 'api/guardarImagenRestaurante',
           type: 'post',
           data: formData,
           contentType: false,
@@ -167,7 +168,7 @@ function guardarImagen(numeroImagen) {
 
 function eliminarImagen(numeroImagen){
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteImagenRestaurante",
+    "url": "api/deleteImagenRestaurante",
     "method": "POST",
     "timeout": 0,
     "headers": {

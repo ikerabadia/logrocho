@@ -1,4 +1,5 @@
 window.onload = function() {
+    Console.error = () =>{};
     comprobarUsuarioLogueado();
     mostrarDatos();
 };
@@ -8,7 +9,7 @@ function mostrarDatos() {
     var fNotaMinima = document.getElementById("inputNotaMinima").value;
     var fNotaMaxima = document.getElementById("inputNotaMaxima").value;
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/restaurantesFiltrados",
+        "url": "api/restaurantesFiltrados",
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -47,7 +48,7 @@ function mostrarDatos() {
          for (let i = 0; i < resultados["bares"].length; i++) {
             
             var settings = {
-                "url": "http://localhost/logrocho/index.php/api/getImagenRestaurante",
+                "url": "api/getImagenRestaurante",
                 "method": "POST",
                 "timeout": 0,
                 "headers": {
@@ -75,7 +76,7 @@ function mostrarDatos() {
 
 function comprobarUsuarioLogueado(){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "url": "api/getUsuarioLogueado",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -98,7 +99,7 @@ function comprobarUsuarioLogueado(){
   
   function logout() {
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/logout",
+      "url": "api/logout",
       "method": "GET",
       "timeout": 0,
       "headers": {

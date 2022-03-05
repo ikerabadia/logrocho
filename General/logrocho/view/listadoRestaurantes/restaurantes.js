@@ -3,13 +3,14 @@ var datos;
 var datosOrdenados;
 
 window.onload = function() {
+    //Console.error = () =>{};
     mostrarDatos();
 };
 
 function mostrarDatos() {
     var numFilas = document.getElementById("itemsPaginacion").value;    
      $.ajax({
-        url: "http://localhost/logrocho/index.php/api/restaurantes",
+        url: "api/restaurantes",
         method: "POST",
         timeout: 0,
         headers: {
@@ -94,7 +95,7 @@ function insertarRestaurante() {
     var longitud = document.getElementById("inputLongitud").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/nuevoRestaurante",
+        "url": "api/nuevoRestaurante",
         "method": "POST",
         "timeout": 0,
         "headers": {

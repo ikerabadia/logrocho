@@ -2,6 +2,7 @@ var datosOriginales;
 var idPincho;
 
 window.onload = function() {
+    //Console.error = () =>{};
     establecerIdPincho();  
     mostrarDatos();    
     pintarTablaReseñas();
@@ -18,7 +19,7 @@ function mostrarDatos(){
     
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/pincho/"+idPincho,
+        "url": "api/pincho/"+idPincho,
         "method": "GET",
         "timeout": 0,
       };
@@ -42,7 +43,7 @@ function mostrarDatos(){
 function pintarTablaReseñas() {
   
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/resenasByPincho/"+idPincho,
+    "url": "api/resenasByPincho/"+idPincho,
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -80,7 +81,7 @@ function pintarTablaReseñas() {
 function guardarTextoReseña(idReseña, fkUsuario, fkPincho, nota) {
   var textoReseña = document.getElementById("textoReseña"+idReseña).value;
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/updateResena/"+idReseña,
+    "url": "api/updateResena/"+idReseña,
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -118,7 +119,7 @@ function guardarCambios() {
     var bar = document.getElementById("inputBar").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/updatePincho/"+idPincho,
+        "url": "api/updatePincho/"+idPincho,
         "method": "POST",
         "timeout": 0,
         "headers": {
@@ -139,7 +140,7 @@ function guardarCambios() {
 
 function eliminarPincho() {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deletePincho/"+datosOriginales["pinchos"][0]["idPincho"],
+    "url": "api/deletePincho/"+datosOriginales["pinchos"][0]["idPincho"],
     "method": "DELETE",
     "timeout": 0,
   };
@@ -158,7 +159,7 @@ function pintarImagenes() {
 
 function pintarImagen(numeroImagen) {
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/getImagenPincho",
+    "url": "api/getImagenPincho",
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -195,7 +196,7 @@ function guardarImagen(numeroImagen) {
       var input = document.getElementById(idInput);
       formData.append('imagen', input.files[0]);
       $.ajax({
-          url: 'http://localhost/logrocho/index.php/api/guardarImagenPincho',
+          url: 'api/guardarImagenPincho',
           type: 'post',
           data: formData,
           contentType: false,
@@ -209,7 +210,7 @@ function guardarImagen(numeroImagen) {
 
 function eliminarImagen(numeroImagen){
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteImagenPincho",
+    "url": "api/deleteImagenPincho",
     "method": "POST",
     "timeout": 0,
     "headers": {

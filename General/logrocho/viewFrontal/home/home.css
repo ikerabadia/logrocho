@@ -286,7 +286,7 @@ fieldset{
 
 /*RESTAURANTES MEJOR VALORADOS*/
 .restaurantesMejorValorados{
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 150px;
     margin-right: 150px;
 }
@@ -344,7 +344,7 @@ fieldset{
 
 /*RESEÑAS MAS POPULARES*/
 .reseñasMejorValoradas{
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 150px;
     margin-right: 150px;
 }

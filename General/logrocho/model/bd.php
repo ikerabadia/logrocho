@@ -332,6 +332,27 @@ class Conexion
         }
     }
 
+    static function getBaresFiltradosNombreDescripcion($textoBuscador){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *,
+            TRUNCATE((Select avg(nota) from reseñas where fkPincho IN(SELECT idPincho from pinchos WHERE fkBar=idRestaurante)),1) as Puntuacion 
+            FROM restaurantes where nombre LIKE '%".$textoBuscador."%' or descripcion LIKE '%".$textoBuscador."%'";
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     static function getBarConImagenes($idBar){
         
         try {
@@ -524,7 +545,11 @@ class Conexion
         try {
             $db = Conexion::getConection();
 
-            $sql = "SELECT * FROM reseñas WHERE fkUsuario = $idUsuario";
+            $sql = "SELECT *,
+            (Select user from usuarios where idUsuario=r.fkUsuario) as nombreUsuario,
+            (Select nombre from pinchos where idPincho=r.fkPincho) as nombrePincho,
+            (Select nombre from restaurantes where idRestaurante=(Select fkBar from pinchos where idPincho=r.fkPincho)) as nombreBar 
+            FROM reseñas r WHERE fkUsuario = ".$idUsuario;
             $resultado = $db->query($sql);
 
             if ($resultado) {
@@ -980,6 +1005,35 @@ class Conexion
             AND (p.nombre LIKE '%".$textoBuscador."%'
             OR (SELECT nombre FROM restaurantes WHERE idRestaurante = p.fkBar) LIKE '%".$textoBuscador."%')
             AND COALESCE((SELECT AVG(nota) FROM reseñas WHERE fkPincho = p.idPincho),0) BETWEEN ".$notaMinima." and ".$notaMaxima."";
+
+            $resultado = $db->query($sql);
+
+            if ($resultado) {
+                return $resultado;
+            } else {
+                throw new Exception("Error en el select....");
+            }
+        } catch (\Exception $th) {
+            echo $th->getMessage();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static function getPinchosFiltradosNombreDescripcionTextoResena($textoBuscador){
+        try {
+            $db = Conexion::getConection();
+
+            $sql = "SELECT *
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 1) as imagen1 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 2) as imagen2 
+            ,(SELECT imagen FROM imagenes_pincho WHERE fk_pincho = p.idPincho and numeroImagen = 3) as imagen3
+            ,(SELECT nombre FROM restaurantes WHERE idRestaurante = p.fkBar) as nombreBar
+            ,(SELECT AVG(nota) FROM reseñas WHERE fkPincho = p.idPincho) as notaPincho
+            FROM pinchos p WHERE 
+            (p.nombre LIKE '%".$textoBuscador."%'
+            OR (SELECT nombre FROM restaurantes WHERE idRestaurante = p.fkBar) LIKE '%".$textoBuscador."%'
+            OR p.idPincho in (select fkPincho from reseñas where textoReseña LIKE '%".$textoBuscador."%'))";
 
             $resultado = $db->query($sql);
 

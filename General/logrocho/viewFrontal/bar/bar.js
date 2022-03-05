@@ -6,6 +6,7 @@ var imagenMostrada = 0;
 
 
 window.onload = function() {
+    Console.error = () =>{};
     comprobarUsuarioLogueado();
     pintarDatos();
 };
@@ -16,7 +17,7 @@ function pintarDatos() {
     idBar = urlParams.get('id');
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/restaurantesConPinchos/"+idBar,
+        "url": "api/restaurantesConPinchos/"+idBar,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -98,7 +99,7 @@ function mostrarImagen() {
 
 function comprobarUsuarioLogueado(){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "url": "api/getUsuarioLogueado",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -121,7 +122,7 @@ function comprobarUsuarioLogueado(){
   
   function logout() {
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/logout",
+      "url": "api/logout",
       "method": "GET",
       "timeout": 0,
       "headers": {

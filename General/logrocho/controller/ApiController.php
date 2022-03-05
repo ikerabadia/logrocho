@@ -390,6 +390,9 @@ class ApiController
             $aux["fkPincho"] = $reseña["fkPincho"];
             $aux["nota"] = $reseña["nota"];
             $aux["textoReseña"] = $reseña["textoReseña"];
+            $aux["nombreUsuario"] = $reseña["nombreUsuario"];
+            $aux["nombrePincho"] = $reseña["nombrePincho"];
+            $aux["nombreBar"] = $reseña["nombreBar"];
             array_push($array["reseñas"], $aux);
         }
         echo json_encode($array);
@@ -1077,6 +1080,7 @@ class ApiController
             $idUsuario = $_SESSION["usuarioActual"]["idUsuario"];
             Conexion::deleteUsuario($idUsuario);
             $array["resultado"] = "Usuario dado de baja correctamente";
+            session_destroy();
         }else{
             $array["resultado"] = "No existe un usuario logueado";
         }
@@ -1091,19 +1095,38 @@ class ApiController
             $array = array();
             $array["usuarios"] = array();
             $usuario = array();
-            $usuario["idUsuario"] = $_SESSION["usuarioActual"]["idUsuario"];
+
+            $usuariosbd = Conexion::getUser($_SESSION["usuarioActual"]["idUsuario"]);
+            foreach ($usuariosbd as $usuariobd) {
+                $aux = array();
+                $aux["idUsuario"] = $usuariobd["idUsuario"];
+                $aux["nombre"] = $usuariobd["nombre"];
+                $aux["apellido1"] = $usuariobd["apellido1"];
+                $aux["apellido2"] = $usuariobd["apellido2"];
+                $aux["correoElectronico"] = $usuariobd["correoElectronico"];
+                $aux["user"] = $usuariobd["user"];
+                $aux["password"] = $usuariobd["password"];
+                $aux["admin"] = $usuariobd["admin"];
+
+                $aux["imagen"] ="";
+                $imagenesbd = Conexion::getImagenUsuario($usuariobd["idUsuario"]);
+                foreach ($imagenesbd as $imagen) {
+                    $aux["imagen"] = $imagen["imagen"];
+                }
+                /* array_push($array["usuarios"], $aux); */
+                $usuario = $aux;
+            }
+
+            /* $usuario["idUsuario"] = $_SESSION["usuarioActual"]["idUsuario"];
             $usuario["nombre"] = $_SESSION["usuarioActual"]["nombre"];
             $usuario["apellido1"] = $_SESSION["usuarioActual"]["apellido1"];
             $usuario["apellido2"] = $_SESSION["usuarioActual"]["apellido2"];
             $usuario["correoElectronico"] = $_SESSION["usuarioActual"]["correoElectronico"];
             $usuario["user"] = $_SESSION["usuarioActual"]["user"];
             $usuario["password"] = $_SESSION["usuarioActual"]["password"];
+            $usuario["admin"] = $_SESSION["usuarioActual"]["admin"]; */
 
-            $usuario["imagen"] ="";
-            $imagenesbd = Conexion::getImagenUsuario($usuario["idUsuario"]);
-            foreach ($imagenesbd as $imagen) {
-                $usuario["imagen"] = $imagen["imagen"];
-            }
+            
 
             /* array_push($array["usuarios"], $usuario); */
 
@@ -1164,6 +1187,47 @@ class ApiController
 
         echo json_encode($array);
 
+    }
+
+    public function buscadorBaresPinchos($textoBuscador)
+    {
+
+        header("Content-Type: application/json', 'HTTP/1.1 200 OK");
+        $array = array();
+        $array["bares"] = array();
+        $baresbd = Conexion::getBaresFiltradosNombreDescripcion($textoBuscador);
+
+        foreach ($baresbd as $bar) {
+
+            $aux = array();
+            $aux["idRestaurante"] = $bar["idRestaurante"];
+            $aux["nombre"] = $bar["nombre"];
+            $aux["descripcion"] = $bar["descripcion"];
+            $aux["localizacion"] = $bar["localizacion"];
+            $aux["nota"] = $bar["Puntuacion"];
+            array_push($array["bares"], $aux);           
+            
+        }
+
+        $array["pinchos"] = array();        
+        $pinchosbd = Conexion::getPinchosFiltradosNombreDescripcionTextoResena($textoBuscador, 0, 100, 0, 10);
+
+        foreach($pinchosbd as $pincho){
+            $aux = array();
+            $aux["idPincho"] = $pincho["idPincho"];
+            $aux["nombre"] = $pincho["nombre"];
+            $aux["precio"] = $pincho["precio"];
+            $aux["fkBar"] = $pincho["fkBar"];
+            $aux["nombreBar"] = $pincho["nombreBar"];
+            $aux["descripcion"] = $pincho["descripcion"];
+            $aux["nota"] = $pincho["notaPincho"];
+            $aux["imagen1"] = $pincho["imagen1"];
+            $aux["imagen2"] = $pincho["imagen2"];
+            $aux["imagen3"] = $pincho["imagen3"];
+
+            array_push($array["pinchos"], $aux);
+        }
+        echo json_encode($array);
     }
 
 }

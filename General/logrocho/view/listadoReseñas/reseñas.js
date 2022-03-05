@@ -3,13 +3,14 @@ var datos;
 var datosOrdenados;
 
 window.onload = function() {
+    //Console.error = () =>{};
     mostrarDatos();
 };
 
 function mostrarDatos() {
     var numFilas = document.getElementById("itemsPaginacion").value;    
      $.ajax({
-        url: "http://localhost/logrocho/index.php/api/resenas",
+        url: "api/resenas",
         method: "POST",
         timeout: 0,
         headers: {
@@ -89,7 +90,7 @@ function anterior(){
 
 function eliminarReseña(idReseña) {
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/deleteResena/"+idReseña,
+        "url": "api/deleteResena/"+idReseña,
         "method": "DELETE",
         "timeout": 0,
       };

@@ -1,4 +1,5 @@
 window.onload = function() {
+    Console.error = () =>{};
     comprobarUsuarioLogueado();
     pintarResenas();
 };
@@ -66,7 +67,7 @@ function pintarResenas() {
 
 function comprobarUsuarioLogueado(){
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/getUsuarioLogueado",
+        "url": "api/getUsuarioLogueado",
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -89,7 +90,7 @@ function comprobarUsuarioLogueado(){
   
   function logout() {
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/logout",
+      "url": "api/logout",
       "method": "GET",
       "timeout": 0,
       "headers": {

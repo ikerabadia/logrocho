@@ -3,6 +3,7 @@ var datos;
 var datosOrdenados;
 
 window.onload = function() {
+    //Console.error = () =>{};
     mostrarDatos();
     cargarBares();
 };
@@ -10,7 +11,7 @@ window.onload = function() {
 function mostrarDatos() {
     var numFilas = document.getElementById("itemsPaginacion").value;    
      $.ajax({
-        url: "http://localhost/logrocho/index.php/api/pinchos",
+        url: "api/pinchos",
         method: "POST",
         timeout: 0,
         headers: {
@@ -90,7 +91,7 @@ function anterior(){
 
 function cargarBares(){
     $.ajax({
-        url: "http://localhost/logrocho/index.php/api/restaurantes",
+        url: "api/restaurantes",
         method: "POST",
         timeout: 0,
         headers: {
@@ -121,7 +122,7 @@ function insertarPincho() {
     var descripcion = document.getElementById("inputDescripcion").value;
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/nuevoPincho",
+        "url": "api/nuevoPincho",
         "method": "POST",
         "timeout": 0,
         "headers": {

@@ -267,6 +267,22 @@ fieldset{
     color: rgb(255, 255, 255);
 }
 
+/*BAJA USUARIO*/
+.textoBaja{
+    width: 80%;
+    margin-left: 10%;
+    font-size: 18px !important;
+}
+#btnBajaUsuario{
+    margin-left: 10%;
+    width: 15%;
+    background: #dc3545;
+}
+#btnBajaUsuario:hover{
+    background-color: rgb(50, 63, 72);
+    color: rgb(255, 255, 255);
+}
+
 /*INPUT PERSONALIZADO*/
 .container-input {
     text-align: center;

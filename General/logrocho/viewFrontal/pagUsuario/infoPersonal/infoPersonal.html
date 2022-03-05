@@ -78,7 +78,7 @@
                         <input type="text" id="inputMail">
                     </div>
                     <div class="filaBoton">   
-                        <div id="btnGuardarDatos" class="boton">
+                        <div id="btnGuardarDatos" onclick="updateUsuario()" class="boton">
                             <p>Guardar Datos</p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 <div class="contenedorFoto">
                     <div id="foto">
 
-                        <div class="container-input">
+                        <!-- <div class="container-input">
                             <input type="file" name="file-5" id="file-5" class="inputfile inputfile-5" data-multiple-caption="{count} archivos seleccionados" multiple />
                             <label for="file-5">
                                 <figure>
@@ -95,19 +95,33 @@
                                 </figure>
                                 <span class="iborrainputfile">Seleccionar archivo</span>
                             </label>
-                        </div>
+                        </div> -->
 
-                        <!-- <input type="file" id="inputImagenPerfil"> -->
+                        <input type="file" id="inputImagenPerfil">
                     </div>
-                    <div id="btnGuardarFoto" class="boton">
+                    <div id="btnGuardarFoto" class="boton" onclick="guardarFoto()">
                         <p>Guardar Foto</p>
                     </div>
-                    <div id="btnEliminarFoto" class="boton">
+                    <div id="btnEliminarFoto" class="boton" onclick="eliminarFoto()">
                         <p>Eliminar Foto</p>
                     </div>
                 </div>
             </div>
-        </div>       
+        </div> 
+        <div class="contenedorBajaUsuario">
+            <fieldset>
+                <legend>Darse de baja</legend>
+    
+            </fieldset>
+            <p class="textoBaja">El boton a continuacion te permitira darte de baja como usuario, no lo presiones si no estas
+                seguro de que quieres darte de baja, puesto que no habra vuelta atras, una vez pulsado el 
+                boton, el usuario se eliminara de la base de datos y no podra volver a ser utilizado
+            </p>
+            <div id="btnBajaUsuario" class="boton" onclick="bajaUsuario()">
+                <p>Darse de baja</p>
+            </div>
+        </div>
+
         
         
     </div>

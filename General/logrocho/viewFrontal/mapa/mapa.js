@@ -1,4 +1,5 @@
 window.onload = function () {
+  Console.error = () =>{};
   comprobarUsuarioLogueado();
   pintarBaresMapa();
 };

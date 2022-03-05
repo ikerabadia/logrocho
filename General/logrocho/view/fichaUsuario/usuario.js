@@ -2,6 +2,7 @@ var datosOriginales;
 var idUsuario;
 
 window.onload = function() {
+    Console.error = () =>{};
     establecerIdUsuario();
     mostrarDatos();
     pintarTablaReseñas();
@@ -17,7 +18,7 @@ function establecerIdUsuario() {
 function mostrarDatos(){
 
     var settings = {
-        "url": "http://localhost/logrocho/index.php/api/usuario/"+idUsuario,
+        "url": "api/usuario/"+idUsuario,
         "method": "GET",
         "timeout": 0,
       };
@@ -41,7 +42,7 @@ function mostrarDatos(){
 function eliminarUsuario() {
 
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/deleteUsuario/"+idUsuario,
+      "url": "api/deleteUsuario/"+idUsuario,
       "method": "DELETE",
       "timeout": 0,
       "headers": {
@@ -58,7 +59,7 @@ function eliminarUsuario() {
 function limpiarLikesUsuario() {
 
     var settings = {
-      "url": "http://localhost/logrocho/index.php/api/limpiarLikesUsuario/"+idUsuario,
+      "url": "api/limpiarLikesUsuario/"+idUsuario,
       "method": "DELETE",
       "timeout": 0,
       "headers": {
@@ -73,7 +74,7 @@ function limpiarLikesUsuario() {
 function pintarTablaReseñas() {
   
       var settings = {
-        "url": "http://localhost/logrocho/index.php/api/resenasByUsuario/"+idUsuario,
+        "url": "api/resenasByUsuario/"+idUsuario,
         "method": "GET",
         "timeout": 0,
         "headers": {
@@ -101,7 +102,7 @@ function pintarTablaReseñas() {
 function guardarTextoReseña(idReseña, fkUsuario, fkPincho, nota) {
   var textoReseña = document.getElementById("textoReseña"+idReseña).value;
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/updateResena/"+idReseña,
+    "url": "api/updateResena/"+idReseña,
     "method": "POST",
     "timeout": 0,
     "headers": {
@@ -125,7 +126,7 @@ function guardarImagen() {
       formData.append('imagen', document.getElementById("imagenUsuario").files[0]);
       formData.append('usuario', idUsuario);
       $.ajax({
-          url: 'http://localhost/logrocho/index.php/api/guardarImagenUsuario',
+          url: 'api/guardarImagenUsuario',
           type: 'post',
           data: formData,
           contentType: false,
@@ -139,7 +140,7 @@ function guardarImagen() {
 
 function pintarImagen(){
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/getImagenUsuario/"+idUsuario,
+    "url": "api/getImagenUsuario/"+idUsuario,
     "method": "GET",
     "timeout": 0,
     "headers": {
@@ -167,7 +168,7 @@ function pintarImagen(){
 
 function eliminarImagen(){
   var settings = {
-    "url": "http://localhost/logrocho/index.php/api/deleteImagenUsuario/"+idUsuario,
+    "url": "api/deleteImagenUsuario/"+idUsuario,
     "method": "DELETE",
     "timeout": 0,
     "headers": {
