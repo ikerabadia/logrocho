@@ -1,0 +1,37 @@
+body{
+    background: #212529;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    width: 100%;
+    padding: 20px;
+}
+.contenedorLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+.btnPaginaPrincipal{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.loginIncorrecto{
+    color: red;
+}
+/*TITULO ADMINISTRACION*/
+.tituloAdministracion{
+    width: 30%;
+    margin-right: 0px;
+    margin-left: 0px;
+}

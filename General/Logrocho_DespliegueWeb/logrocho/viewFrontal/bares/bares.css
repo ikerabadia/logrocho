@@ -1,0 +1,328 @@
+/*GENERALES*/
+.content{
+    background: white;
+}
+.titulo{
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 30px;
+    
+}
+.spanTitulo{
+    color: rgb(45, 45, 45);
+    border-bottom: 2px solid #fc0;
+    margin-left: 10%;
+}
+.palabraImportante{
+    font-weight: 800;
+}
+
+ /*CABECERA*/
+ .cabecera{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    background: #ffffff;
+ }
+ .logo{
+    background-image: url("../../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+ }
+ .btnLogin{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+ #btnLogout{
+     color: red;
+ }
+ #btnLogin{
+     text-decoration: none;
+     color: black;
+ }
+
+ /*MENU*/
+ .menu{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 2px solid rgb(255, 204, 0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+ }
+ .menu div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    height: 100%;
+    background: #ffffff;
+ }
+.menu p{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222;
+}
+.menu p:hover{
+    background: rgb(255, 204, 0);
+}
+.btnMenu{
+    height: 100%;
+    width: 50%;
+    text-decoration: none;
+    background: #ffffff;
+}
+.btnBares{
+    background: rgb(255, 204, 0);
+}
+
+/*FILTROS*/
+.contenedorBaresFiltros{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    color: grey;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.filtroNota input{
+    outline: none;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+    color: grey;
+    width: 20%;
+}
+.filtroNota input:focus{
+    border-left: 10px solid #fc0;
+}
+.contenedorFiltros{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid #fc0;
+    padding-bottom: 15px;
+}
+.filtroNota{
+    width: 50%;
+}
+/*BUSCADOR*/
+.buscador{
+    border: 2px solid #fc0;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 32px;
+}
+.buscador input:focus{
+    box-shadow: 0px 0px 10px #fc0;
+    border: 0px;
+}
+.buscadorLabel{
+    background: #fc0;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.buscadorInput{
+    border: 0px;
+    outline: none;
+    box-shadow: 0px 0px 0px #fc0;
+    transition: 0.3s;
+    padding-left: 10px;
+    width: 100%;
+}
+
+/*BARES*/
+.contenedorBares{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.contenedorBares a{
+    width: 30%;
+    height: 300px;
+    text-decoration: none;
+    color: grey;
+    margin-left: 2.5%;
+    margin-bottom: 30px;
+}
+.bar{
+    /* width: 30%;
+    height: 300px; */
+    width: 100%;
+    height: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    background: url("../../../logrocho/RecursosGenerales/restauranteDefault.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 0px black;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.bar:hover{
+    box-shadow: 0px 0px 10px black;
+}
+.bar:hover>.datosBar{
+    bottom: -17%;
+    border-top: 10px solid #fc0;
+}
+.datosBar{
+    height: 20%;
+    background: #F8F9FB;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    border-top: 2px solid #fc0;
+    transition: 0.5s;
+}
+.nombrePuntuacionBar{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.nombreBar{
+    width: 70%;
+    text-transform: initial;
+    font-size: 15px;
+}
+.puntuacionBar{
+    width: 30%;
+    color: goldenrod;
+}
+.localizacionBar{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    text-transform: initial;
+    text-align: center;
+}
+
+
+/*FOOTER*/
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+ .itemFooter{
+     cursor: pointer;
+ }
+ .itemFooter:hover{
+    color: white;
+}
+.footer{
+    margin-top: 25px;
+    width: 100%;
+}
+#footerArriba{
+    margin-right: 0px;
+}
+#footerAbajo{
+    margin-right: 0px;
+}

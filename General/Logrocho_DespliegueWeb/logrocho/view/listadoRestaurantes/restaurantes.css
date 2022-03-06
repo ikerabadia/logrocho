@@ -1,0 +1,205 @@
+.colVerRest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tablaRestaurantes{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 40px;
+    border: 1px solid black;
+    text-align: center;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+}
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    align-items: flex-end;
+}
+th{
+    transition: 0.3s;
+    cursor: pointer;
+}
+th:hover{
+    color: white;
+    background: #0d6efd;
+}
+
+/*MENU*/
+.menu{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+.itemsMenu{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.itemMenu{
+    margin-right: 15px;
+}
+.btnLogout{
+    margin-right: 20px;
+}
+.contenidoMenu{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+#logoLogrocho{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/*INSERCION DE NUEVOS RESTAURANTES*/
+.divInsertarRestaurante{
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 80px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs{
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    height: 76%;
+}
+.inputsDescripcion{
+    width: 90%;
+    margin-left: 40px;
+    height: 100%;
+}
+.inputsLocalizacion{
+}
+#inputDescripcion{
+    height: 250px;
+    width: 100%;
+}
+.input{
+    border-radius: 15px 0px 15px 0px;
+    color: #0d6efd;
+}
+.btnInsertarRestaurante{
+    width: 90%;
+}
+.nombreLocalizacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/*PAGINACION TABLA*/
+.menuPaginacionTabla{
+    margin-bottom: 15px;
+}
+.itemsMostrados{
+    margin-top: 15px;
+}
+
+
+/*FOOTER*/
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+     display: fkex
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+ .itemFooter{
+     cursor: pointer;
+ }
+ .itemFooter:hover{
+    color: white;
+}
+.footer{
+    margin-top: 25px;
+    width: 100%;
+}
+#footerArriba{
+    margin-right: 0px;
+}
+#footerAbajo{
+    margin-right: 0px;
+}

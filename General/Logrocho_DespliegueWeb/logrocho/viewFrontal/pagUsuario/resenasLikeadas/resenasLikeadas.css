@@ -1,0 +1,379 @@
+/*GENERALES*/
+.content{
+
+}
+
+.titulo{
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 30px;
+}
+.spanTitulo{
+    color: rgb(45, 45, 45);
+    border-bottom: 2px solid #fc0;
+    margin-left: 10%;
+}
+.contenido{
+    width: 100%;
+}
+
+legend{
+    background-color: #f2f2f2;
+    border: medium none;
+    clear: both;
+    color: #999;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    width: inherit;
+    border-radius: 30px;
+    float: none;
+}
+
+fieldset{
+    background-color: transparent;
+    border-top: 3px solid #eee;
+    margin-top: 60px;
+    padding: 10px 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+ /*CABECERA*/
+ .cabecera{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    background: #ffffff;
+ }
+ .logo{
+    background-image: url("../../../../logrocho/RecursosGenerales/imgLogo/LogrochoBig.png");
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+ }
+ .btnLogin{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+ #btnLogout{
+     color: red;
+ }
+ #btnLogin{
+     text-decoration: none;
+     color: black;
+ }
+
+ /*MENU*/
+ .menu{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 2px solid rgb(255, 204, 0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+ }
+ .menu div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    height: 100%;
+    background: #ffffff;
+ }
+.menu p{
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #222;
+}
+.menu p:hover{
+    background: rgb(255, 204, 0);
+}
+.btnMenu{
+    height: 100%;
+    width: 50%;
+    text-decoration: none;
+    background: #ffffff;
+}
+
+/*SUBMENU*/
+.subMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.enlaceSubmenu{
+    font-size: 11px;
+    font-family: Arial narrow;
+    text-transform: uppercase;
+    display: block;
+    padding: 5px 9px;
+    background-color: #fff;
+    color: grey;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.enlaceSubmenu:hover{
+    background-color: #e3e3e3;
+    color: #444;
+}
+.btnSubmenu{
+    margin-left: 20px;    
+}
+
+#contenedorBtnInfoPersonal{
+    margin-left: 0px;
+}
+
+#btnResenasLikeadas{
+    color: #fff;
+    background-color: #444;
+    border-width: 0;
+    border-style: none;
+    
+}
+
+/*RESEnAS*/
+.resenas{
+    width: 80%;
+    margin-left: 10%;
+}
+.resena{
+    width: 100%;
+    min-height: 250px;
+    border: 3px solid #f2f2f2;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+.zonaPerfil{
+    width: 20%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #fc0;
+}
+.zonaResena{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.imagenPerfil{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgPerfil{
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: url(https://previews.123rf.com/images/drawkman/drawkman1709/drawkman170900224/85465511-visage-de-yeti-de-bande-dessin%C3%A9e-bonhomme-de-neige-de-bigfoot-de-vecteur-design-pour-impression-de-t.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.nombreUsuario{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.puntuacion{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cabeceraResena{
+    width: 90%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid #fc0;
+    align-items: center;
+}
+.textoResena{
+    width: 90%;
+    height: 80%;
+    padding-top: 15px;
+}
+.nombrePincho{
+    width: 50%;
+    height: 100%;    
+}
+.nombreBar{
+    width: 40%;
+    height: 100%;
+}
+.like{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.user{
+    font-size: 17px;
+    font-family: Arial narrow;
+    color: grey;
+}
+.puntuacionResena{
+    font-size: 17px;
+    font-family: Arial narrow;
+    color: grey;
+}
+.cabeceraResena pp{
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    align-items: flex-end;
+    color: #5e5e5e;
+    font-size: 20px;
+}
+/*LIKE*/
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+    color: red;
+    transition: 0.3s;
+}
+  
+.fa:hover {
+    color: darkred;
+}
+
+.like{
+    font-size: 40px;    
+}
+
+/*FOOTER*/
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+ .itemFooter{
+     cursor: pointer;
+ }
+ .itemFooter:hover{
+    color: white;
+}
+.footer{
+    margin-top: 25px;
+    width: 100%;
+}
+#footerArriba{
+    margin-right: 0px;
+}
+#footerAbajo{
+    margin-right: 0px;
+}

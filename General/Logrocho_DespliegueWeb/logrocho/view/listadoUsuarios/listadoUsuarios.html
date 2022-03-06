@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../../logrocho/view/listadoUsuarios/listadoUsuarios.css" />
+    <title>Listado Resenas</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark menu">
+        <div class="contenidoMenu">
+            <h3 class="text-white" id="logoLogrocho">Logrocho</h3>
+            <div class="itemsMenu">
+                <a class="btn btn-outline-primary itemMenu" href="usuarios">Usuarios</a>
+                <a class="btn btn-outline-primary itemMenu" href="restaurantes">Restaurantes</a>
+                <a class="btn btn-outline-primary itemMenu" href="pinchos">Pinchos</a>
+                <a class="btn btn-outline-primary itemMenu" href="resenas">Resenas</a>
+            </div>    
+            <a class="btn btn-outline-danger btnLogout" href="login">Cerrar sesion</a> 
+        </div>          
+    </nav>
+    <div class="content">
+
+        <div class="card divInsertarRestaurante">
+            <h2 id="tituloNuevoRestaurante">INSERTAR NUEVO USUARIO</h2>
+            <div class="inputs">
+                <div class="nombreApellido1">
+                    <div class="inputsNombre">
+                        <p class="label">Nombre: </p>
+                        <input type="text" id="inputNombreUsuario" class="input" placeholder="Iker">
+                    </div>
+                    <div class="inputsApellido1">
+                        <p class="label">Apellido 1: </p>
+                        <input type="text" id="inputApellido1" class="input" placeholder="Abadia">
+                    </div>
+                </div>    
+                <div class="inputsApellido2Correo">
+                    <div class="inputsApellido2">
+                        <p class="label">Apellido 2: </p>
+                        <input type="text" id="inputApellido2" class="input" placeholder="Conejos">
+                    </div>
+                    <div class="inputsCorreoElectronico">
+                        <p class="label">Correo Electronico: </p>
+                        <input type="email" id="inputCorreoElectronico" class="input" placeholder="iabadiac01@gmail.com">
+                    </div>
+                </div>
+                <div class="inputsUserPassword">
+                    <div class="inputsUser">
+                        <p class="label">Usuario: </p>
+                        <input type="text" id="inputUsername" class="input" placeholder="Ikerabadia99">
+                    </div>
+                    <div class="inputsPassword">
+                        <p class="label">Contrasena: </p>
+                        <input type="password" id="inputPassword" class="input">
+                    </div>
+                </div>          
+                                      
+            </div>
+            <a class="btn btn-primary btnInsertarRestaurante" onclick="insertarUsuario()">Guardar</a> 
+        </div>
+
+        <div class="tablaRestaurantes card">
+            <div class="tablaArriba">
+                <h1 id="tituloTablaUsuarios">LISTADO DE USUARIOS</h2>
+                    <div class="filtrosBusqueda">
+                            <input type="text" name="" id="cuadroBusqueda" placeholder="Buscar">
+                            <div>
+                                <label for="minNota">Nota minima</label>
+                                <input type="number" id="minNota" name="minNota" value="0" min="0" max="100"> 
+                            </div>
+                            <div>
+                                <label for="maxNota">Nota maxima</label>
+                                <input type="number" id="maxNota" name="maxNota" value="100" min="0" max="100">
+                            </div>    
+                    </div>
+                    <table class="table table-striped table-hover " id="tablaUsuarios">
+                        <tr><th id="thId" onclick="orderById()">ID</th><th id="thUsuario" onclick="orderByUser()">Usuario</th><th id="thPincho" onclick="orderByPincho()">Pincho</th><th id="thNota" onclick="orderByNota()">Nota</th><th id="thTexto" >Texto resena</th><th></th></tr>
+                        <tr><td>1</td><td>1</td><td>1</td><td>7.5</td><td>muy rico pero feo</td><td class="colVerPinchos"><a class="btn btn-danger" href="restaurante.html">Eliminar resena</a></td></tr>  
+                    </table>
+            </div>
+            
+            <div class="menuPaginacionTabla">
+                <select name="itemsPaginacion" id="itemsPaginacion" onchange="mostrarDatos()">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                  </select>
+                <div class="btn btn-primary" id="btnAnterior" onclick="anterior()">Anterior</div>
+                <div class="btn btn-primary" id="btnSiguiente" onclick="siguiente()">Siguiente</div>
+                <p class="itemsMostrados">10 de 12</p>
+            </div>
+        </div>   
+
+        
+
+    <footer class="footer">
+        <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3" id="footerArriba">
+            <div class="col-12">
+                <div class="row row-2">
+                    <div class="col-sm-3 text-md-center">
+                        <h5><span> <i class="fa fa-firefox text-light" aria-hidden="true"></i></span><b>Logrocho</b></h5>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Plataforma</li>
+                            <li class="itemFooter">Centro de ayuda</li>
+                            <li class="itemFooter">Seguridad</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Clientes</li>
+                            <li class="itemFooter">Casos de uso</li>
+                            <li class="itemFooter">Servicios al cliente</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Companía</li>
+                            <li class="itemFooter">Sobre nosotros</li>
+                            <li class="itemFooter">Carreras- <span class="Careers">Estamos contratando</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2" id="footerAbajo">
+            <div class="col-12">
+                <div class="row my-4 row-1 no-gutters">
+                    <div class="col-sm-3 col-auto text-center"><small>&#9400; Abadía Software</small></div>
+                    <div class="col-md-3 col-auto "></div>
+                    <div class="col-md-3 col-auto"></div>
+                    <div class="col my-auto text-md-left text-right "> <small> iabadiac01@larioja.edu.es <span><img src="../RecursosGenerales/simboloTwitter.png" class="img-fluid " width="25"></span> <span><img src="../RecursosGenerales/simboloTwitter.png" class="img-fluid " width="25"></span></small> </div>
+                </div>
+            </div>
+        </div>
+    </footer>  
+    <script src="../../../logrocho/RecursosGenerales/jquery-3.6.0.js"></script>
+    <script src="../../../logrocho/view/listadoUsuarios/listadoUsuarios.js"></script>
+</body>
+</html>

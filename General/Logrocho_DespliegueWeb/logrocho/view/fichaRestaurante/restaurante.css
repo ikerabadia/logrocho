@@ -1,0 +1,290 @@
+/*GENERICOS BAR*/
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    background: #f1efe6;
+}
+.editable{
+    border-radius: 15px 0px 15px 0px;
+    color: #0d6efd;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #e8e5dd;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 80px;
+}
+/*MENU*/
+.menu{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+.itemsMenu{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.itemMenu{
+    margin-right: 15px;
+}
+.btnLogout{
+    margin-right: 20px;
+}
+.contenidoMenu{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+#logoLogrocho{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/*CABECERA*/
+.cabeceraBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.smallInfo{
+    color: #0d6efd;
+    margin-bottom: 30px;
+}
+
+.cabeceraEdicionBar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/*IMAGENES*/
+.sliderImagenesBar{
+    width: 100%;
+    height: 500px;
+    border: 1px solid black;
+    background: #0d6efd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.imagenMostrada{
+    border: 1px solid black;
+    width: 63%;
+    height: 96%;
+    background-color: white;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.miniaturasTresImagenes{
+    width: 33%;
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contenedorImg{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.miniatura{
+    width: 48%;
+    height: 100%;
+    background-color: white;
+    border-radius: .25rem;
+    cursor: pointer;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.btnEliminarImagen{
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+}
+.btnGuardarImagen{
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+}
+
+/*DATOS BAR*/
+.datosBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+.descripcion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 10px;
+}
+#inputDescripcion{
+    min-height: 200px;
+}
+
+/*TABLA*/
+.colVerRest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tituloTablaPinchos{
+    margin-bottom: 30px;
+}
+.tablaPinchos{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+/*FILTROS BUSQUEDA*/
+.filtrosBusqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/*BOTONES GUARDAR Y DESCARTAR*/
+.botonesGuardarDescartar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#btnGuardar{
+    width: 49%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#btnDescartar{
+    width: 49%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/*FOOTER*/
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+ body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #F8F9FB !important
+ }
+
+ .container-fluid {
+     margin-top: 101px;
+     color: #000 !important
+ }
+
+ .card {
+     background-color: #F8F9FB !important
+ }
+
+ p {
+     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important;
+     display: fkex
+ }
+
+ h3 {
+     font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ .social {
+     font-size: 21px !important
+ }
+
+ .color-text {
+     color: #757575 !important
+ }
+
+ button {
+     font-size: calc(12px + (13 - 12) * ((100vw - 360px) / (1600 - 320))) !important;
+     background-color: #2CA6FB !important;
+     padding-left: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-top: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important;
+     padding-bottom: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer {
+     color: #caced1 !important
+ }
+
+ li {
+     margin-top: 20px;
+     margin-bottom: 20px
+ }
+
+ .Careers {
+     cursor: pointer;
+     color: #1E88E5
+ }
+
+ .row-1 {
+     background-color: #1E242A !important
+ }
+
+ .row-2 {
+     background-color: #28323C !important
+ }
+
+ .itemFooter{
+     cursor: pointer;
+ }
+ .itemFooter:hover{
+    color: white;
+}
+.footer{
+    margin-top: 25px;
+    width: 100%;
+}
+#footerArriba{
+    margin-right: 0px;
+}
+#footerAbajo{
+    margin-right: 0px;
+}

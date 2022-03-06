@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../../logrocho/viewFrontal/bares/bares.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="cabecera">
+            <a href="home">
+                <div class="logo"> 
+
+                </div>
+            </a>
+            <div class="btnLogin" id="contenedorBtnLogin">
+                <a id="btnLogin" href="frontLoginRegister">👤 Login/Register</a>
+            </div>
+        </div>
+        <div class="menu">
+            <a class="btnBares btnMenu" href="baresFront">
+                <p>Bares</p>
+            </a>
+            <a class="btnPinchos btnMenu" href="frontPinchos">
+                <p>Pinchos</p>
+            </a>
+            <a class="btnMapa btnMenu" href="mapa">
+                <p>Mapa</p>
+            </a>
+        </div>
+        <h1 class="titulo">
+            <span class="spanTitulo">bares</span>
+        </h1>
+        
+        <div class="contenedorBaresFiltros">
+            <div class="contenedorFiltros">
+                <div class="filtroNota">
+                    Nota <span class="palabraImportante">desde</span> <input type="number" max="10" min="0" name="inputNotaMinima" id="inputNotaMinima" value="0" onchange="mostrarDatos()" onkeyup="mostrarDatos()"> <span class="palabraImportante">hasta</span> <input type="number" max="10" min="0" name="inputNotaMaxima" id="inputNotaMaxima" value="10" onchange="mostrarDatos()" onkeyup="mostrarDatos()">
+                </div>
+                <div class="buscador">
+                    <div class="buscadorLabel">
+                        🔎
+                    </div>
+                    <input type="text" id="buscadorInput" class="buscadorInput" onkeyup="mostrarDatos()">
+                </div>
+            </div>
+            <div class="contenedorBares" id="contenedorBares">
+
+                <a href="barFront">
+                    <div class="bar" id="bar1">
+                        <div class="datosBar">
+                            <div class="nombrePuntuacionBar">
+                                <div class="nombreBar">La taberna del tio Blas</div>
+                                <div class="puntuacionBar">★★★☆☆</div>
+                            </div>
+                            <div class="localizacionBar">
+                                Calle Laurel 13
+                            </div>
+                        </div>                    
+                    </div>
+                </a>
+                
+                <a href="barFront">
+                    <div class="bar" id="bar1">
+                        <div class="datosBar">
+                            <div class="nombrePuntuacionBar">
+                                <div class="nombreBar">La taberna del tio Blas</div>
+                                <div class="puntuacionBar">★★★☆☆</div>
+                            </div>
+                            <div class="localizacionBar">
+                                Calle Laurel 13
+                            </div>
+                        </div>                    
+                    </div>
+                </a>
+
+                <a href="barFront">
+                    <div class="bar" id="bar1">
+                        <div class="datosBar">
+                            <div class="nombrePuntuacionBar">
+                                <div class="nombreBar">La taberna del tio Blas</div>
+                                <div class="puntuacionBar">★★★☆☆</div>
+                            </div>
+                            <div class="localizacionBar">
+                                Calle Laurel 13
+                            </div>
+                        </div>                        
+                    </div>
+                </a>
+
+                <a href="barFront">
+                    <div class="bar" id="bar1">
+                        <div class="datosBar">
+                            <div class="nombrePuntuacionBar">
+                                <div class="nombreBar">La taberna del tio Blas</div>
+                                <div class="puntuacionBar">★★★☆☆</div>
+                            </div>
+                            <div class="localizacionBar">
+                                Calle Laurel 13
+                            </div>
+                        </div>                    
+                    </div>
+                </a>
+
+                <a href="barFront">
+                    <div class="bar" id="bar1">
+                        <div class="datosBar">
+                            <div class="nombrePuntuacionBar">
+                                <div class="nombreBar">La taberna del tio Blas</div>
+                                <div class="puntuacionBar">★★★☆☆</div>
+                            </div>
+                            <div class="localizacionBar">
+                                Calle Laurel 13
+                            </div>
+                        </div>                    
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <footer class="footer">
+        <div class="row justify-content-center mb-0 pt-5 pb-0 row-2 px-3" id="footerArriba">
+            <div class="col-12">
+                <div class="row row-2">
+                    <div class="col-sm-3 text-md-center">
+                        <h5><span> <i class="fa fa-firefox text-light" aria-hidden="true"></i></span><b>Logrocho</b></h5>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Plataforma</li>
+                            <li class="itemFooter">Centro de ayuda</li>
+                            <li class="itemFooter">Seguridad</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Clientes</li>
+                            <li class="itemFooter">Casos de uso</li>
+                            <li class="itemFooter">Servicios al cliente</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 my-sm-0 mt-5">
+                        <ul class="list-unstyled">
+                            <li class="mt-0 itemFooter">Companía</li>
+                            <li class="itemFooter">Sobre nosotros</li>
+                            <li class="itemFooter">Carreras- <span class="Careers">Estamos contratando</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-0 pt-0 row-1 mb-0 px-sm-3 px-2" id="footerAbajo">
+            <div class="col-12">
+                <div class="row my-4 row-1 no-gutters">
+                    <div class="col-sm-3 col-auto text-center"><small>&#9400; Abadía Software</small></div>
+                    <div class="col-md-3 col-auto "></div>
+                    <div class="col-md-3 col-auto"></div>
+                    <div class="col my-auto text-md-left text-right "> <small> iabadiac01@larioja.edu.es <span><img src="../../../../logrocho/RecursosGenerales/simboloTwitter.png" class="img-fluid " width="25"></span> <span><img src="../../../../logrocho/RecursosGenerales/simboloFacebook.png" class="img-fluid " width="25"></span></small> </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../../logrocho/RecursosGenerales/jquery-3.6.0.js"></script>
+    <script src="../../../logrocho/viewFrontal/bares/bares.js"></script>
+</body>
+</html>
