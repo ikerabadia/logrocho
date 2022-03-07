@@ -1,0 +1,7 @@
+FRONT
+https://iker.ociobinario.com/logrocho/index.php/home
+usuario:contraseña -> admin:admin  O te registras con un usuario nuevo
+
+BACK
+https://iker.ociobinario.com/logrocho/index.php/login
+usuario:contraseña -> admin:admin

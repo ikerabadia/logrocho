@@ -1,0 +1,3 @@
+https://github.com/ikerabadia/logrocho.git
+la carpeta en la que esta el proyecto finalizado es general/Logrocho_DespliegueWeb/logrocho
+Notese que este es el proyecto que esta desplegado en el hosting web, por lo que no funcionara en local
