@@ -6,7 +6,7 @@ var imagenMostrada = 0;
 
 
 window.onload = function() {
-    //Console.error = () =>{};
+    console.error = () =>{};
     comprobarUsuarioLogueado();
     pintarDatos();
 };

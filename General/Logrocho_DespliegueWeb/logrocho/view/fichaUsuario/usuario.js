@@ -2,7 +2,7 @@ var datosOriginales;
 var idUsuario;
 
 window.onload = function() {
-    //Console.error = () =>{};
+    console.error = () =>{};
     establecerIdUsuario();
     mostrarDatos();
     pintarTablaResenas();

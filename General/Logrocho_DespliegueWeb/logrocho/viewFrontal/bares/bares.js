@@ -1,5 +1,5 @@
 window.onload = function() {
-    //Console.error = () =>{};
+    console.error = () =>{};
     comprobarUsuarioLogueado();
     mostrarDatos();
 };

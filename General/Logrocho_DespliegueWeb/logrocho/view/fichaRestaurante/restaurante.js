@@ -2,7 +2,7 @@ var datosOriginales;
 var idRestaurante;
 
 window.onload = function() {
-    //Console.error = () =>{};
+    console.error = () =>{};
     establecerIdRestaurante();
     mostrarDatos();
     pintarTablaPinchos();

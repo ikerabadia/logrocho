@@ -2,7 +2,7 @@ var datosOriginales;
 var idPincho;
 
 window.onload = function() {
-    //Console.error = () =>{};
+    console.error = () =>{};
     establecerIdPincho();  
     mostrarDatos();    
     pintarTablaResenas();

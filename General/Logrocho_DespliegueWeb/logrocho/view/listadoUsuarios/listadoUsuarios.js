@@ -3,7 +3,7 @@ var datos;
 var datosOrdenados;
 
 window.onload = function() {
-   //Console.error = () =>{};
+   console.error = () =>{};
    mostrarDatos();
 };
 
